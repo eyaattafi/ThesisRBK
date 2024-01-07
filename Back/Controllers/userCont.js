@@ -30,7 +30,7 @@ async function getOneUser(req, res) {
       res.status(404).json({ message: 'User not found' });
       return;
     }
-    res.json(oneUser);
+ 
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -56,7 +56,7 @@ async function updateUser(req, res) {
       where: {iduser : req.params.iduser},
     });
     if (updated) {
-      const updatedUser = await User.findOne(req.params.iduser);
+      const updatedUser = await User.findByPk(req.params.iduser);
       res.json(updatedUser);
     } else {
       res.status(404).json({ message: 'User not found' });
@@ -70,7 +70,7 @@ async function updateUser(req, res) {
 async function deleteUser(req, res) {
   try {
 
-    let de=await User.destroy({where:{UserID:req.params.UserID}})
+    let de=await User.destroy({where:{iduser: req.params.iduser}})
     res.json(de);
 
     if (de) {
