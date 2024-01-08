@@ -17,7 +17,6 @@ const Wishlist = sequelize.define('Wishlist', {
   offer_idoffer: {
     type: DataTypes.INTEGER,
     allowNull: false,
- 
   },
 });
 
