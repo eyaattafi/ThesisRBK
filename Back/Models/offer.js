@@ -49,28 +49,18 @@ const Offer = sequelize.define('offer', {
         type : DataTypes.STRING(45),
         allowNull : true,
     },
-    user_iduser: {
+    userIduser: {
         type: DataTypes.INTEGER,
         allowNull: false,
     },
-    categorie_idcategorie : { 
+    categorieIdcategorie : { 
         type: DataTypes.INTEGER,
         allowNull: false,
     },
-    createdAt: {
-        type: DataTypes.DATE,
-        allowNull: true,
-        defaultValue: DataTypes.NOW,
-      },
-    updatedAt: {
-        type: DataTypes.DATE,
-        allowNull: true,
-        defaultValue: DataTypes.NOW,
-      },
-  
   },{tableName:'offer'});
   
    
   Offer.belongsTo(User);
 
   module.exports= Offer
+  
