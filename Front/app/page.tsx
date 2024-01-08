@@ -1,13 +1,26 @@
+"use client"
 import Image from 'next/image'
 import Landing from './Landing'
+import QuestionRes from './QuestionRes'
+import Equipements from './Equipements'
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import Link from 'next/link'
 
 export default function Home() {
+
+  // window.onclick = function() {
+  // }
+  // window.addEventListener("click", function(event) {
+  // });
+
+
   return (
-    <>
+    <div onClick={()=>{<Link href='/SignIn' ></Link>}}>
     <div className='w-full h-14 bg-orange-950'> Navbar</div>
     <div>
       <img  className=' w-2/3 h-auto ml-52 mt-20 mb-48' src='https://www.home-designing.com/wp-content/uploads/2018/11/luxury-apartment-living-room-ideas.jpg'/>
-      {/* <div><Landing/></div> */}
+      <div><Landing/></div>
     </div>
    
     <div className='grid grid-cols-3 mx-44'>
@@ -55,10 +68,21 @@ export default function Home() {
     <img className='w-48 h-48 rounded-xl' src='https://www.gardendesign.com/pictures/images/900x705Max/outdoor-kitchen-by-christopher-yates_353/garden-design_5338.jpg'/>
   </div>
   <div>
+    <div>
   <h1 className='text-black font-bold mt-20 mx-44 mb-2 text-2xl'>Specify your preferred equipments </h1>
-
+  <h3 className='text-slate-400 font-bold ml-44'>Select the most sought-after amenities, like these and others, for a personalized stay.</h3>
+ <div className='flex flex-wrap gap-4 ml-44 mb-28'> <Equipements/> </div></div>
+  <div>
+  <h1 className='text-black font-bold mt-40 mx-44 mb-2  text-2xl'> Answers to your questions </h1>
+    <QuestionRes/></div>
   </div>
+  <div className='w-full h-14 bg-orange-950 flex flex-r justify-end '> <div className='p-4 justify-center items-center '><Link href="/GeneralConditions" className='text-white mr-9' > General Conditions</Link>
+  <Link href="/Confidentiality" className='text-white mr-9' > Confidentiality </Link>
+  <Link href=''><FacebookIcon className='bg-white mr-9 rounded'  /></Link>
+  <Link href=''><InstagramIcon  className='bg-white mr-9 rounded'/></Link>
+  </div></div>
 </div>
-</>
+
+</div>
   )
 }
