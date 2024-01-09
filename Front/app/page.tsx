@@ -7,18 +7,22 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import Link from 'next/link'
 
+
 export default function Home() {
 
   // window.onclick = function() {
   // }
   // window.addEventListener("click", function(event) {
   // });
-
+  
 
   return (
+    
     <div onClick={()=>{<Link href='/SignIn' ></Link>}}>
+     
     <div className='w-full h-14 bg-orange-950'> Navbar</div>
     <div>
+      
       <img  className=' w-2/3 h-auto ml-52 mt-20 mb-48' src='https://www.home-designing.com/wp-content/uploads/2018/11/luxury-apartment-living-room-ideas.jpg'/>
       <div><Landing/></div>
     </div>
@@ -77,10 +81,13 @@ export default function Home() {
     <QuestionRes/></div>
   </div>
   <div className='w-full h-14 bg-orange-950 flex flex-r justify-end '> <div className='p-4 justify-center items-center '><Link href="/GeneralConditions" className='text-white mr-9' > General Conditions</Link>
+  <Link href='/AboutUs'  className='text-white mr-9' > About Us</Link>
   <Link href="/Confidentiality" className='text-white mr-9' > Confidentiality </Link>
   <Link href=''><FacebookIcon className='bg-white mr-9 rounded'  /></Link>
   <Link href=''><InstagramIcon  className='bg-white mr-9 rounded'/></Link>
+
   </div></div>
+ 
 </div>
 
 </div>
