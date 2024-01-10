@@ -1,3 +1,98 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+.headerSearch{
+    margin-top: 50px;
+    height:50px;
+    max-width: 700px;
+    background-color: white;
+    border: 3px solid #431407;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px 0px;
+    border-radius: 20px;
+
+}
+
+.headerIcon{
+    color: lightgray;
+}
+.headerSearchText{
+    color: rgb(161, 161, 161);
+    cursor:pointer
+}
+
+.headerSearchInput{
+    height: 30px;
+    outline: none;
+    border: none;
+}
+
+.headerSearchItem{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+   
+}
+
+.date{
+position:absolute;
+ z-index: 0;
+ margin-left: 370px;
+}
+.rdrDateDisplayWrapper{
+    background-color: #431407;
+}
+
+.btn{
+    margin-right: 10px;
+}
+
+.container1{
+    margin-left: 375px;
+    
+}
+.sm{
+display: flex;
+justify-content: end;
+margin-right: 20px;
+}
+
+.dropDownIconHome{
+
+    margin-top: 30px;
+    justify-content: end;
+    margin-right: 20;
+    height:40px;
+    width: 65px;
+    background-color: #431407;
+    padding: 10px; 
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    margin-left: 1350px;
+     
+}
+
+.homeFeaturesContenair{
+    
+    margin-top: 30px;
+    max-width: 1300px;
+    height: 400px;
+    background-color: rgb(234, 232, 232);
+    margin-left: 90px;
+}
+
+
+.bottomDivContenair{
+    margin-top: 30px;
+    height: 250px;
+    background-color: rgb(234, 232, 232);
+    padding: 50px;
+}
+
+

@@ -4,7 +4,8 @@ const { Sequelize } = require('sequelize');
 
   "thesisrbk",
   "root",
-  "eyaattafi2003",
+  "root",
+
   {
     host: "localhost",
     dialect: "mysql",
