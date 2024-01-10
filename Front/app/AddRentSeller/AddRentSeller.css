@@ -1,0 +1,23 @@
+.q {
+  font-size: x-large;
+  padding: 90px;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  margin-right: 160px; 
+  margin-top:100px;
+}
+
+.home {
+    font-size: x-large;
+    padding: 40px; /* Adjust padding for spacing inside the box */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 160px;
+    margin-top: -50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow */
+    border-radius: 10px; /* Adjust border-radius for rounded corners */
+    background-color: #fff; /* Set background color if needed */
+  }
+  

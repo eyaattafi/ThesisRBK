@@ -1,0 +1,84 @@
+.all{
+    margin-top:50px;
+   /* max-width: 1000px; */
+   border-radius: 10px , black;
+
+}
+@media (min-width: 600px){
+.css-cuefkz-MuiContainer-root {
+    max-width: 726px;
+    box-sizing: border-box;}
+}
+.button {
+    background-color: brown;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px;
+    margin-right: 10px; 
+}
+
+.button1 {
+    background-color: brown;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px;
+}
+.not{
+    display: flex;
+    margin-right:50px;
+    margin-left:1600px;
+}
+
+
+
+
+
+
+/* .side {
+    display: flex;
+    flex-direction: column;
+    margin-top: -740px; 
+    margin-left:230px;
+   font-size: x-large;
+    font-weight: 500;
+    margin-bottom: 20px; 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--gap-5xs);
+  } */
+  
+ 
+  .side {
+    display: flex;
+    flex-direction: column;
+    margin-left: 230px;
+    margin-top: -740px;
+    font-size: x-large;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  
+  .manage-my-account,
+  .my-profile,
+  .ref {
+    margin-bottom: 70px; /* Adjust the margin-bottom value for spacing between texts */
+    line-height: 24px; /* Adjust the line height as needed */
+    font-weight: 500;
+  }
+  
+  
