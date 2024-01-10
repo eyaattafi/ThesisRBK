@@ -1,4 +1,5 @@
 import { FaRegHeart } from "react-icons/fa";
+import { AiTwotoneAppstore } from "react-icons/ai";
 
 
 const titleNimg = () => {
@@ -50,15 +51,17 @@ const titleNimg = () => {
   
             {/* Little Image 4 */}
             
-              <img
+             <div className="relative"> <img
                 src="https://a0.muscache.com/im/pictures/miso/Hosting-671515411169755702/original/c3870c51-38c5-4552-90f3-c53dda5e5a7d.jpeg?im_w=1440" // Replace with your actual little image source
                 alt="Little House 4"
                 className="w-[280px] h-[221px] rounded-br-[15px]"
               />
-            
+              <button className="flex flex-row items-center absolute bottom-0 right-0 p-2 bg-white border-2 border-black rounded mr-[15px] mb-[15px]"> <AiTwotoneAppstore />show all images</button>
+            </div>
           </div>
         </div>
-      </div> );
+      </div> 
+      );
 }
  
 export default titleNimg;
