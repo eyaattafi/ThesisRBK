@@ -4,11 +4,14 @@ const PORT = 3000
 const app = express()
 const cors = require('cors')
 
+
 const userRoute=require('./Routes/userRoute.js');
 const wishRoute= require('./Routes/wishRoute.js')
 const categorieRoute=require('./Routes/categorieRoute.js')
 const bidRoute=require('./Routes/bidRoute.js')
 const offersRoute=require('./Routes/offersRoute.js')
+const satisfactionRoute = require('./Routes/satisfation.js')
+
 const reservationRoute=require('./Routes/reservationsRoute.js')
 const notificationRoute=require('./Routes/notificationRoute.js')
 const reviewRoute=require('./Routes/reviewRoute.js')
@@ -23,6 +26,7 @@ app.use('/api',wishRoute)
 app.use('/api',categorieRoute)
 app.use('/api',bidRoute)
 app.use('/api',offersRoute)
+app.use('/api',satisfactionRoute)
 app.use('/api',reservationRoute)
 app.use('/api',notificationRoute)
 app.use('/api',reviewRoute)
