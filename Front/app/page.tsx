@@ -7,18 +7,21 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import Link from 'next/link'
 
+
 export default function Home() {
 
   // window.onclick = function() {
   // }
   // window.addEventListener("click", function(event) {
   // });
-
+  
 
   return (
+    
     <div onClick={()=>{<Link href='/SignIn' ></Link>}}>
 
     <div>
+      
       <img  className=' w-2/3 h-auto ml-52 mt-20 mb-48' src='https://www.home-designing.com/wp-content/uploads/2018/11/luxury-apartment-living-room-ideas.jpg'/>
       <div><Landing/></div>
     </div>
