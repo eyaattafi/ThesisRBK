@@ -1,7 +1,7 @@
 "use client"
 import Image from 'next/image'
-import Landing from './Landing'
-import QuestionRes from './QuestionRes'
+import Landing from './Components/Landing'
+import QuestionRes from './Components/Landing'
 import Equipements from './Equipements'
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -19,8 +19,7 @@ export default function Home() {
   return (
     
     <div onClick={()=>{<Link href='/SignIn' ></Link>}}>
-     
-    <div className='w-full h-14 bg-orange-950'> Navbar</div>
+
     <div>
       
       <img  className=' w-2/3 h-auto ml-52 mt-20 mb-48' src='https://www.home-designing.com/wp-content/uploads/2018/11/luxury-apartment-living-room-ideas.jpg'/>
@@ -48,17 +47,17 @@ export default function Home() {
 <div className='grid grid-cols-3 gap mx-44'>
 <div>
 <img  className='w-72 h-72 rounded-xl ' src='https://i.pinimg.com/originals/ed/46/ed/ed46edbe4e29a7fb9496e815cecc93f3.jpg'/>
-<h3 className='text-black font-bold mt-2'>House > </h3>
+<h3 className='text-black font-bold mt-2'>House  </h3>
 <p className='w-72 text-slate-400 text-justify '>Do you need more space? book an entire house just for you</p>
 </div>
 <div>
   <img className='w-72 h-72 rounded-xl'   src='https://www.vivons-maison.com/sites/default/files/styles/740px/public/field/image/appartement-de-ville-moderne.jpg?itok=glB-GqEQ'/>
-  <h3 className='text-black font-bold mt-2'>Apartment > </h3>
+  <h3 className='text-black font-bold mt-2'>Apartment  </h3>
 <p className='w-72 text-slate-400 text-justify'>stay in the most convenient locations by booking accommodation in shared buildings</p>
 </div>
 <div>
 <img className='w-72 h-72 rounded-xl' src='https://www.m-habitat.fr/medias/image/amenager-une-chambre-d-etudiant-1-3871-1200-630.jpg'/>
-<h3 className='text-black font-bold mt-2'>Single Room > </h3>
+<h3 className='text-black font-bold mt-2'>Single Room  </h3>
 <p className='w-72 text-slate-400 text-justify '>You are a student? We have the suitest offer for you. Enjoy your own sleeping space and share common areas with others.</p>
 </div>
 </div>
@@ -80,14 +79,11 @@ export default function Home() {
   <h1 className='text-black font-bold mt-40 mx-44 mb-2  text-2xl'> Answers to your questions </h1>
     <QuestionRes/></div>
   </div>
-  <div className='w-full h-14 bg-orange-950 flex flex-r justify-end '> <div className='p-4 justify-center items-center '><Link href="/GeneralConditions" className='text-white mr-9' > General Conditions</Link>
-  <Link href='/AboutUs'  className='text-white mr-9' > About Us</Link>
+ {/*  <div className='w-full h-14 bg-orange-950 flex flex-r justify-end '> <div className='p-4 justify-center items-center '><Link href="/GeneralConditions" className='text-white mr-9' > General Conditions</Link>
   <Link href="/Confidentiality" className='text-white mr-9' > Confidentiality </Link>
   <Link href=''><FacebookIcon className='bg-white mr-9 rounded'  /></Link>
   <Link href=''><InstagramIcon  className='bg-white mr-9 rounded'/></Link>
-
-  </div></div>
- 
+  </div></div> */}
 </div>
 
 </div>
