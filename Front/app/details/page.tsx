@@ -9,8 +9,8 @@ import TitleNimg from "./titleAndimg";
 
 const page = () => {
     return ( 
-    <div>
-       <div> <TitleNimg/> </div> 
+    <div className="flex flex-col relative">
+       <div className="ml-[20px]"> <TitleNimg/> </div> 
        <div className="flex flex-row justify-between mt-[50px] ml-[135px]">
             <HouseDescription/>
             <BidCard/>
