@@ -10,15 +10,15 @@ const Wishlist = sequelize.define('Wishlist', {
     primaryKey: true,
     autoIncrement: true,
   },
-  user_iduser: {
+  userIduser: {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
-  offer_idoffer: {
+  offerIdoffer: {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
-});
+},{tableName:'wishlist'});
 
 Wishlist.belongsTo(User);
 Wishlist.belongsTo(Offer);

@@ -18,7 +18,7 @@ const titleNimg = () => {
             <img
               src="https://a0.muscache.com/im/pictures/miso/Hosting-671515411169755702/original/fa6374a2-b16a-4509-b3dc-4b068adbb6a0.jpeg?im_w=1200" 
               alt="Big House"
-              className="w-full h-auto rounded-tl-[15px] rounded-bl-[15px]"
+              className="w-full h-[450px] rounded-tl-[15px] rounded-bl-[15px]"
             />
           </div>
   

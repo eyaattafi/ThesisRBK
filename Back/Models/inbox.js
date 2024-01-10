@@ -6,7 +6,7 @@ const sequelize=require('../database/index.js')
 const User = require('./user.js');
 const Admin = require('./admin.js');
 
-const Inbox = sequelize.define('admin', {
+const Inbox = sequelize.define('inbox', {
     idinBox: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
@@ -14,11 +14,11 @@ const Inbox = sequelize.define('admin', {
     },
     inboxObject: {
         type: DataTypes.STRING(45),
-        allowNull: true,
+        allowNull: false,
       },
     inboxBody: {
         type: DataTypes.STRING(255),
-        allowNull: true,
+        allowNull: false,
       },
     inboxDate: {
       type: DataTypes.DATE,
@@ -28,22 +28,13 @@ const Inbox = sequelize.define('admin', {
         type : DataTypes.STRING(45),
         allowNull : true,
     },
-    createdAt: {
-        type: DataTypes.DATE,
-        allowNull: true,
-        defaultValue: DataTypes.NOW,
-      },
-    updatedAt: {
-        type: DataTypes.DATE,
-        allowNull: true,
-        defaultValue: DataTypes.NOW,
-      },
-      user_iduser:{
+
+    userIduser:{
         type:DataTypes.INTEGER,
         allowNull:false,
 
       },
-      admin_idadmin : {
+    adminIdadmin : {
         type:DataTypes.INTEGER,
         allowNull:false
       }

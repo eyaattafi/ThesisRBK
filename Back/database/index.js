@@ -8,6 +8,7 @@ const { Sequelize } = require('sequelize');
   {
     host: "localhost",
     dialect: "mysql",
+    define: {     timestamps: false  },
   }
 );
 
