@@ -1,4 +1,8 @@
 import Link from "next/link"
+import NewBooking from "./newBooking";
+import CurrentStays from "./currentStays";
+import NextArriving from "./nextArriving";
+import Bids from "./bids";
 const HostManage = () => {
     return ( 
     <div className="w-[1100px]">
@@ -14,6 +18,7 @@ const HostManage = () => {
                 <button className="w-[150px] border border-orange-950 rounded-[10px] hover:bg-orange-950 hover:text-white">Bids</button>
             </div>
         </div>
+        <div className="w-full h-[500px] bg-slate-50 border rounded-[10px] shadow-inner mt-[30px] mb-2 overflow-y-auto"><Bids/></div>
     </div>
      );
 }
