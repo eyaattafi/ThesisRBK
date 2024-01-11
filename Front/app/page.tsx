@@ -1,7 +1,7 @@
 "use client"
 import Image from 'next/image'
 import Landing from './Components/Landing'
-import QuestionRes from './Components/Landing'
+import QuestionRes from './Components/QuestionRes'
 import Equipements from './Equipements'
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';

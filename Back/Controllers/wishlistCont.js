@@ -3,7 +3,7 @@ const Wishlist= require('../Models/wishlist.js');
 
   async function getWishes(req, res) {
     try {
-      const Wish = await Wishlist.findAll({ where: { user_iduser: req.params.user_iduser } });
+      const Wish = await Wishlist.findAll({ where: { userIduser: req.params.user_iduser } });
       res.status(200).json(Wish)
 
     } catch (error) {
@@ -19,8 +19,21 @@ const Wishlist= require('../Models/wishlist.js');
       res.status(400).json({ error: error.message });
     }
   }
+
+  async function deleteWish(req, res) {
+    try {
+      const deWish= await Wishlist.destroy({where:{idwishlist: req.params.idwishlist}})
+      res.status(201).json(deWish);
+
+    } catch (error) {
+      res.status(400).json({ error: error.message });
+    }
+  }
   
+
+
   module.exports = {
     getWishes,
-    createWish
+    createWish,
+    deleteWish
   };
