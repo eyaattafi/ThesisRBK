@@ -63,7 +63,6 @@ useEffect(()=>{
 
 
 
-
 // delete a claim //
   const deleteClaim = async (idinbox: number) => {
     try {
@@ -94,13 +93,15 @@ useEffect(()=>{
   return (
    
    <div>
-        <div className='rounded w-32 text-center bg-orange-950 h-12 text-white font-bold pt-2 shadow-2xl ml-6 mt-6 text-2xl'> CLAIMS </div>
+        <div className='rounded w-32 text-center h-12 text-orange-950 font-bold pt-2 ml-6 mt-6 text-xl'> CLAIMS </div>
+
 <div className='shadow-2xl ml-16 w-[1150px] h-[600px]'>
 <div className='flex flex-r justify-start mt-20'>
     <button className='shadow-xl rounded w-12 h-12  bg-gray-200 justify-center hover:bg-gray-300 ml-1 ' onClick={() => {setShow(!show)}}><RiDeleteBin6Line size={30} className=' ml-3'/></button>
     <button className='shadow-xl rounded w-12 h-12  bg-gray-200 justify-center hover:bg-gray-300 ml-1'><FaArrowRotateLeft size={20} className=' ml-3'/></button>
     <button className='shadow-xl rounded w-12 h-12  bg-gray-200 justify-center hover:bg-gray-300 ml-1'><FaArrowRotateRight size={20} className=' ml-3'/></button>
     <button className='shadow-xl rounded w-12 h-12  bg-gray-200 justify-center hover:bg-gray-300 ml-1'>< FaArrowsRotate size={20} className=' ml-3'/></button>
+    <button className='shadow-xl rounded w-32 h-12 font-bold  bg-gray-200 justify-center hover:bg-gray-300 ml-1'><Link href="/Admin/Claims/ClaimsResponse">My Messages</Link> </button>
 </div>
 <div> {show && <ConfirmDelete  onConfirm={handleConfirm} onCancel={handleCancel}/>}</div>
     <div className='mt-12' >
