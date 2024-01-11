@@ -1,10 +1,10 @@
-.all{
-    margin-top:50px;
-   /* max-width: 1000px; */
+/* .all{
+    margin-top:-30px;
+    max-width: 1000px; 
    border-radius: 10px , black;
 
-}
-@media (min-width: 600px){
+} */
+/* @media (min-width: 600px){
 .css-cuefkz-MuiContainer-root {
     max-width: 726px;
     box-sizing: border-box;}
@@ -20,9 +20,9 @@
     font-size: 16px;
     border-radius: 10px;
     margin-right: 10px; 
-}
+} */
 
-.button1 {
+/* .button1 {
     background-color: brown;
     border: none;
     color: white;
@@ -37,7 +37,7 @@
     display: flex;
     margin-right:50px;
     margin-left:1600px;
-}
+} */
 
 
 
@@ -60,25 +60,61 @@
   } */
   
  
-  .side {
+   .side {
     display: flex;
     flex-direction: column;
-    margin-left: 230px;
-    margin-top: -740px;
+    margin-left: 25px;
+    margin-top: -110px;
     font-size: x-large;
     font-weight: 500;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
+    box-shadow:  0 0 9px #381b1b;
   }
   
   .manage-my-account,
   .my-profile,
   .ref {
-    margin-bottom: 70px; /* Adjust the margin-bottom value for spacing between texts */
-    line-height: 24px; /* Adjust the line height as needed */
-    font-weight: 500;
+    margin-bottom: 70px; 
+    line-height: 24px; 
+     font-weight: 500; 
   }
   
-  
+/*   
+   body{
+    color: #8e9194;
+    background-color: #f4f6f9;
+}
+.avatar-xl img {
+    width: 110px;
+}
+.rounded-circle {
+    border-radius: 50% !important;
+}
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+.text-muted {
+    color: #aeb0b4 !important;
+}
+.text-muted {
+    font-weight: 300;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #4d5154;
+    background-color: #ffffff;
+    background-clip: padding-box;
+    border: 1px solid #eef0f3;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+ }  */
