@@ -5,9 +5,11 @@ const { Sequelize } = require('sequelize');
   "thesisrbk",
   "root",
   "farahkh",
+
   {
     host: "localhost",
     dialect: "mysql",
+    define: {     timestamps: false  },
   }
 );
 
