@@ -16,7 +16,7 @@ async function getInboxUser (req, res) {
 
 async function getInboxAdmin (req, res) {
     try {
-      const getinAdm = await Inbox.findAll({ where: { adminIdadmin: req.params.idAdmin } });
+      const getinAdm = await Inbox.findAll({ include:{model:User},where: { adminIdadmin: req.params.idAdmin, inboxStatus : "Reciever" } });
       res.status(200).json(getinAdm)
 
     } catch (error) {
@@ -38,6 +38,22 @@ async function getClaims (req, res) {
   }
 }
 
+// Get Responses on claims by the admin //
+
+
+async function getClaimsRespons (req, res) {
+  try {
+    const getRes = await Inbox.findAll({ include:{model:User},where: { adminIdadmin: req.params.idAdmin, 
+    inboxStatus : "Sender",
+  inboxObject : "Response on Claim" } });
+    res.status(200).json(getRes)
+
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
+
+
 
 
   //Create Message  //
@@ -56,7 +72,7 @@ async function getClaims (req, res) {
     try {
      
       const deleteMessage= await Inbox.destroy({
-        where: {idinBox : req.params.idinBox},
+        where: {idinBox : req.params.idinbox},
       });
       res.json(deleteMessage)
     } catch (error) {
@@ -84,5 +100,6 @@ async function getClaims (req, res) {
     createInbox,
     deleteInbox,
     updateInbox,
-    getClaims 
+    getClaims,
+    getClaimsRespons
   };

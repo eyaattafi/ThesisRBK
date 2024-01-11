@@ -8,7 +8,7 @@ export default function Footer(){
 
 
     return (
-        <footer className="bg-orange-950  p-3">
+        <footer className="bg-orange-950  p-3 mt-20">
             <div className="container mx-auto">
                 <div className='w-full h-14 bg-orange-950 flex flex-r justify-end '>
                      <div className='p-4 justify-center items-center '>
