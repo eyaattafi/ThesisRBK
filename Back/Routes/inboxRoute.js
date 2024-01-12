@@ -4,6 +4,7 @@ const Inbox=require('../Controllers/inboxCont.js')
 //Admin Inbox interaction
 inboxRouter.get('/inboxOfUser/:idUser',Inbox.getInboxUser)
 inboxRouter.get('/inboxOfAdmin/:idAdmin',Inbox.getInboxAdmin)
+inboxRouter.get('/answersOfAdmin/:idAdmin',Inbox.getAnswers)
 
 //Claims interactions //
 inboxRouter.get('/getClaims/:idAdmin', Inbox.getClaims);

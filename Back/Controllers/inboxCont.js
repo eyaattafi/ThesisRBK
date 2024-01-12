@@ -24,6 +24,20 @@ async function getInboxAdmin (req, res) {
     }
   }
 
+
+// Get all messages sent to the admin //
+async function getAnswers (req, res) {
+  try {
+    const getAns = await Inbox.findAll({ include:{model:User},where: { adminIdadmin: req.params.idAdmin, inboxStatus : "Sender" } });
+    res.status(200).json(getAns)
+
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
+
+
+
 // Get All Claims sent to the admin  //
 
 async function getClaims (req, res) {
@@ -101,5 +115,6 @@ async function getClaimsRespons (req, res) {
     deleteInbox,
     updateInbox,
     getClaims,
-    getClaimsRespons
+    getClaimsRespons,
+    getAnswers
   };
