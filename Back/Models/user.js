@@ -39,17 +39,7 @@ const User = sequelize.define('user', {
     userLongitude : {
         type : DataTypes.STRING(45),
         allowNull : true,
-    },
-    createdAt: {
-      type: DataTypes.DATE,
-      allowNull: true,
-      defaultValue: DataTypes.NOW,
-    },
-    updatedAt: {
-      type: DataTypes.DATE,
-      allowNull: true,
-      defaultValue: DataTypes.NOW,
-    },
+    }
   
   },{tableName:'user'});
   

@@ -52,11 +52,7 @@ const Offer = sequelize.define('offer', {
     userIduser: {
         type: DataTypes.INTEGER,
         allowNull: false,
-    },
-    categorieIdcategorie : { 
-        type: DataTypes.INTEGER,
-        allowNull: false,
-    },
+    }
   },{tableName:'offer'});
   
    
