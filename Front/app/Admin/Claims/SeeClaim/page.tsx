@@ -1,6 +1,23 @@
+'use client'
 import React from 'react'
-
+import { usePathname } from 'next/navigation'
 const SeeClaim = () => {
+
+const router = usePathname()
+
+const getNumberFromUrl = (url : string) => {
+const parts = url.split("/")
+const potentialId = parts[parts.length-1]
+if(Number.isInteger(parseInt(potentialId))){
+  return parseInt(potentialId)
+}else{
+  return null
+}
+
+}
+
+const id = getNumberFromUrl(router)
+console.log("id" ,id)
   return (
     <div className='rounded shadow-lg ml-16 w-[1150px] h-[600px] mt-14 bg-slate-100'>
       <div className='rounded shadow-xl w-[1150px] h-16 pt-6 pl-6 font-bold bg-slate-100 mb-2'> From :  </div>

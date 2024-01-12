@@ -1,10 +1,12 @@
 const Inbox = require('../Models/inbox.js');
 const User =require('../Models/user.js')
+
+
 //Get all Inbox messages of a user  //
 
 async function getInboxUser (req, res) {
     try {
-      const getinUs= await InboxfindAll({ where: { userIduser: req.params.idUser } });
+      const getinUs= await Inbox.findAll({ where: { userIduser: req.params.idUser } });
       res.status(200).json(getinUs)
 
     } catch (error) {
@@ -54,7 +56,6 @@ async function getClaims (req, res) {
 
 // Get Responses on claims by the admin //
 
-
 async function getClaimsRespons (req, res) {
   try {
     const getRes = await Inbox.findAll({ include:{model:User},where: { adminIdadmin: req.params.idAdmin, 
@@ -67,6 +68,17 @@ async function getClaimsRespons (req, res) {
   }
 }
 
+// Get one Claim by Id sent to the admin  //
+
+async function getOneClaim (req, res) {
+  try {
+    const getmessage = await Inbox.findByPk(req.params.idinBox);
+    res.status(200).json(getmessage)
+
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
 
 
 
@@ -116,5 +128,6 @@ async function getClaimsRespons (req, res) {
     updateInbox,
     getClaims,
     getClaimsRespons,
-    getAnswers
+    getAnswers,
+    getOneClaim
   };

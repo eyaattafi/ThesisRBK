@@ -8,7 +8,7 @@ import { FaArrowsRotate } from "react-icons/fa6";
 import { IoIosStar } from "react-icons/io";
 import Link from 'next/link'
 
-interface Inbox {
+interface Inb {
   idinBox : number,
   inBoxObject : string,
   inboxBody : string,
@@ -30,7 +30,7 @@ interface User {
 
 const Inbox  = () => {
 
-  const [messages,setMessages] = useState<Inbox[]>([])
+  const [messages,setMessages] = useState<Inb[]>([])
   const [idinbox,setIdinbox]=useState<number>(0)
   const [refresh,setRefresh]=useState<boolean>(false)
   const [show, setShow] = useState<boolean>(false);
@@ -54,15 +54,6 @@ useEffect(()=>{
       console.error(err);
     }
   };
-
-// Fetch the responses on the messages by the admin //
-
-
-
-
-
-
-
 
   console.log("messages : ", messages)
 
@@ -96,7 +87,7 @@ useEffect(()=>{
   return (
    
    <div>
-        <div className='rounded w-32 text-center h-12 text-orange-950 font-bold pt-2 ml-6 mt-6 text-xl'> MAILBOX </div>
+        <div className='rounded w-32 text-center h-12 text-orange-950 font-bold pt-2 ml-6 mt-6 text-xl'> INBOX </div>
    
 
 
@@ -107,7 +98,7 @@ useEffect(()=>{
     <button className='shadow-xl rounded w-12 h-12  bg-gray-200 justify-center hover:bg-gray-300 ml-1'><FaArrowRotateLeft size={20} className=' ml-3'/></button>
     <button className='shadow-xl rounded w-12 h-12  bg-gray-200 justify-center hover:bg-gray-300 ml-1'><FaArrowRotateRight size={20} className=' ml-3'/></button>
     <button className='shadow-xl rounded w-12 h-12  bg-gray-200 justify-center hover:bg-gray-300 ml-1'>< FaArrowsRotate size={20} className=' ml-3'/></button>
-    <button className='shadow-xl rounded w-32 h-12 font-bold  bg-gray-200 justify-center hover:bg-gray-300 ml-1'><Link href="/Admin/Inbox/Sent"> Sent </Link> </button>
+    <button className='shadow-xl rounded w-32 h-12 font-bold  bg-gray-200 justify-center hover:bg-gray-300 ml-1'><Link href="/Admin/Inbox/Sent"> Sent Messages </Link> </button>
 </div>
 <div> {show && <ConfirmDelete  onConfirm={handleConfirm} onCancel={handleCancel}/>}</div>
     <div className='mt-12' >
@@ -131,12 +122,8 @@ useEffect(()=>{
     
   })}
    
-
     </div>
-
     </div>    
-    
-
     </div>
 
   );

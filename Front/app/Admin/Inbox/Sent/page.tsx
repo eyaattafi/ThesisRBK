@@ -7,6 +7,7 @@ import { FaArrowRotateLeft } from "react-icons/fa6";
 import { FaArrowRotateRight } from "react-icons/fa6";
 import { FaArrowsRotate } from "react-icons/fa6";
 import { IoIosStar } from "react-icons/io";
+import {Tooltip} from "@nextui-org/react";
 
 interface Inbox {
   idinBox : number,
@@ -31,7 +32,7 @@ interface User {
 const Sent  = () => {
 
   const [answers,setAnswers] = useState<Inbox[]>([]) //All messages sent by the admin//
-  const [idclaim,setIdclaim]=useState<number>(0) // Set the id of claim to delete it //
+  const [idAns,setIdAns]=useState<number>(0) // Set the id of claim to delete it //
   const [refresh,setRefresh]=useState<boolean>(false) //refresh to reget the data //
   const [show, setShow] = useState<boolean>(false); //show the deleteConfirmation //
   const [color, setColor] = useState<number>(0); //Change the color of the star on clicking //
@@ -45,7 +46,7 @@ useEffect(()=>{
 // Get all Messages sent by the admin //
   const fetchData = async (idadmin : number) => {
     try {
-      const res = await fetch(`http://localhost:3000/api/inboxOfAdmin/:idAdmin/2`);
+      const res = await fetch(`http://localhost:3000/api/answersOfAdmin/2`);
       const data = await res.json();
       console.log(data);
       
@@ -56,13 +57,11 @@ useEffect(()=>{
   };
 
   console.log("answers : ", answers)
-  console.log("idMessage", idclaim)
+  console.log("idMessage", idAns)
 
 
-
-
-// delete a claim //
-  const deleteClaim = async (idinbox: number) => {
+// delete an Answer //
+  const deleteAnswer = async (idinbox: number) => {
     try {
       await fetch(`http://localhost:3000/api/deleteinbox/${idinbox}`, {
         method: "DELETE",
@@ -80,12 +79,9 @@ useEffect(()=>{
   }
 // Confirm deleting the claim //
   const handleConfirm = () => {
-    deleteClaim(idclaim)
+    deleteAnswer(idAns)
      setShow(!show)
   }
-
-  
-
 
 
   return (
@@ -108,7 +104,7 @@ useEffect(()=>{
     return (
       <div className='flex flex-r ml-10 mt-8'>
       
-       <label><input type="checkbox" className='mr-6' onClick={()=>{setIdclaim(el.idinBox)}}/></label>
+       <label><input type="checkbox" className='mr-6' onClick={()=>{setIdAns(el.idinBox)}}/></label>
        <button onClick={()=>{setSh(!sh);setColor(el.idinBox)}}><IoIosStar  color={sh && color===el.idinBox?'red':'black'} size={25} className='mr-6'/> </button>
        <ul className='columns-4'>
 
@@ -123,9 +119,7 @@ useEffect(()=>{
     
   })}
    
-
     </div>
-
     </div>
     </div>
 

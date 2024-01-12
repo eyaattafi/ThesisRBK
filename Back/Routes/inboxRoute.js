@@ -9,6 +9,7 @@ inboxRouter.get('/answersOfAdmin/:idAdmin',Inbox.getAnswers)
 //Claims interactions //
 inboxRouter.get('/getClaims/:idAdmin', Inbox.getClaims);
 inboxRouter.get('/getClaimsRespons/:idAdmin',Inbox.getClaimsRespons)
+inboxRouter.get('/getOneClaim/:idinBox',Inbox.getOneClaim)
 
 
 inboxRouter.post('/addinbox', Inbox.createInbox);
