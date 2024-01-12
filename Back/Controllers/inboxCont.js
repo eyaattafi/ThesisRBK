@@ -1,10 +1,12 @@
 const Inbox = require('../Models/inbox.js');
 const User =require('../Models/user.js')
+
+
 //Get all Inbox messages of a user  //
 
 async function getInboxUser (req, res) {
     try {
-      const getinUs= await InboxfindAll({ where: { userIduser: req.params.idUser } });
+      const getinUs= await Inbox.findAll({ where: { userIduser: req.params.idUser } });
       res.status(200).json(getinUs)
 
     } catch (error) {
@@ -24,6 +26,20 @@ async function getInboxAdmin (req, res) {
     }
   }
 
+
+// Get all messages sent to the admin //
+async function getAnswers (req, res) {
+  try {
+    const getAns = await Inbox.findAll({ include:{model:User},where: { adminIdadmin: req.params.idAdmin, inboxStatus : "Sender" } });
+    res.status(200).json(getAns)
+
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
+
+
+
 // Get All Claims sent to the admin  //
 
 async function getClaims (req, res) {
@@ -40,7 +56,6 @@ async function getClaims (req, res) {
 
 // Get Responses on claims by the admin //
 
-
 async function getClaimsRespons (req, res) {
   try {
     const getRes = await Inbox.findAll({ include:{model:User},where: { adminIdadmin: req.params.idAdmin, 
@@ -53,6 +68,17 @@ async function getClaimsRespons (req, res) {
   }
 }
 
+// Get one Claim by Id sent to the admin  //
+
+async function getOneClaim (req, res) {
+  try {
+    const getmessage = await Inbox.findByPk(req.params.idinBox);
+    res.status(200).json(getmessage)
+
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
 
 
 
@@ -101,5 +127,7 @@ async function getClaimsRespons (req, res) {
     deleteInbox,
     updateInbox,
     getClaims,
-    getClaimsRespons
+    getClaimsRespons,
+    getAnswers,
+    getOneClaim
   };
