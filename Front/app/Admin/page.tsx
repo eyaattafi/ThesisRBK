@@ -2,14 +2,14 @@ import React from 'react'
 
 const Admin = () => {
   return (
-    <div>
-        <div className=' rounded w-60 bg-gray-100 h-16 text-center font-bold pt-2 shadow-2xl ml-6 mt-6 text-2xl'> DASHBOARD </div>
+    <div className='bg-slate-100'>
+        <div className='flex justify-center rounded w-60 bg-orange-950 h-12 text-white text-center font-bold pt-2 shadow-2xl mt-6 text-2xl'> DASHBOARD </div>
       
        
       <div className='flex flex-wrap gap-10 mt-8 ml-16 mb-16'>
         {/*************First Chart *********************/}
        <div>
-       <div className=" bg-gradient-to-l from-slate-300 to-slate-100 text-slate-600 border border-slate-300 grid grid-col-2 justify-center p-4 gap-4 rounded-lg shadow-md">
+       <div className=" bg-white text-slate-600 border border-slate-300 grid grid-col-2 justify-center p-4 gap-4 rounded-lg shadow-md">
   <div className="col-span-2 text-lg font-bold capitalize rounded-md text-center">
     RENTS PER REGION
   </div>
@@ -24,7 +24,7 @@ const Admin = () => {
             {/*************second Chart *********************/}
       
             <div>
-       <div className="ml-8 bg-gradient-to-l from-slate-300 to-slate-100 text-slate-600 border border-slate-300 grid grid-col-2 justify-center p-4 gap-4 rounded-lg shadow-md">
+       <div className="ml-8 bg-white text-slate-600 border border-slate-300 grid grid-col-2 justify-center p-4 gap-4 rounded-lg shadow-md">
   <div className="col-span-2 text-lg font-bold capitalize rounded-md text-center">
     RENTS PER CATEGORIE
   </div>
@@ -38,7 +38,7 @@ const Admin = () => {
        </div>
           {/*************third Chart *********************/}
           <div>
-       <div className=" bg-gradient-to-l from-slate-300 to-slate-100 text-slate-600 border border-slate-300 grid grid-col-2 justify-center p-4 gap-4 rounded-lg shadow-md">
+       <div className=" bg-white text-slate-600 border border-slate-300 grid grid-col-2 justify-center p-4 gap-4 rounded-lg shadow-md">
   <div className="col-span-2 text-lg font-bold capitalize rounded-md text-center">
     RENTS PER MONTH
   </div>
@@ -52,7 +52,7 @@ const Admin = () => {
        </div>
        {/*************Forth Chart *********************/}
        <div>
-       <div className=" ml-8 bg-gradient-to-l from-slate-300 to-slate-100 text-slate-600 border border-slate-300 grid grid-col-2 justify-center p-4 gap-4 rounded-lg shadow-md">
+       <div className=" ml-8 bg-white text-slate-600 border border-slate-300 grid grid-col-2 justify-center p-4 gap-4 rounded-lg shadow-md">
   <div className="col-span-2 text-lg font-bold capitalize rounded-md text-center">
     GAIN PER MONTH
   </div>

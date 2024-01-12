@@ -4,10 +4,12 @@ const { Sequelize } = require('sequelize');
 
   "thesisrbk",
   "root",
-  "eyaattafi2003",
+  "farahkh",
+
   {
     host: "localhost",
     dialect: "mysql",
+    define: {     timestamps: false  },
   }
 );
 

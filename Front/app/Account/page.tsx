@@ -52,7 +52,7 @@ const Profile = () => {
             <div className="desc">
               <p>Notifications</p>
               <p>
-              Choose notifications and preferences , and how you want to be contacted .
+              Choose notifications and preferences , and how you want to be contacted 
               </p>
             </div>
           </div>
