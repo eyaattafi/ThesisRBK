@@ -1,0 +1,136 @@
+/* .divSignIn {
+  background-color: var(--BG, #fff);
+  display: flex;
+  padding-bottom: 36px;
+  flex-direction: column;
+  width: 100%;
+}  */
+.divSignIn {
+    background-color: var(--BG, #fff);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    padding-bottom: 36px;
+    width: 100%;
+  }
+  
+  
+  .divS {
+    background-color: #000;
+    align-self: stretch;
+    min-height: 1px;
+    margin-top:50px;
+    width: 100px;
+    
+  }
+  
+  .divS21 {
+    align-self: stretch;
+    margin-top: 59px;
+    width: 100%;
+    height:20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    padding-bottom: 36px;
+    width: 100%;
+    margin-top: 230px;
+  }
+  
+  .divS22 {
+    gap: 20px;
+    display: flex;
+  }
+  
+  
+  
+  .divS24 {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    margin: auto 0;
+    padding: 0 20px;
+  }
+  
+  .divS25 {
+    color: var(--Text2, #000);
+    letter-spacing: 1.44px;
+    align-self: stretch;
+    font: 500 36px/83% Inter, sans-serif;
+  }
+  .divS26 {
+    color: var(--Text2, #000);
+    align-self: stretch;
+    margin-top: 24px;
+    font: 400 16px/150% Poppins, -apple-system, Roboto, Helvetica,
+      sans-serif;
+  }
+  
+  
+  
+  .divS29 {
+    color: var(--Text2, #000);
+    align-self: stretch;
+    margin-top: 40px;
+    font: 400 16px/150% Poppins, -apple-system, Roboto, Helvetica,
+      sans-serif;
+  }
+  
+  .divS31 {
+    color: var(--Text2, #000);
+    align-self: stretch;
+    margin-top: 40px;
+    font: 400 16px/150% Poppins, -apple-system, Roboto, Helvetica,
+      sans-serif;
+  }
+  
+  .divS33 {
+    color: var(--Text, #fafafa);
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    background-color: var(--Button2, #4f0000);
+    align-self: stretch;
+    margin-top: 40px;
+    padding: 16px 60px;
+    font: 500 16px/150% Poppins, -apple-system, Roboto, Helvetica,
+      sans-serif;
+  }
+  .divS34 {
+    color: var(--Text, #a7a7a7);
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    background-color: var(--Button2, #2918c5);
+    align-self: stretch;
+    margin-top: 40px;
+    padding: 16px 60px;
+    font: 500 16px/150% Poppins, -apple-system, Roboto, Helvetica,
+      sans-serif;
+  }
+  .divS35 {
+    color: var(--Text, #000000);
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    background-color: var(--Button2, #f0f0f0);
+    align-self: stretch;
+    margin-top: 40px;
+    padding: 16px 60px;
+    font: 500 16px/150% Poppins, -apple-system, Roboto, Helvetica,
+      sans-serif;
+  }
+  
+  
+  
+  
+  .divS37 {
+    align-items: center;
+    align-self: center;
+    display: flex;
+    margin-top: 32px;
+    gap: 16px;
+  }
+  
