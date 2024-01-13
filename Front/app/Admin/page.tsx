@@ -3,7 +3,7 @@ import React from 'react'
 const Admin = () => {
   return (
     <div className='bg-slate-100'>
-        <div className='flex justify-center rounded w-60 bg-orange-950 h-12 text-white text-center font-bold pt-2 shadow-2xl mt-6 text-2xl'> DASHBOARD </div>
+        <div className='flex justify-center rounded w-60 text-orange-950 h-12 bg-white text-center font-bold pt-2 shadow-2xl mt-6 text-2xl'> DASHBOARD </div>
       
        
       <div className='flex flex-wrap gap-10 mt-8 ml-16 mb-16'>

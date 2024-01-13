@@ -8,7 +8,7 @@ import { FaArrowRotateLeft } from "react-icons/fa6";
 import { FaArrowRotateRight } from "react-icons/fa6";
 import { FaArrowsRotate } from "react-icons/fa6";
 import { IoIosStar } from "react-icons/io";
-import { useRouter } from 'next/router'
+
 
 
 interface Claim {
@@ -94,7 +94,7 @@ useEffect(()=>{
   return (
    
    <div>
-        <div className='rounded w-32 text-center h-12 text-orange-950 font-bold pt-2 ml-6 mt-6 text-xl'> CLAIMS </div>
+        <div className='flex justify-center rounded w-60 text-orange-950 h-12 bg-white text-center font-bold pt-2 shadow-2xl mt-6 text-2xl'> CLAIMS </div>
 
 <div className='shadow-2xl ml-16 w-[1150px] h-[600px]'>
 <div className='flex flex-r justify-start mt-20'>

@@ -60,7 +60,6 @@ useEffect(()=>{
 
 
 
-
 // delete a claim //
   const deleteClaim = async (idinbox: number) => {
     try {
@@ -83,8 +82,6 @@ useEffect(()=>{
     deleteClaim(idclaim)
      setShow(!show)
   }
-
-  
 
 
 
@@ -112,9 +109,9 @@ useEffect(()=>{
        <button onClick={()=>{setSh(!sh);setColor(el.idinBox)}}><IoIosStar  color={sh && color===el.idinBox?'red':'black'} size={25} className='mr-6'/> </button>
        <ul className='columns-4'>
 
-       <li className='ml-6 text-blue-900 font-bold' > <Link href='/Admin/Claims/SeeClaim' >{el.user.userName} </Link> </li> 
-       <li className='font-bold'>  <Link href='/Admin/Claims/SeeClaim' >{dat}/{i}/{el.user.iduser} </Link></li>
-       <li className=''><Link href='/Admin/Claims/SeeClaim' >{(el.inboxBody).substring(0,25)}...  </Link></li>
+       <li className='ml-6 text-blue-900 font-bold' > <Link href={`/Admin/Claims/${el.user.iduser}/${el.idinBox}`} >{el.user.userName} </Link> </li> 
+       <li className='font-bold'>  <Link href={`/Admin/Claims/${el.user.iduser}/${el.idinBox}`} >{dat}/{i}/{el.user.iduser} </Link></li>
+       <li className=''><Link href={`/Admin/Claims/${el.user.iduser}/${el.idinBox}`} >{(el.inboxBody).substring(0,25)}...  </Link></li>
        <li className='ml-44'>date {el.inboxDate}</li> 
 
        </ul>
