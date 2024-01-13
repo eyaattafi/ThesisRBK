@@ -68,7 +68,7 @@ async function getClaimsRespons (req, res) {
   }
 }
 
-// Get one Claim by Id sent to the admin  //
+// Get One Claim by Id sent to the admin  //
 
 async function getOneClaim (req, res) {
   try {
@@ -79,6 +79,7 @@ async function getOneClaim (req, res) {
     res.status(500).json({ error: error.message });
   }
 }
+
 
 
 
