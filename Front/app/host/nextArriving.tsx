@@ -3,7 +3,7 @@ import React from 'react'
 const NextArriving = () => {
   return (
     <div className="max-w-screen-lg mx-auto mt-8">
-    <h2 className=" flex justify-center text-2xl font-bold mb-4">Next Arrivals</h2>
+    <h2 className="flex justify-center text-2xl font-bold mb-4 border bg-white shadow">Next Arrivals</h2>
     <div className="overflow-x-auto">
       <table className="table-auto w-full bg-white">
         <thead>
