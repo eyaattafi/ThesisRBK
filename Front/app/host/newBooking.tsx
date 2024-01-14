@@ -1,7 +1,7 @@
 const NewBooking = () => {
     return ( 
         <div className="max-w-screen-lg mx-auto mt-8">
-        <h2 className=" flex justify-center text-2xl font-bold mb-4">New Bookings</h2>
+        <h2 className=" flex justify-center text-2xl font-bold mb-4 border bg-white shadow">New Bookings</h2>
         <div className="overflow-x-auto">
           <table className="table-auto w-full bg-white">
             <thead>
