@@ -1,8 +1,10 @@
 const CurrentStays = () => {
     return ( 
-        <div className="max-w-screen-lg mx-auto mt-8 flex">
+      <div>
+        <h2 className="flex justify-center text-2xl font-bold mb-4 border bg-white shadow mt-[30px] w-[1020px] ml-[30px]">Current Stays</h2>
+        <div className="max-w-screen-lg mx-auto mt-4 flex">
         {/* Houses List Section */}
-        <div className=" w-1/2 pr-4 border rounded p-2 bg-white">
+        <div className=" w-1/2 pr-4 border rounded-l-lg p-2 bg-white">
           <h2 className="flex justify-center text-2xl font-bold mb-4">Posted Houses</h2>
           <ul>
             {/* Your mapping logic goes here */}
@@ -17,7 +19,7 @@ const CurrentStays = () => {
         </div>
     
         {/* Rented User Info Section */}
-        <div className="w-1/2 pl-4 border rounded bg-white p-2">
+        <div className="w-1/2 pl-4 border rounded-r-lg bg-white p-2">
           <h2 className="flex justify-center text-2xl font-bold mb-4">Rented User Info</h2>
           <hr className="mt-[20px] w-full border-t border-gray-300 my-4" />
           <div>
@@ -30,6 +32,7 @@ const CurrentStays = () => {
           </div>
         </div>
       </div> 
+      </div>
       );
 }
  
