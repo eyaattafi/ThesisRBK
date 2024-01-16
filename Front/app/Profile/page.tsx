@@ -46,11 +46,11 @@ const Profile = () => {
 
 const update = async (iduser :any)=>{
  try {
-  if( userPassword === usercCnfirmPass ){
-    await axios.put(`http://localhost:3000/api/updateUser/${iduser}`)
-    }
+  // if( userPassword === usercCnfirmPass ){
+    // await axios.put(`http://localhost:3000/api/updateUser/${iduser}`)
+    // }
 
- }
+ 
 
 }
 
