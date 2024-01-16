@@ -27,14 +27,14 @@ const Profile = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const [userName,setUserName]=useState("")
-  const [userEmail,setUserEmail]=useState("")
-  const [userPassword,setUserPassword]=useState("")
-  const [usercCnfirmPass,setUserConfirmPass]=useState("")
-  const [image,setImage]=useState("")
-  const [userBlockd,setUserBlocked]=useState("")
-  const [userLatitude,setUserLatitude]=useState("")
-  const [userLongitude,setUserLongitude]=useState("")
+  const [userName,setUserName]=useState<String>("")
+  const [userEmail,setUserEmail]=useState<String>("")
+  const [userPassword,setUserPassword]=useState<String>("")
+  const [userConfirmPass,setUserConfirmPass]=useState<String>("")
+  const [image,setImage]=useState<String>("")
+  const [userBlockd,setUserBlocked]=useState<Number>(0)
+  const [userLatitude,setUserLatitude]=useState<String>("")
+  const [userLongitude,setUserLongitude]=useState<String>("")
   
  
   const handleInputChange = (e:any, setStateFunction:any) => {
@@ -42,16 +42,29 @@ const Profile = () => {
   }
   interface all{
     iduser:any
+  
   }
 
-const update = async (iduser :any)=>{
+const update = async (iduser :any , userPassword: String , userConfirmPass: String)=>{
  try {
-  // if( userPassword === usercCnfirmPass ){
-    // await axios.put(`http://localhost:3000/api/updateUser/${iduser}`)
-    // }
+  if( userPassword === userConfirmPass ){
+    await axios.put(`http://localhost:3000/api/updateUser/${iduser}`)
+    }
+  alert ( "Updated succesfully" )
+  } catch(error) {
+    alert ("Failed Sucessfully")
+  }
 
- 
+}
 
+const handleSubmit = () => {
+   if(userName === "" || userEmail ==="" || userPassword === "" || userConfirmPass === "" || userBlockd === 0 || userLatitude === "" || userLongitude === "") {
+    alert ("Enter your informations please")
+    return ;
+   }
+   if(userPassword !== userConfirmPass){
+    alert("Check your Password")
+   }
 }
 
 
