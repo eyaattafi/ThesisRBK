@@ -36,10 +36,10 @@ function OneOfferCard() {
                                 })} 
                                   </Slide>
                               
-                              <div className="p-2">
+                              <div className="p-2 bg-slate-800">
                               
-                                      <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
-                                      <p className="mb-1 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 </p>
+                                      <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-white">Noteworthy technology acquisitions 2021</h5>
+                                      <p className="mb-1 font-normal text-gray-700 text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 </p>
                               </div>
                               </div>
    
