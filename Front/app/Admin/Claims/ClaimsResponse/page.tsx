@@ -1,14 +1,12 @@
 'use client'
 import React,{useState,useEffect} from 'react';
 import Link from 'next/link'
-
 import ConfirmDelete from '../ConfirmDelete';
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { FaArrowRotateLeft } from "react-icons/fa6";
 import { FaArrowRotateRight } from "react-icons/fa6";
 import { FaArrowsRotate } from "react-icons/fa6";
-import { CiStar } from "react-icons/ci";
-
+import { IoIosStar } from "react-icons/io";
 
 interface Claim {
   idinBox : number,
@@ -62,7 +60,6 @@ useEffect(()=>{
 
 
 
-
 // delete a claim //
   const deleteClaim = async (idinbox: number) => {
     try {
@@ -85,8 +82,6 @@ useEffect(()=>{
     deleteClaim(idclaim)
      setShow(!show)
   }
-
-  
 
 
 
@@ -111,12 +106,12 @@ useEffect(()=>{
       <div className='flex flex-r ml-10 mt-8'>
       
        <label><input type="checkbox" className='mr-6' onClick={()=>{setIdclaim(el.idinBox)}}/></label>
-       <button onClick={()=>{setSh(!sh);setColor(el.idinBox)}}><CiStar color={sh && color===el.idinBox?'red':'black'} size={25} className='mr-6'/> </button>
+       <button onClick={()=>{setSh(!sh);setColor(el.idinBox)}}><IoIosStar  color={sh && color===el.idinBox?'red':'black'} size={25} className='mr-6'/> </button>
        <ul className='columns-4'>
 
-       <li className='ml-6 text-blue-900 font-bold' > <Link href='/Admin/Claims/SeeClaim' >{el.user.userName} </Link> </li> 
-       <li className='font-bold'>  <Link href='/Admin/Claims/SeeClaim' >{dat}/{i}/{el.user.iduser} </Link></li>
-       <li className=''><Link href='/Admin/Claims/SeeClaim' >{(el.inboxBody).substring(0,25)}...  </Link></li>
+       <li className='ml-6 text-blue-900 font-bold' > <Link href={`/Admin/Claims/${el.user.iduser}/${el.idinBox}`} >{el.user.userName} </Link> </li> 
+       <li className='font-bold'>  <Link href={`/Admin/Claims/${el.user.iduser}/${el.idinBox}`} >{dat}/{i}/{el.user.iduser} </Link></li>
+       <li className=''><Link href={`/Admin/Claims/${el.user.iduser}/${el.idinBox}`} >{(el.inboxBody).substring(0,25)}...  </Link></li>
        <li className='ml-44'>date {el.inboxDate}</li> 
 
        </ul>
