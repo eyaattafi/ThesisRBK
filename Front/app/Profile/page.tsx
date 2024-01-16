@@ -1,5 +1,7 @@
 "use client";
 import * as React from "react";
+import {useState} from "react" ;
+import axios from "react"
 import "./Profile.css";
 import Link from "next/link";
 import Box from "@mui/material/Box";
@@ -24,6 +26,35 @@ const Profile = () => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const [userName,setUserName]=useState("")
+  const [userEmail,setUserEmail]=useState("")
+  const [userPassword,setUserPassword]=useState("")
+  const [usercCnfirmPass,setUserConfirmPass]=useState("")
+  const [image,setImage]=useState("")
+  const [userBlockd,setUserBlocked]=useState("")
+  const [userLatitude,setUserLatitude]=useState("")
+  const [userLongitude,setUserLongitude]=useState("")
+  
+ 
+  const handleInputChange = (e:any, setStateFunction:any) => {
+    setStateFunction(e.target.value);
+  }
+  interface all{
+    iduser:any
+  }
+
+const update = async (iduser :any)=>{
+ try {
+  if( userPassword === usercCnfirmPass ){
+    await axios.put(`http://localhost:3000/api/updateUser/${iduser}`)
+    }
+
+ }
+
+}
+
+
 
   return (
     <div className="profile-wrapper">

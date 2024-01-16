@@ -63,5 +63,5 @@ const titleNimg = () => {
       </div> 
       );
 }
- 
+    
 export default titleNimg;
