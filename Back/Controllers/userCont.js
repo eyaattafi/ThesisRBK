@@ -19,6 +19,19 @@ async function getAllUsers(req, res) {
   }
 }
 
+
+// Get all users non blocked // 
+async function getUsersNonBlock(req, res) {
+  try {
+
+    const allUs = await User.findAll({where:{userBlocked: false}});
+    res.json(allUs);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
+
+
 //**********************************  Get oneUser by id ************************//
 async function getOneUser(req, res) {
   try {
@@ -89,4 +102,5 @@ module.exports = {
   createUser,
   updateUser,
   deleteUser,
+  getUsersNonBlock
 };
