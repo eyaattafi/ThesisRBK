@@ -21,12 +21,12 @@ export default function SignIn() {
     event.preventDefault();
 
     try {
-      const logUser  = await axios.post("http://localhost:3000/api/login", { Email: email, Password: password });
+      const logUser  = await axios.post("http://localhost:3000/api/login", { userEmail: email, userPassword: password });
 
       alert(JSON.stringify(logUser));
-      localStorage.setItem('userId', logUser.data.UserID);
+      localStorage.setItem('userId', logUser.data.iduser);
       console.log("data ", logUser)
-if(logUser) {push("/Home")}
+if(logUser) {push("/home")}
     } catch (e) {
       const error = e as AxiosError;
 
@@ -65,7 +65,7 @@ if(logUser) {push("/Home")}
         onChange={(e) => setPassword(e.target.value)}
       />
        
-        <button className="divS33 w-full" onClick={()=>getUserIdFromLocalStorage()}>
+        <button className="divS33 w-full" onClick={()=>getUserIdFromLocalStorage}>
           Log In
         </button>
       <div>
