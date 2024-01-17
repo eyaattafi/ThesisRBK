@@ -19,7 +19,9 @@ export default function SignIn() {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
+if((!email) || (!password)) {
+  alert("All fields are required")
+}
     try {
       const logUser  = await axios.post("http://localhost:3000/api/login", { userEmail: email, userPassword: password });
 
