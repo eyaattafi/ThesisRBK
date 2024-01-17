@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import Header from './Components/Header'
 import Footer from './Components/Footer'
+import { DataProvider } from "./context"
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -17,6 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <DataProvider>
       <body className={inter.className}>
         <Header/>
         
@@ -25,6 +27,7 @@ export default function RootLayout({
         
        <Footer/> 
         </body>
+        </DataProvider>
     </html>
   )
 }
