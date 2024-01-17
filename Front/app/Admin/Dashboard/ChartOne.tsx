@@ -28,8 +28,8 @@ interface Offer{
 
 const ChartOne = () => {
   const [offers,setOffers] =useState<Offer[]|[]>([])
-  const [ offerTitle,setOfferTitle] = useState<string[]>([])
-  const [offerType,setOfferType] = useState<string[]>([])
+  const [offerName,setOfferName] = useState<string[]>([])
+  const [offerPrice,setOfferPrice] = useState<number[]>([])
   const options = {
     scales: {
       y: {
@@ -56,18 +56,20 @@ ChartJS.register(
         }
       };
    console.log("offers",offers)
-   console.log("offertype",offerType);
+   console.log("offerName",offerName);
    
 // function to select only the names and prices of products //
   const makeMyChart =(offers :any) :void => { 
-    let type : string[] = []
+    let offerName: string[] = []
+    let ofPrice : number[] = []
     for(let i=0; i<offers.length; i++) {
-      if(!type.includes(offers[i])){
-    type.push(offers[i].offerType)
-    
+      if(!offerName.includes(offers[i].offerTitle )){
+    offerName.push(offers[i].offerTitle)
+    ofPrice.push(offers[i].offerType)
       }
   }
-setOfferType(type)
+setOfferName(offerName)
+setOfferPrice(ofPrice)
 }
    
   
@@ -77,11 +79,10 @@ useEffect(() => {
 
 // Chart offers by type //
 const data = {
-  labels: offerType,
+  labels: ["Tunis","Nabeul","Bizerte","Gafsa","Soussa","Monastir","Gabes","Zaghouan","Mednine","Sfax","Beja","Ben Arous","Kairaouan","Gasrine","Kebili","Mahdia","Kef","Manouba","Sidi Bouzid","Seliana","Tataouine","Tozeur"],
   datasets: [{
-    label: 'offers Type',
-    axis: 'x',
-    data: offerType,
+    label: 'offers Per Region',
+    data: [10,50,40,50,60,4,78,95,62,2,50,70,80,80,80,30],
     backgroundColor: [
       'rgba(255, 99, 132, 0.2)',
       'rgba(255, 159, 64, 0.2)',
@@ -110,13 +111,8 @@ const data = {
       <div className='flex justify-center rounded gap-x-72  '>
     
       <div style={ {padding: '20px', width:'80%'}}>
-        <h1 className='text-lg mb-8 font-extrabold'> Offers per Type </h1>
         <Bar data={data} options={options}/>
-        <div style={ {padding: '20px', width:'80%'}}>
-
-{/*         
-        <Bar  data={otherChart} options={options}/> */}
-        </div>
+        
       </div>
       </div>
       

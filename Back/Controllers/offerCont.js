@@ -1,6 +1,6 @@
 const Offer=require('../Models/offer.js')
 
-
+//Get All offers //
 async function getOffers(req, res) {
     try {
       const offers = await Offer.findAll();
@@ -10,6 +10,11 @@ async function getOffers(req, res) {
       res.status(500).json({ error: error.message });
     }
   }
+
+
+
+
+
   async function getOneOffer(req, res) {
     try {
       const offer = await Offer.findOne({where:{idoffer:req.params.offerid}});
