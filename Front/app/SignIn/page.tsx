@@ -23,12 +23,13 @@ export default function SignIn() {
     try {
       const logUser  = await axios.post("http://localhost:3000/api/login", { userEmail: email, userPassword: password });
 
-      alert(JSON.stringify(logUser));
       localStorage.setItem('userId', logUser.data.iduser);
-      console.log("data ", logUser)
-if(logUser) {push("/home")}
-    } catch (e) {
-      const error = e as AxiosError;
+      if(logUser.data.iduser) {push("/home")}
+else{
+  alert("Please check your entred details")
+  push("/SignIn")}
+    } catch (e) {      
+      const error = e as AxiosError;  
 
       alert(error.message);
     }
