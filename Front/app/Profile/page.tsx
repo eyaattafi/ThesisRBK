@@ -1,7 +1,8 @@
 "use client";
+
 import * as React from "react";
 import {useState} from "react" ;
-import axios from "react"
+import axios from "axios"
 import "./Profile.css";
 import Link from "next/link";
 import Box from "@mui/material/Box";
@@ -13,7 +14,7 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  height: 650,
+  height: 716,
   width: 500,
   bgcolor: "background.paper",
   boxShadow: 24,
@@ -22,13 +23,13 @@ const style = {
   borderRadius: "0.50rem",
 };
 
+
 const Profile = () => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   
-
 
   const [userName,setUserName]=useState<String>("")
   const [firstName,setFirstName]=useState<String>("")
@@ -42,10 +43,10 @@ const Profile = () => {
   const [city,setCity]=useState<String>("")
   const [state,setState]=useState<String>("")
 
+  
   const handleInputChange = (e:any, setStateFunction:any) => {
     setStateFunction(e.target.value);
   }
-
 
   interface ProfileProps {
     user: {
@@ -63,34 +64,19 @@ const Profile = () => {
       state : state ,
       contactNumber : contactNumber ,
       adress : adress
-
     }
-  
  
-  const update = async (iduser :any , userPassword: String , userConfirmPass: String)=>{
-    try {
-     if( userPassword === userConfirmPass ){
-       await axios.put(`http://localhost:3000/api/updateUser/${iduser}` , profileToUpdate )
-       }
-     alert ( "Updated succesfully" )
-     } catch(error) {
-       alert ("Failed Sucessfully")
-     }
-   
-   }
+    const update = async (iduser : Number) => {
+      try {
+        if( userPassword === userConfirmPass)
+    {    await axios.put(`http://localhost:3000/api/upateUser/${iduser}`, profileToUpdate )
+    alert("your update is successfully")
+    }
+    } catch (error) {
+        alert("check passworrd")
+      }
+    }
   }
-
-
-const handleClickCancel = () =>{
-  setUserName("") ;
-  setUserEmail("");
-  setUserPassword("");
-  setAdress('');
-  setCity("");
-  setState("");
-  setContactNumber(0);
-  
-}
 
   return (
     <div className="profile-wrapper">
@@ -99,7 +85,7 @@ const handleClickCancel = () =>{
           <h2>Account</h2>
           <p>
             Hammami Mohamed Amine, hammamimin@gmail.com.
-            <Link href="/">Go To Profile</Link>
+            <Link href="/">Go To HomePage</Link>
           </p>
         </div>
         <div className="profile-container">
@@ -215,6 +201,7 @@ const handleClickCancel = () =>{
                   placeholder="Write here..."
                   name="input"
                   className="input"
+                  
                   onChange={(e:any) => handleInputChange(e,setUserName)}
                 />
               </div>
@@ -305,8 +292,30 @@ const handleClickCancel = () =>{
                 onChange={(e:any) => handleInputChange(e,setUserPassword)}
               />
             </div>
+            <div className="coolinput">
+              <label htmlFor="input" className="text">
+               Confirm Password :
+              </label>
+              <input
+                type="text"
+                placeholder="Write here..."
+                name="input"
+                className="input"
+                onChange={(e:any) => handleInputChange(e,setUserPassword)}
+              />
+            </div>
             <div className="action-btns">
-              <button onClick={handleClickCancel}>Cancel</button>
+              <button 
+              onClick={()=>{
+                  setUserName("") ;
+                  setUserEmail("");
+                  setUserPassword("");
+                  setAdress('');
+                  setCity("");
+                  setState("");
+                  setContactNumber(0);
+              }}>Cancel</button>
+              
               <button onClick={handleUpdateProfile}>Save</button>
             </div>
           </div>
@@ -314,6 +323,6 @@ const handleClickCancel = () =>{
       </Modal>
     </div>
   );
-};
+            }
 
 export default Profile;
