@@ -3,9 +3,9 @@ const bcrypt = require('bcrypt');
 const User = require('../Models/user');
 
 
-const generateToken = (UserID,Role) => {
+const generateToken = (UserID) => {
   const expiresIn = 60 * 60 * 48;
-  return jwt.sign({ UserID, Role}, 'secretKey', { expiresIn: expiresIn });
+  return jwt.sign({ UserID}, 'secretKey', { expiresIn: expiresIn });
 };
   
   const Login = async(req, res) => {
