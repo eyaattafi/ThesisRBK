@@ -1,4 +1,6 @@
+'use client'
 import React from 'react'
+import ChartOne from './Dashboard/ChartOne'
 
 const Admin = () => {
   return (
@@ -11,11 +13,12 @@ const Admin = () => {
        <div>
        <div className=" bg-white text-slate-600 border border-slate-300 grid grid-col-2 justify-center p-4 gap-4 rounded-lg shadow-md">
   <div className="col-span-2 text-lg font-bold capitalize rounded-md text-center">
-    RENTS PER REGION
+    OFFERS PER TYPE
   </div>
 
   <div className="col-span-1">
-   <img className=' w-[450px] h-[250px] rounded ml-6' src='https://screenshots.codesandbox.io/l6qs1/31.png'/>
+  <ChartOne/>
+   {/* <img className=' w-[450px] h-[250px] rounded ml-6' src='https://screenshots.codesandbox.io/l6qs1/31.png'/> */}
   </div>
   
 

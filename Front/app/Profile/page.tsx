@@ -37,55 +37,60 @@ const Profile = () => {
   const [userPassword,setUserPassword]=useState<String>("")
   const [userConfirmPass,setUserConfirmPass]=useState<String>("")
   const [image,setImage]=useState<String>("")
-  const [userBlocked,setUserBlocked]=useState<Number>(0)
-  const [userLatitude,setUserLatitude]=useState<String>("")
-  const [userLongitude,setUserLongitude]=useState<String>("")
-  
+  const [adress,setAdress]=useState<String>("")
+  const [contactNumber,setContactNumber]=useState<Number>(0)
+  const [city,setCity]=useState<String>("")
+  const [state,setState]=useState<String>("")
+
+  const handleInputChange = (e:any, setStateFunction:any) => {
+    setStateFunction(e.target.value);
+  }
+
+
+  interface ProfileProps {
+    user: {
+      iduser: number;
+    } | null;
+  }
 
   const handleUpdateProfile = async () =>{
-    const profileToUpadate = {
+    const profileToUpdate = {
       userName : `${firstName} + ${lastName}` ,
       email : userEmail ,
       password : userPassword ,
       confirmPass : userConfirmPass ,
-      userBlocked : userBlocked ,
-      city : userLatitude ,
-      state : userLongitude
+      city : city ,
+      state : state ,
+      contactNumber : contactNumber ,
+      adress : adress
 
     }
-  }
- 
-  const handleInputChange = (e:any, setStateFunction:any) => {
-    setStateFunction(e.target.value);
-  }
-  interface all{
-    iduser:any
   
+ 
+  const update = async (iduser :any , userPassword: String , userConfirmPass: String)=>{
+    try {
+     if( userPassword === userConfirmPass ){
+       await axios.put(`http://localhost:3000/api/updateUser/${iduser}` , profileToUpdate )
+       }
+     alert ( "Updated succesfully" )
+     } catch(error) {
+       alert ("Failed Sucessfully")
+     }
+   
+   }
   }
 
-const update = async (iduser :any , userPassword: String , userConfirmPass: String)=>{
- try {
-  if( userPassword === userConfirmPass ){
-    await axios.put(`http://localhost:3000/api/updateUser/${iduser}`)
-    }
-  alert ( "Updated succesfully" )
-  } catch(error) {
-    alert ("Failed Sucessfully")
-  }
 
+const handleClickCancel = () =>{
+  setUserName("") ;
+  setUserEmail("");
+  setUserPassword("");
+  setAdress('');
+  setCity("");
+  setState("");
+  setContactNumber(0);
+  
 }
-
-const handleSubmit = () => {
-   if(userName === "" || userEmail ==="" || userPassword === "" || userConfirmPass === "" || userBlockd === 0 || userLatitude === "" || userLongitude === "") {
-    alert ("Enter your informations please")
-    return ;
-   }
-   if(userPassword !== userConfirmPass){
-    alert("Check your Password")
-   }
-}
-
-
 
   return (
     <div className="profile-wrapper">
@@ -235,9 +240,10 @@ const handleSubmit = () => {
                 placeholder="Write here..."
                 name="input"
                 className="input"
+                onChange={(e:any) => handleInputChange(e,setUserEmail)}
               />
             </div>
-            {/* <div className="coolinput">
+            <div className="coolinput">
               <label htmlFor="input" className="text">
                 Adress:
               </label>
@@ -246,8 +252,9 @@ const handleSubmit = () => {
                 placeholder="Write here..."
                 name="input"
                 className="input"
+                onChange={(e:any) => handleInputChange(e,setAdress)}
               />
-            </div> */}
+            </div>
             <div className="coolinput">
               <label htmlFor="input" className="text">
                 Contact Number :
@@ -257,6 +264,7 @@ const handleSubmit = () => {
                 placeholder="Write here..."
                 name="input"
                 className="input"
+                onChange={(e:any) => handleInputChange(e,setContactNumber)}
               />
             </div>
             <div className="double-input">
@@ -269,6 +277,7 @@ const handleSubmit = () => {
                   placeholder="Write here..."
                   name="input"
                   className="input"
+                  onChange={(e:any) => handleInputChange(e,setCity)}
                 />
               </div>
               <div className="coolinput">
@@ -280,6 +289,7 @@ const handleSubmit = () => {
                   placeholder="Write here..."
                   name="input"
                   className="input"
+                  onChange={(e:any) => handleInputChange(e,setState)}
                 />
               </div>
             </div>
@@ -296,8 +306,8 @@ const handleSubmit = () => {
               />
             </div>
             <div className="action-btns">
-              <button>Cancel</button>
-              <button onClick={()=> {update}}>Save</button>
+              <button onClick={handleClickCancel}>Cancel</button>
+              <button onClick={handleUpdateProfile}>Save</button>
             </div>
           </div>
         </Box>

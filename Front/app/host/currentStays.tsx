@@ -1,3 +1,5 @@
+import { MdOutlineEmail } from "react-icons/md";
+
 const CurrentStays = () => {
     return ( 
       <div>
@@ -26,7 +28,7 @@ const CurrentStays = () => {
             {/* Display user information here */}
             <img className="ml-40 mt-8 w-[150px] h-[150px] rounded-[100px]" src="https://i.pinimg.com/564x/aa/06/d7/aa06d77cd048b867f5d0b40362e62a76.jpg" alt="" />
             <h1 className="ml-[215px] mt-8 text-xl">user</h1>
-          <p className="mt-8 ml-[130px] border rounded p-2 w-52 ">Email: user@email.com</p>
+          <p className="flex flex-row items-center justify-around mt-8 ml-[130px] border rounded p-2 w-52 "><MdOutlineEmail size={20} /> user@email.com</p>
           <div className="flex flex-row justify-around mt-8"> <h1>starting Date</h1> <h1 >Leaving Date</h1></div>
           <div className="flex flex-row justify-around"> <p className="mt-4 border rounded p-2 w-52 flex justify-center">11/01/2024</p> <p className="mt-4 border rounded p-2 w-52 flex justify-center ">20/01/2024</p></div>
           </div>
