@@ -23,6 +23,7 @@
     "framer-motion": "^10.18.0",
     "js": "^0.1.0",
     "link": "^2.1.0",
+    "modal": "^1.2.0",
     "next": "14.0.4",
     "react": "^18",
     "react-date-range": "^2.0.0-alpha.4",
