@@ -27,15 +27,33 @@ const Profile = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  
+
+
   const [userName,setUserName]=useState<String>("")
+  const [firstName,setFirstName]=useState<String>("")
+  const [lastName,setLastName]=useState<String>("")
   const [userEmail,setUserEmail]=useState<String>("")
   const [userPassword,setUserPassword]=useState<String>("")
   const [userConfirmPass,setUserConfirmPass]=useState<String>("")
   const [image,setImage]=useState<String>("")
-  const [userBlockd,setUserBlocked]=useState<Number>(0)
+  const [userBlocked,setUserBlocked]=useState<Number>(0)
   const [userLatitude,setUserLatitude]=useState<String>("")
   const [userLongitude,setUserLongitude]=useState<String>("")
   
+
+  const handleUpdateProfile = async () =>{
+    const profileToUpadate = {
+      userName : `${firstName} + ${lastName}` ,
+      email : userEmail ,
+      password : userPassword ,
+      confirmPass : userConfirmPass ,
+      userBlocked : userBlocked ,
+      city : userLatitude ,
+      state : userLongitude
+
+    }
+  }
  
   const handleInputChange = (e:any, setStateFunction:any) => {
     setStateFunction(e.target.value);
@@ -192,6 +210,7 @@ const handleSubmit = () => {
                   placeholder="Write here..."
                   name="input"
                   className="input"
+                  onChange={(e:any) => handleInputChange(e,setUserName)}
                 />
               </div>
               <div className="coolinput">
@@ -203,6 +222,7 @@ const handleSubmit = () => {
                   placeholder="Write here..."
                   name="input"
                   className="input"
+                  onChange={(e:any) => handleInputChange(e,setUserName)}
                 />
               </div>
             </div>
@@ -217,7 +237,7 @@ const handleSubmit = () => {
                 className="input"
               />
             </div>
-            <div className="coolinput">
+            {/* <div className="coolinput">
               <label htmlFor="input" className="text">
                 Adress:
               </label>
@@ -227,7 +247,7 @@ const handleSubmit = () => {
                 name="input"
                 className="input"
               />
-            </div>
+            </div> */}
             <div className="coolinput">
               <label htmlFor="input" className="text">
                 Contact Number :
@@ -272,11 +292,12 @@ const handleSubmit = () => {
                 placeholder="Write here..."
                 name="input"
                 className="input"
+                onChange={(e:any) => handleInputChange(e,setUserPassword)}
               />
             </div>
             <div className="action-btns">
               <button>Cancel</button>
-              <button>Save</button>
+              <button onClick={()=> {update}}>Save</button>
             </div>
           </div>
         </Box>
