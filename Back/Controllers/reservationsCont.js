@@ -88,7 +88,8 @@ async function getReserByuserId (req, res) {
     createReservation,
     updateReservation,
     deleteReservation,
-    getReserByuserId
+    getReserByuserId,
+    getConfirmedReservations
   };
 
 

@@ -1,11 +1,11 @@
 'use client'
-import React, {useState,useEffect} from 'react'
+import React, {useState,useEffect, ReactNode} from 'react'
 
 
 interface Reservation {
     reservationStatus: string,
-    reservationStartDate: Date,
-    reservationEndDate: Date,
+    reservationStartDate: Date | ReactNode,
+    reservationEndDate: Date | ReactNode,
     userIduser: number,
     offerIdoffer: number,
     offer: Offer,
