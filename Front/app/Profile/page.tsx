@@ -1,6 +1,6 @@
 "use client";
 
-import * as React from "react";
+import  React from "react";
 import {useState} from "react" ;
 import axios from "axios"
 import "./Profile.css";
@@ -66,25 +66,21 @@ const Profile: NextPage<ProfileProps> = ({user}) => {
       contactNumber : contactNumber ,
       adress : adress 
     }
+     
     try {
       const update = await axios.put(`htpp://localhost:3000/api/updateuser/${id}` , profileToUpdate)
+      console.log("Profile updated successfully", update.data);
       alert ("Updated succeffuly")
+      console.log("Profile updated successfully", update.data);
     } catch (error) {
       alert("Failed to update")
+      
     }
     
     
     
     
-    // const updateUser =async(iduser : Number )=>{
-    //   try {
-    //     if(userPassword === userConfirmPass)
-    // {    await axios.put(`http://localhost:3000/api/getone/${iduser}`,profileToUpdate )
-    // alert("your update is successfully")
-    //   }} catch (error) {
-    //     alert("check passworrd")
-    //   }
-    // }
+    
   //   const update = async (iduser : Number) => {
   //     try {
   //       if( userPassword === userConfirmPass)
