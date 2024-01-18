@@ -1,4 +1,4 @@
-export interface notification{
+export default interface notification{
 
     idnotification:number,
     notificationBody:string,

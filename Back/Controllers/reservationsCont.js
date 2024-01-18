@@ -29,11 +29,11 @@ async function getConfirmedReservations (req, res) {
 
 // Get all reservations by category // 
 
-async function getReserByCat (req, res) {
+async function getReserByuserId (req, res) {
   try {
    
     const reservation= await Reservation.findAll({
-       where: { reservationStatus:"Confirmed", categorie_idcategorie: req.params.categorie_idcategorie} });
+       where: { userIduser:req.params.userid} });
 
     res.json(reservation)
   } catch (error) {
@@ -87,8 +87,7 @@ async function getReserByCat (req, res) {
     createReservation,
     updateReservation,
     deleteReservation,
-    getReserByCat, 
-    getConfirmedReservations
+    getReserByuserId
   };
 
 

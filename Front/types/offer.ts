@@ -1,6 +1,6 @@
 export default interface offer{
     offerTitle:string,
-    offerImages:JSON,
+    offerImages:string[],
     offerPrice:number,
     offerType:string,
     offerStatus:boolean,
