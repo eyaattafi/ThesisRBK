@@ -16,7 +16,7 @@ interface User {
   userImage: string,
   userBlocked: boolean
 }
-const CreateMessage = () => {
+const CreateNotification = () => {
 
   const [email,setEmail]= useState<string>("")
  const [notifBody,setNotifBody]=useState<string>("")
@@ -69,4 +69,4 @@ console.log("UserId", userId)
   )
 }
 
-export default CreateMessage
+export default CreateNotification

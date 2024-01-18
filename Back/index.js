@@ -22,6 +22,7 @@ const loginRoute = require('./Routes/loginRoute.js')
 const signUpRoute = require('./Routes/signupRoute.js')
 
 const offerhascatRoute = require('./Routes/offerhascatRoute.js')
+const logAdminRouter = require('./Routes/logAdminRoute.js')
 
 app.use(cors())
 app.use(express.json())
@@ -43,6 +44,7 @@ app.use('/api',inboxRoute)
 app.use('/api',loginRoute)
 app.use('/api',signUpRoute)
 app.use('/api',offerhascatRoute)
+app.use('/api',logAdminRouter)
 
 
 app.listen(PORT, () => {

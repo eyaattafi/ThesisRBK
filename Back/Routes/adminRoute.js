@@ -18,4 +18,6 @@ adminRouter.put('/updateadmin/:idadmin', adminCont.updateAdmin);
 // Delete a Admin by id
 adminRouter.delete('/deleteadmin/:idadmin', adminCont.deleteAdmin);
 
+
+
 module.exports = adminRouter;
