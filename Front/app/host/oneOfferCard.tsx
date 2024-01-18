@@ -24,8 +24,8 @@ function OneOfferCard({data}) {
                               
                               <div className="p-2 ">
                               
-                                      <h5 className="mb-2 text-2xl font-bold tracking-tight text-white">Noteworthy technology acquisitions 2021</h5>
-                                      <p className="mb-1 font-normal text-gray-200 ">Here are the biggest enterprise technology acquisitions of 2021 </p>
+                                      <h5 className="mb-2 text-2xl font-bold tracking-tight text-white">{data.offerTitle}</h5>
+                                      <p className="mb-1 font-normal text-gray-200 ">{data.offerDescription}</p>
                               </div>
                               </div>
    

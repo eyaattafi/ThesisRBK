@@ -47,7 +47,7 @@ const NewBooking = () => {
     })
     .catch((error) => console.error(error));
   },[userId])
-console.log("first",renters[0])
+
   const checkName=(id:number)=>{
     const name= hostOffers.filter((el,i)=>el.idoffer===id)
        return name[0].offerTitle

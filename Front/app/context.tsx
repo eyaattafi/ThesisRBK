@@ -35,7 +35,7 @@ interface DataContextValue {
     satisfactions:Satisfactions[];
     setSatisfactions:React.Dispatch<React.SetStateAction<Satisfactions[]>>;
     setOne:(id: number) => void
-    loggedUser:Users[]
+    loggedUser:Users[]  
   }
   interface DataProviderProps {
     children: ReactNode;  
@@ -55,13 +55,13 @@ const [users,setUsers]=useState<Users[]>([])
 const [notifications,setNotifications]=useState<Notifications[]>([])
 const [satisfactions,setSatisfactions]=useState<Satisfactions[]>([])
 const [loggedUser,setLogged]=useState<Users[]>([])
-const userId = localStorage.getItem('userId');
 
+const userId = localStorage.getItem('userId');
 
   useEffect(()=>{
     axios.get('http://localhost:3000/api/getAllOffers').then((res)=>setOffers(res.data))
     .catch((err)=>console.log(err))
-    axios.get(`http://localhost:3000/api/oneUser/${userId}`).then((res)=>setLogged(res.data)).catch((err)=>console.log(err)
+    axios.get(`http://localhost:3000/api/oneUser/${userId&&userId}`).then((res)=>setLogged(res.data)).catch((err)=>console.log(err)
     )
   },[])
     const setOne=(id:number)=>{
