@@ -12,6 +12,7 @@ function AllRegions() {
     <div>
         <h1 className='text-3xl font-bold ml-[10px]'>All Regions</h1>
         <div className='flex flex-row flex-wrap gap-7 p-2'>{regions.map((el,i)=><RegionCard data={el}/>)}</div>
+        
     </div>
     
   )
