@@ -1,11 +1,11 @@
 "use client"
-import React from 'react'
+import React,{useContext} from 'react'
 import { Slide} from 'react-slideshow-image';
 import Link from "next/link";
 import 'react-slideshow-image/dist/styles.css'
-
+import { DataContext } from '../context'
 function OneOfferCard({data}) {
-   
+  const  context = useContext(DataContext);
   return (
   
          <div className="w-[300px] h-[400px] bg-slate-800 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
@@ -16,7 +16,7 @@ function OneOfferCard({data}) {
                                         
                                        return <div>
                                            <Link href="/details" key={index}>
-                                          <img className="rounded-t-lg w-full h-[200px]" src={`${slideImage}`}/>
+                                          <img onClick={()=>context?.setOne(data.idoffer)} className="rounded-t-lg w-full h-[200px]" src={`${slideImage}`}/>
                                           </Link>
                                         </div>
                                 })} 

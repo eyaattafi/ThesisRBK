@@ -1,9 +1,9 @@
 const Bid = require('../Models/BID.js');
-
+const User=require('../Models/user.js')
 
 async function getBids(req, res) {
     try {
-      const bids = await Bid.findAll({ where: { offerIdoffer: req.params.offerid } });
+      const bids = await Bid.findAll({include:{model:User}, where: { offerIdoffer: req.params.offerid } });
       res.status(200).json(bids)
 
     } catch (error) {

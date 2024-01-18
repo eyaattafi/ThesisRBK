@@ -1,5 +1,6 @@
 const Reservation = require('../Models/reservations.js');
 const Offer = require('../Models/offer.js')
+const User = require('../Models/user.js')
 
 // Get All reservations //
 async function getReservations(req, res) {
@@ -17,7 +18,7 @@ async function getConfirmedReservations (req, res) {
   try {
    
     const confirmedRes= await Reservation.findAll({
-      include:{model:Offer}, where: {  reservationStatus:"confirmed"} });
+     include:[{ model:User},{model:Offer}], where: {  reservationStatus:"confirmed"} });
 
     res.json(confirmedRes)
   } catch (error) {
@@ -87,7 +88,8 @@ async function getReserByuserId (req, res) {
     createReservation,
     updateReservation,
     deleteReservation,
-    getReserByuserId
+    getReserByuserId,
+    getConfirmedReservations
   };
 
 

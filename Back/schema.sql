@@ -278,3 +278,12 @@ COLLATE = utf8mb4_0900_ai_ci;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+INSERT INTO `` (`idreservation`,`reservationStatus`,`reservationStartDate`,`reservationEndDate`,`offerIdoffer`,`userIduser`) VALUES (1,'confirmed','2024-01-08','2024-04-08',1,1);
+INSERT INTO `` (`idreservation`,`reservationStatus`,`reservationStartDate`,`reservationEndDate`,`offerIdoffer`,`userIduser`) VALUES (2,'not confirmed','2024-01-08','2024-04-08',4,1);
+/*Inbox queries */
+INSERT INTO `Inbox` (`inboxObject`,`inboxBody`, `inboxStatus` ,`adminIdadmin`,`userIduser`,`inboxDate`) VALUES ('Request' ,'Hello how can i join you by phone please....','Reciever',2,9,'2024-01-17');
+INSERT INTO `Inbox` (`inboxObject`,`inboxBody`, `inboxStatus` ,`adminIdadmin`,`userIduser`,`inboxDate`) VALUES ('Thank you' ,'Hello Thank you so much it was a great service....','Reciever',2,9,'2024-09-17');
+INSERT INTO `Inbox` (`inboxObject`,`inboxBody`, `inboxStatus` ,`adminIdadmin`,`userIduser`,`inboxDate`) VALUES ('Hello' ,'Hello it was a great service....','Reciever',2,10,'2024-09-17');
+INSERT INTO `Inbox` (`inboxObject`,`inboxBody`, `inboxStatus` ,`adminIdadmin`,`userIduser`,`inboxDate`) VALUES ('Response' ,'Hello Thank you we will be present for you.. ','Sender',2,9,'2024-01-17');
+INSERT INTO `Inbox` (`inboxObject`,`inboxBody`, `inboxStatus` ,`adminIdadmin`,`userIduser`,`inboxDate`) VALUES ('Ok we will see' ,'','Sender',2,9,'2024-09-17');
