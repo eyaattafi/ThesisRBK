@@ -1,6 +1,6 @@
 const Offer=require('../Models/offer.js')
 
-
+//Get All offers //
 async function getOffers(req, res) {
     try {
       const offers = await Offer.findAll();
