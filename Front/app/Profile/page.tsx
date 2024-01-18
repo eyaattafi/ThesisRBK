@@ -7,6 +7,7 @@ import "./Profile.css";
 import Link from "next/link";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
+import { NextPage } from 'next';
 // import Payment from "../payment/page";
 
 const style = {
@@ -22,14 +23,16 @@ const style = {
   p: 4,
   borderRadius: "0.50rem",
 };
+interface ProfileProps {
+  user: {
+    iduser: number;
+  } | null;
+}
 
-
-const Profile = () => {
+const Profile: NextPage<ProfileProps> = ({user}) => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
-  
 
   const [userName,setUserName]=useState<String>("")
   const [firstName,setFirstName]=useState<String>("")
@@ -43,16 +46,14 @@ const Profile = () => {
   const [city,setCity]=useState<String>("")
   const [state,setState]=useState<String>("")
 
-  
+  const id = user?.iduser || 0;
+
+
   const handleInputChange = (e:any, setStateFunction:any) => {
     setStateFunction(e.target.value);
   }
 
-  interface ProfileProps {
-    user: {
-      iduser: number;
-    } | null;
-  }
+
 
   const handleUpdateProfile = async () =>{
     const profileToUpdate = {
@@ -63,21 +64,41 @@ const Profile = () => {
       city : city ,
       state : state ,
       contactNumber : contactNumber ,
-      adress : adress
+      adress : adress 
     }
- 
-    const update = async (iduser : Number) => {
-      try {
-        if( userPassword === userConfirmPass)
-    {    await axios.put(`http://localhost:3000/api/upateUser/${iduser}`, profileToUpdate )
-    alert("your update is successfully")
-    }
+    try {
+      const update = await axios.put(`htpp://localhost:3000/api/updateuser/${id}` , profileToUpdate)
+      alert ("Updated succeffuly")
     } catch (error) {
-        alert("check passworrd")
-      }
+      alert("Failed to update")
     }
+    
+    
+    
+    
+    // const updateUser =async(iduser : Number )=>{
+    //   try {
+    //     if(userPassword === userConfirmPass)
+    // {    await axios.put(`http://localhost:3000/api/getone/${iduser}`,profileToUpdate )
+    // alert("your update is successfully")
+    //   }} catch (error) {
+    //     alert("check passworrd")
+    //   }
+    // }
+  //   const update = async (iduser : Number) => {
+  //     try {
+  //       if( userPassword === userConfirmPass)
+  //   {    await axios.put(`http://localhost:3000/api/upateUser/${iduser}`, profileToUpdate )
+  //   console.log("heyyyy")
+  //   alert("your update is successfully")
+  //   }
+  //   } catch (error) {
+  //       alert("check passworrd")
+  //     }
+  //   }
+    
+  // }
   }
-
   return (
     <div className="profile-wrapper">
       <div className="profile-content">
@@ -305,7 +326,7 @@ const Profile = () => {
               />
             </div>
             <div className="action-btns">
-              <button 
+              <button type="reset"
               onClick={()=>{
                   setUserName("") ;
                   setUserEmail("");
@@ -316,7 +337,7 @@ const Profile = () => {
                   setContactNumber(0);
               }}>Cancel</button>
               
-              <button onClick={handleUpdateProfile}>Save</button>
+              <button type="submit"onClick={handleUpdateProfile}>Save</button>
             </div>
           </div>
         </Box>
