@@ -32,6 +32,23 @@ async function getUsersNonBlock(req, res) {
 }
 
 
+//*******************************Get user By email ********************************/
+async function getUserByEmail(req, res) {
+  try {
+
+    let oneUser=await User.findOne({where:{userEmail: req.params.userEmail}})
+    res.json(oneUser)
+   
+    if (!oneUser) {
+      res.status(404).json({ message: 'User not found' });
+      return;
+    }
+ 
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
+
 //**********************************  Get oneUser by id ************************//
 async function getOneUser(req, res) {
   try {
@@ -102,5 +119,6 @@ module.exports = {
   createUser,
   updateUser,
   deleteUser,
-  getUsersNonBlock
+  getUsersNonBlock,
+  getUserByEmail
 };

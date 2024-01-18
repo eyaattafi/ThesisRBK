@@ -1,4 +1,4 @@
-export interface inbox{
+export default interface inbox{
 
     idinBox:number,
     inboxObject:string,

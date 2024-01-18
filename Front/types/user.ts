@@ -1,4 +1,4 @@
-export interface user{
+export default interface user{
 
     iduser:number,
     userName:string,

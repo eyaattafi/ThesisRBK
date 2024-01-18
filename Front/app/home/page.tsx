@@ -17,6 +17,7 @@ import { IoMdArrowDropright } from "react-icons/io";
 import { Slide} from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css'
 import Link from "next/link";
+import QuestionRes from "../Components/QuestionRes";
 
 
 export default function AuthenticatedHome(){
@@ -147,7 +148,7 @@ export default function AuthenticatedHome(){
                                       <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
                                       <p className="mb-1 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 </p>
                               </div>
-                          </div>
+</div>
              
 
         </div>
@@ -158,7 +159,9 @@ export default function AuthenticatedHome(){
             Button
           </button>
         </div>
-
+        <div>
+  <h1 className='text-black font-bold mt-40 mx-44 mb-2  text-2xl'> Answers to your questions </h1>
+    <QuestionRes/></div>
         <div className="bottomDivContenair">
             <p>
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -178,13 +181,12 @@ export default function AuthenticatedHome(){
             sunt in culpa qui officia deserunt mollit anim id est laborum.
             dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
             sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-
             </p>
         </div>
           
        
-        
+
+
 
 
 
