@@ -21,6 +21,8 @@ const inboxRoute = require('./Routes/inboxRoute.js')
 const loginRoute = require('./Routes/loginRoute.js')
 const signUpRoute = require('./Routes/signupRoute.js')
 
+const offerhascatRoute = require('./Routes/offerhascatRoute.js')
+
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
@@ -40,6 +42,7 @@ app.use('/api',reviewRoute)
 app.use('/api',inboxRoute)
 app.use('/api',loginRoute)
 app.use('/api',signUpRoute)
+app.use('/api',offerhascatRoute)
 
 
 app.listen(PORT, () => {

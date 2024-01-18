@@ -1,0 +1,18 @@
+.notification {
+    font-size: xx-large;
+    align-items: center;
+    padding: 300px 325px; 
+    display: flex;
+    margin-left: 200px;
+    margin-right: 200px;
+    box-shadow: rgba(210, 210, 210) -10px 7px 29px 10px;
+    margin-top: 100px;
+  }
+  
+  .not {
+    margin-top: -310px; 
+    margin-left: -194px;
+    margin-bottom: 100px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  
