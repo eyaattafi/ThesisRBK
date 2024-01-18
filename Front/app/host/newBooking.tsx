@@ -74,7 +74,7 @@ const NewBooking = () => {
                 <td className="border px-4 py-2">{checkName(el.offerIdoffer)}</td>
                 <td className="border px-4 py-2">{el.reservationStartDate}</td>
                 <td className="border px-4 py-2">{el.reservationEndDate}</td>
-                <td className="border px-4 py-2">{}</td>
+                <td className="border px-4 py-2">{renters[i]?.userName}</td>
                 <td className="flex justify-around border px-4 py-2">
                   <button
                 
