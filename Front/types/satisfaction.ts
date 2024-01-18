@@ -4,7 +4,7 @@ enum satisfactionLevel{
     s2='Satisfied',
     s3='disatified'
 }
-export interface satisfaction{
+export default interface satisfaction{
 
     idsatisfaction:number,
     satisfactionDegree:satisfactionLevel,

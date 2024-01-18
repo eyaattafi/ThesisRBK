@@ -1,6 +1,18 @@
+"use client"
 import { MdOutlineEmail } from "react-icons/md";
+import { DataContext } from '../context'
+import React, { useState,useContext, useEffect } from 'react'
+import axios from "axios";
+import offer from "../../types/offer";
 
 const CurrentStays = () => {
+  const [offers,setOffers]=useState<offer[]>([])
+  const userId = localStorage.getItem('userId');
+  const  context = useContext(DataContext);
+useEffect(()=>{
+  axios.get(`http://localhost:3000/api/getAllOffers/${userId}`)
+  .then((res) =>setOffers(res.data)).catch((err)=>console.log(err))
+},[])
     return ( 
       <div>
         <h2 className="flex justify-center text-2xl font-bold mb-4 border bg-white shadow mt-[30px] w-[1020px] ml-[30px]">Current Stays</h2>
@@ -9,14 +21,11 @@ const CurrentStays = () => {
         <div className=" w-1/2 pr-4 border rounded-l-lg p-2 bg-white">
           <h2 className="flex justify-center text-2xl font-bold mb-4">Posted Houses</h2>
           <ul>
-            {/* Your mapping logic goes here */}
-            <li key={1} className="flex items-center justify-around w-full bg-white border rounded p-2 ml-1 shadow mb-1"><img className="w-[80px] h-[60px] rounded" src="https://a0.muscache.com/im/pictures/miso/Hosting-671515411169755702/original/fa6374a2-b16a-4509-b3dc-4b068adbb6a0.jpeg?im_w=1200" alt="" /><span>house1</span><span>50$</span></li>
-            <li key={1} className="flex items-center justify-around w-full bg-white border rounded p-2 ml-1 shadow mb-1"><img className="w-[80px] h-[60px] rounded" src="https://a0.muscache.com/im/pictures/miso/Hosting-671515411169755702/original/fa6374a2-b16a-4509-b3dc-4b068adbb6a0.jpeg?im_w=1200" alt="" /><span>house1</span><span>50$</span></li>
-            <li key={1} className="flex items-center justify-around w-full bg-white border rounded p-2 ml-1 shadow mb-1"><img className="w-[80px] h-[60px] rounded" src="https://a0.muscache.com/im/pictures/miso/Hosting-671515411169755702/original/fa6374a2-b16a-4509-b3dc-4b068adbb6a0.jpeg?im_w=1200" alt="" /><span>house1</span><span>50$</span></li>
-            <li key={1} className="flex items-center justify-around w-full bg-white border rounded p-2 ml-1 shadow mb-1"><img className="w-[80px] h-[60px] rounded" src="https://a0.muscache.com/im/pictures/miso/Hosting-671515411169755702/original/fa6374a2-b16a-4509-b3dc-4b068adbb6a0.jpeg?im_w=1200" alt="" /><span>house1</span><span>50$</span></li>
-            <li key={1} className="flex items-center justify-around w-full bg-white border rounded p-2 ml-1 shadow mb-1"><img className="w-[80px] h-[60px] rounded" src="https://a0.muscache.com/im/pictures/miso/Hosting-671515411169755702/original/fa6374a2-b16a-4509-b3dc-4b068adbb6a0.jpeg?im_w=1200" alt="" /><span>house1</span><span>50$</span></li>
-            <li key={1} className="flex items-center justify-around w-full bg-white border rounded p-2 ml-1 shadow mb-1"><img className="w-[80px] h-[60px] rounded" src="https://a0.muscache.com/im/pictures/miso/Hosting-671515411169755702/original/fa6374a2-b16a-4509-b3dc-4b068adbb6a0.jpeg?im_w=1200" alt="" /><span>house1</span><span>50$</span></li>
-            <li key={1} className="flex items-center justify-around w-full bg-white border rounded p-2 ml-1 shadow mb-1"><img className="w-[80px] h-[60px] rounded" src="https://a0.muscache.com/im/pictures/miso/Hosting-671515411169755702/original/fa6374a2-b16a-4509-b3dc-4b068adbb6a0.jpeg?im_w=1200" alt="" /><span>house1</span><span>50$</span></li>
+            {offers.filter((el,i)=>el.renterOrNot===1).map((el,i)=>
+            <li key={i} className="flex items-center justify-around w-full bg-white border rounded p-2 ml-1 shadow mb-1"><img className="w-[80px] h-[60px] rounded" src={el.offerImages[0]} alt="" /><span>{el.offerTitle}</span><span>{el.offerPrice}</span></li>
+            )}
+            
+
           </ul>
         </div>
     

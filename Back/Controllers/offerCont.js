@@ -10,6 +10,15 @@ async function getOffers(req, res) {
       res.status(500).json({ error: error.message });
     }
   }
+  async function getOffersbyUser(req, res) {
+    try {
+      const offers = await Offer.findAll({where:{userIduser:req.params.iduser}});
+      res.status(200).json(offers)
+
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  }
   async function getOneOffer(req, res) {
     try {
       const offer = await Offer.findOne({where:{idoffer:req.params.offerid}});
@@ -51,6 +60,7 @@ async function getOffers(req, res) {
     }
   }
   module.exports = {
+    getOffersbyUser,
     getOffers,
     getOneOffer,
     createOffer,
