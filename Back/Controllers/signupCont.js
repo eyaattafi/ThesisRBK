@@ -4,8 +4,6 @@ const { createUser} = require('./userCont.js');
 
 
   
-
-  
   const Signup = async (req, res) => {
     const {userName, userEmail, userPassword  } = req.body;
   
