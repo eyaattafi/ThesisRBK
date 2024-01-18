@@ -1,8 +1,11 @@
 'use client'
 import { FaMapLocation } from "react-icons/fa6";
+import { TbAirConditioning } from "react-icons/tb";
+import { FaWifi } from "react-icons/fa";
+import { PiTelevisionFill } from "react-icons/pi";
 import { SlCalender } from "react-icons/sl";
 import { DateRange } from 'react-date-range';
-import {use, useState} from 'react'
+import { useContext, useState} from 'react'
 import 'react-date-range/dist/styles.css'; 
 import 'react-date-range/dist/theme/default.css'; 
 import {format} from "date-fns"
@@ -17,14 +20,22 @@ import { IoMdArrowDropright } from "react-icons/io";
 import { Slide} from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css'
 import Link from "next/link";
+import { DataContext } from "../context";
+import { Offers } from "./Offers";
 
 
 export default function AuthenticatedHome(){
 
   const [openDate,setOpenDate]=useState(false)
   const [openDrop,setOpenDrop]=useState(false)
+  const [showMore,setShowMore]=useState(false)
+  const feature=[<FaSwimmingPool size={25} />,<TbAirConditioning size={25} />,<PiTelevisionFill size={25}/>,<FaWifi size={25}/>]
+  const context=useContext(DataContext)
+  const ConfReservations=context?.reservations.filter((el)=>{
+    return el.reservationStatus==="confirmed"
+  })
+  console.log(ConfReservations)
   
-
   const [date, setDate] = useState([
       {
         startDate: new Date(),
@@ -33,11 +44,6 @@ export default function AuthenticatedHome(){
       }
     ]);
 
-    const [slideImages,setSliderImages]=useState([])
-
-     
-
-  
     return (
       
         <div>
@@ -50,6 +56,7 @@ export default function AuthenticatedHome(){
                                       <FaRegCircleUser color="white" size={30}/>
                                       <FiAlignJustify color="white" size={30}/>
                                       </div>
+                                      
                 {openDrop===true && <div className="absolute right-0 w-30 mt-2 origin-top-right bg-white border border-gray-300 divide-y divide-gray-100 rounded-md shadow-lg">
                     <div className="py-1 ml-5">
 
@@ -114,46 +121,61 @@ export default function AuthenticatedHome(){
              Sed commodo nulla nec rhoncus elementum Sed commodo nulla nec rhoncus elementum Sed commodo nulla nec rhoncus elementum.</p>
 
             <div className=" grid grid-cols-4 gap-7 p-12">
+                  
 
-              <div className=" bg-white shadow-md p-4 rounded-md ">              
-                      <div className="flex flex-center justify-center items-center gap-2">
-                      <FaSwimmingPool size={25} />
-                      <h1>Picine</h1>
-                      <IoMdArrowDropright size={25}/>
-                      </div>                   
-                  </div>
+                  {context?.categories.map((el,i)=>{
+                    return (
+                      <div className=" bg-white shadow-md p-4 rounded-md " key={i}>              
+                          <div className="flex flex-center justify-center items-center gap-2">
+                          {feature[i]}
+                          <h1>{el.categorieName}</h1>
+                          <IoMdArrowDropright size={25}/>
+                          </div>                   
+                      </div>
+                    )
+                  })}
+                  
             </div>
 
         </div>
 
         <h1 className=" text-3xl font-bold mt-3 ml-8">Our Offers</h1>
 
-        <div className=" grid grid-cols-4 gap-7 p-12">
+      {showMore===false?<Offers/>:
+      
+      <div className=" grid grid-cols-4 gap-7 p-12">
                 
-          
-<div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                                  
-                                  <Slide>         
-                                      {slideImages.map((slideImage, index)=> (
-                                          <Link href="/details">
-                                          <img className="rounded" src={`${slideImage.url}`}/>
-                                          <p>{``}</p>
-                                          </Link>
-                                      ))} 
-                                  </Slide>
-                              
-                              <div className="p-2">
+      {context?.allOffers.map((el,i)=>{
+
+        return(
+          <div className="w-[300px] h-[400px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700" key={i}>
             
-                                      <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
-                                      <p className="mb-1 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 </p>
-                              </div>
-                          </div>
-             
+                    
+                  <Slide>         
+                      {el.offerImages.map((slideImage, index)=> (
+                          <Link href="/details">
+                          <img className="rounded  w-full h-[200px]" src={slideImage}/>
+                          <p>{``}</p>
+                          </Link>
+                      ))} 
+                  </Slide>
+              
+              <div className="p-2">
 
-        </div>
+                      <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white overflow-hidden">{el.offerTitle}</h5>
+                      <p className="mb-1 font-normal text-gray-700 dark:text-gray-400 overflow-hidden">{el.offerDescription} </p>
+              </div>
+          </div>
+        )
+      })}
+                 
+    </div>
+      
+      }       
 
-        
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center" onClick={()=>{
+          setShowMore(!showMore)
+        }}>
           <button className="bg-transparent hover:bg-orange-950 text-orange-950 font-semibold hover:text-white py-2 px-4 border border-orange-950 hover:border-transparent rounded">
             Button
           </button>
@@ -183,19 +205,9 @@ export default function AuthenticatedHome(){
             </p>
         </div>
           
-       
-        
 
 
-
-               
-                      
-                
-
-
-                
-                
-        </div>
+</div>
 
          
     )

@@ -1,5 +1,14 @@
 const Reservation = require('../Models/reservations.js');
 
+async function getAllReservations(req, res) {
+  try {
+    const reservations = await Reservation.findAll();
+    res.status(200).json(reservations)
+
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
 
 // Get All reservations //
 async function getReservations(req, res) {
@@ -72,7 +81,8 @@ async function getReserByCat (req, res) {
     createReservation,
     updateReservation,
     deleteReservation,
-    getReserByCat
+    getReserByCat,
+    getAllReservations
   };
 
 

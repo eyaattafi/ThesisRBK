@@ -56,7 +56,15 @@ const [satisfactions,setSatisfactions]=useState<Satisfactions[]>([])
   useEffect(()=>{
     axios.get('http://localhost:3000/api/getAllOffers').then((res)=>setOffers(res.data))
     .catch((err)=>console.log(err))
-  },[])
+
+    axios.get('http://localhost:3000/api/getcategorie/feature').then((res)=>setCategories(res.data))
+    .catch((err)=>console.log(err))
+
+    axios.get('http://localhost:3000/api/getAllReservations').then((res)=>setReservations(res.data))
+    .catch((err)=>console.log(err))
+    
+  }        
+  ,[])
     const setOne=(id:number)=>{
       axios.get(`http://localhost:3000/api/getAllOffer/${id}`).then((res)=>setOneHouse(res.data)).catch((err)=>console.log(err)
       )
