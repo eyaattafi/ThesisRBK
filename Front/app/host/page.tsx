@@ -8,7 +8,7 @@ import YourOffers from "./yourOffers";
 const page = () => {
     return ( 
         <div>
-    <div className="mt-[30px] ml-[170px]">
+    <div className="mt-[30px] ml-[190px]">
         <HostManage/>
     </div>
     <div className="mt-[70px] ml-[10px]"><YourOffers/></div>
