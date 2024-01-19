@@ -77,7 +77,7 @@ const NextArriving = () => {
              <td className="border ">{checkName(el.offerIdoffer)}</td>
              <td className="border ">{el.reservationStartDate}</td>
              <td className="border ">{el.reservationEndDate}</td>
-             <td className="border ">{}</td>
+             <td className="border ">{renters[i]?.userName}</td>
              <td className="border ">
               <span>{checkPrice(el.offerIdoffer)}$</span>
              </td>

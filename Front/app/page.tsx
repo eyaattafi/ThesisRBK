@@ -101,6 +101,7 @@ export default function Home() {
   <h1 className='text-black font-bold mt-20 mx-44 mb-2 text-2xl'>Specify your preferred equipments </h1>
   <h3 className='text-slate-400 font-bold ml-44'>Select the most sought-after amenities, like these and others, for a personalized stay.</h3>
  <div className='flex flex-wrap gap-4 ml-44 mb-28'> <Equipements/> </div></div>
+  
   <div>
   <h1 className='text-black font-bold mt-40 mx-44 mb-2  text-2xl'> Answers to your questions </h1>
     <QuestionRes/></div>

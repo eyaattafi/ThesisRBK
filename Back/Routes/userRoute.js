@@ -12,6 +12,11 @@ userRouter.get('/nonblocked',userCont.getUsersNonBlock);
 // GET oneUser by id
 userRouter.get('/oneUser/:iduser', userCont.getOneUser);
 
+// GET oneUser by Email
+userRouter.get('/oneUserByEmail/:userEmail', userCont.getUserByEmail);
+
+
+
 // Create a new user
 userRouter.post('/addUser', userCont.createUser);
 

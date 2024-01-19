@@ -12,6 +12,7 @@ import { Offers } from "./Offers";
 import DropDown from "./DropDown";
 import Features from "./Features";
 import Info from "./Info";
+import QuestionRes from "../Components/QuestionRes";
 
 
 export default function AuthenticatedHome(){
@@ -82,6 +83,8 @@ export default function AuthenticatedHome(){
                 <Features/>
                 <h1 className=" text-3xl font-bold mt-3 ml-8">Our Offers</h1>
                 <Offers/>
+
+                <QuestionRes/>
                 
                 <Info/>
           

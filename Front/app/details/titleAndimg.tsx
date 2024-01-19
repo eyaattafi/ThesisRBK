@@ -37,7 +37,7 @@ const TitleNImg = () => {
         {/* Big Image */}
         <div className="w-full md:w-1/2 mb-4 md:pr-2">
           <img
-            src={context&&context.oneHouse.offerImages[0]}
+            src={context?.oneHouse.offerImages[0]}
             alt="Big House"
             className="w-full h-[450px] rounded-tl-[15px] rounded-bl-[15px]"
           />
