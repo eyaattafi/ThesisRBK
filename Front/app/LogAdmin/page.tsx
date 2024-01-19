@@ -2,8 +2,11 @@
 import axios, { AxiosError } from "axios";
 import { useRouter } from "next/navigation";
 import Link from 'next/link'
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
 import '../SignIn/SignIn.css'
+import 'react-toastify/dist/ReactToastify.css';
+import { Slide, Zoom, Flip, Bounce } from 'react-toastify';
 
 
 export default function LogAdmin() {
@@ -11,6 +14,10 @@ export default function LogAdmin() {
   const { push } = useRouter();
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const notify = () => {
+    toast.warning("WARNING! RentaVilla's Staff Only !", {
+    position: "top-center", theme: "colored"
+  })};
 
 
 
@@ -33,7 +40,7 @@ else{
       alert(error.message);
     }
   };
-
+useEffect(()=>{notify()},[])
 
   return (
       <div className="grid grid-cols-2 ml-24">
@@ -63,6 +70,10 @@ else{
         </button>
 
       </form>  
+      <div className="w-96 h-20">
+
+        <ToastContainer  transition={Zoom}  autoClose={8000}/>
+      </div>
       </div>
             </div>
       );

@@ -10,7 +10,7 @@ const wishRoute= require('./Routes/wishRoute.js')
 const categorieRoute=require('./Routes/categorieRoute.js')
 const bidRoute=require('./Routes/bidRoute.js')
 const offersRoute=require('./Routes/offersRoute.js')
-const satisfactionRoute = require('./Routes/satisfation.js')
+const satisfactionRoute = require('./Routes/satisfationRoute.js')
 
 const reservationRoute=require('./Routes/reservationsRoute.js')
 const notificationRoute=require('./Routes/notificationRoute.js')
