@@ -19,14 +19,10 @@ export default function AuthenticatedHome(){
 
   const [openDate,setOpenDate]=useState(false)
   const context=useContext(DataContext)
-  
+  const [data,setData]=useState([])
   const confReservations=context?.reservations.filter((el,i)=>{
     return el.reservationStatus==="confirmed"
   })
-
-  
-
-  
 
   const [date, setDate] = useState([
       {
@@ -39,7 +35,20 @@ export default function AuthenticatedHome(){
     const startDate=new Date(format(date[0].startDate,'yyyy/MM/dd' ))
     const endDate=new Date(format(date[0].endDate,'yyyy/MM/dd' ))
 
-
+    useEffect(() => {
+      filterDataByDate(startDate,endDate)
+    }, []); 
+  
+    const filterDataByDate = (startDate:Date, endDate:Date) => {
+      const filteredData = confReservations.filter(el => {
+        const start = new Date(el.reservationStartDate)
+        const end = new Date(el.reservationEndDate)
+        return (start >= startDate && start <= endDate) && (end >= startDate && end <= endDate)
+      });
+  
+      // Set the filtered data to the state
+      setData(filteredData);
+    };
 
     
 
