@@ -2,6 +2,17 @@ const Reservation = require('../Models/reservations.js');
 const Offer = require('../Models/offer.js')
 const User = require('../Models/user.js')
 
+async function getAllReservations(req, res) {
+  try {
+    const reservations = await Reservation.findAll();
+    res.status(200).json(reservations)
+
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
+
+
 // Get All reservations //
 async function getReservations(req, res) {
     try {
@@ -88,6 +99,7 @@ async function getReserByuserId (req, res) {
     createReservation,
     updateReservation,
     deleteReservation,
+    getAllReservations,
     getReserByuserId,
     getConfirmedReservations
   };
