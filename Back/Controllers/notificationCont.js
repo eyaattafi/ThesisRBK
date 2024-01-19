@@ -49,9 +49,24 @@ async function getNotifications(req, res) {
       res.status(400).json({ error: error.message });
     }
   }
+// Update notification // 
+async function updateNotif(req, res) {
+  try {
+    const updateNot = await Notification.update(req.body, {
+      where: {idnotification : req.params.idnotification},
+    });
+    res.json(updateNot)
+    
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+}
+
+
   module.exports = {
     getNotifications,
     createNotification,
     deleteNotification,
-    getNotifs
+    getNotifs,
+    updateNotif
   };
