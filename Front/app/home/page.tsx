@@ -23,8 +23,10 @@ export default function AuthenticatedHome(){
     return el.reservationStatus==="confirmed"
   })
 
-  console.log(confReservations)
   
+
+  
+
   const [date, setDate] = useState([
       {
         startDate: new Date(),
@@ -35,6 +37,10 @@ export default function AuthenticatedHome(){
 
     const startDate=new Date(format(date[0].startDate,'yyyy/MM/dd' ))
     const endDate=new Date(format(date[0].endDate,'yyyy/MM/dd' ))
+
+
+
+    
 
     
     return (
