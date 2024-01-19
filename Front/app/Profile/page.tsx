@@ -4,7 +4,7 @@ import "./Profile.css";
 import Link from "next/link";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-import Payment from "../payment/page";
+// import Payment from "../payment/page";
 
 const style = {
   position: "absolute",
@@ -75,7 +75,7 @@ const Profile = () => {
             </div>
             <div className="desc" >
              
-              <p >Payment & Payouts</p>
+              <p ><Link href="/payment" >Payment & Payouts</Link></p>
               <p>
               Review paiment , payouts ,coupons and git cards.
               </p>
@@ -97,7 +97,7 @@ const Profile = () => {
               </svg>
             </div>
             <div className="desc">
-              <p>Privacy & Sharing</p>
+              <p><Link href="Privacy">Privacy & Sharing</Link></p>
               <p>
               Manage your personal data , connected , services and data sharing setting .
               </p>
@@ -119,7 +119,7 @@ const Profile = () => {
               </svg>
             </div>
             <div className="desc">
-              <p>Notifications</p>
+              <p><Link href="/Notification">Notifications</Link></p>
               <p>
               Choose notifications and preferences , and how you want to be contacted 
               </p>

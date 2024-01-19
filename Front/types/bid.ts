@@ -1,4 +1,4 @@
-export interface bid{
+export default interface bid{
     
     idBID:number,
     BIDprice:number,

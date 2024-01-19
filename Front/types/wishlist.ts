@@ -1,4 +1,4 @@
-export interface wishlist{
+export default interface wishlist{
 
     idwishlist:number,
     userIduser:number,

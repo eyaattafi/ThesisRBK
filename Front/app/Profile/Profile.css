@@ -42,6 +42,8 @@
   justify-content: center;
   align-items: center;
   gap: 2rem 6rem;
+  size: 200px;
+  padding-bottom: 50px;
 }
 
 .profile-container > div {

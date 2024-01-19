@@ -3,7 +3,10 @@ const bcrypt = require('bcrypt');
 const User = require('../Models/user');
 
 
-
+const generateToken = (UserID) => {
+  const expiresIn = 60 * 60 * 48;
+  return jwt.sign({ UserID}, 'secretKey', { expiresIn: expiresIn });
+};
   
   const Login = async(req, res) => {
       const {userEmail,userPassword}=req.body;
@@ -11,10 +14,10 @@ const User = require('../Models/user');
            const result= await User.findOne({ where :{userEmail:userEmail}})
            if(result ===null) res.send("email not found")
            else {
-            const verif=result.dataValues.userPassword
-            const passwordMatch = await bcrypt.compare(userPassword,verif)
-console.log("verif",verif)
-console.log("pw",userPassword)
+            const verifPassWord=result.dataValues.userPassword
+            const passwordMatch = await bcrypt.compare(userPassword,verifPassWord)
+console.log("verifPassWord",verifPassWord)
+console.log("userpass",userPassword)
 console.log("result",result)
 console.log("passmatch", passwordMatch)
 
@@ -22,6 +25,7 @@ console.log("passmatch", passwordMatch)
             if(passwordMatch){
                const token=generateToken(result.dataValues.iduser, result.dataValues.userEmail)  
                result.dataValues.token=token
+console.log("token",token);
               res.send(result.dataValues)
             }
             else{
@@ -34,6 +38,8 @@ console.log("passmatch", passwordMatch)
       catch (error) {res.status(500).json(error)}
   };
   
+
+
   module.exports = {
     Login
   };

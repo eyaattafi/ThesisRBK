@@ -11,7 +11,7 @@ const ConfirmDelete: React.FC <ConfirmDeleteProps> = ({ onConfirm, onCancel }) =
       <div className="bg-white p-11 h-1/3 w-1/3 border-4 border-orange-950  rounded shadow-md">
         <p className=" text-xl text-orange-950 font-bold mb-10 mt-6">Are you sure you want to delete?</p>
         <button className="bg-white shadow-lg hover:bg-red-500 text-black px-4 py-2 mr-5 rounded" onClick={onConfirm}>
-          Confirm
+          Confirm 
         </button>
         <button className="bg-white shadow-lg px-4 py-2 rounded hover:bg-red-500" onClick={onCancel}>
           Cancel

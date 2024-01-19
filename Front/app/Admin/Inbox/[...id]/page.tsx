@@ -8,7 +8,7 @@ interface Message {
   idinBox : number,
   inboxObject : string,
   inboxBody : string,
-  inboxDate: any,
+  inboxDate: Date,
   inBoxStatus : string,
   user : user
 }

@@ -1,4 +1,4 @@
-export interface reservation {
+export default  interface reservation  {
 
     idreservation:number,
     reservationStatus:string,
