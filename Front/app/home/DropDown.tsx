@@ -6,14 +6,24 @@ import { MdEmail } from "react-icons/md";
 import { IoNotificationsCircle } from "react-icons/io5";
 import { IoLogOut } from "react-icons/io5";
 import { useState } from "react";
+import { AiFillBell } from "react-icons/ai";
+import { red } from "@mui/material/colors";
+import { IoMdNotificationsOutline } from "react-icons/io";
 
 
 
 export default function DropDown(){
     const [openDrop,setOpenDrop]=useState(false)
+    const [notification,setNotification]=useState(false)
     return (
+    
+        <div className="relative flex  text-left  ml-500 ">
 
-        <div className="relative inline-block text-left  ml-500 ">
+          <div className="absolute right-0 mr-7 mt-6 flex">
+            {notification===false?<IoMdNotificationsOutline size={25} />:<AiFillBell  size={25} />}
+              
+              
+            </div>
 
                 <div className="dropDownIconHome" onClick={()=>{
                                         setOpenDrop(!openDrop)
