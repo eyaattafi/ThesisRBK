@@ -37,7 +37,7 @@ export default function DropDown(){
 
                       <div className="flex flex-r items-center justifiy-center">
                         <IoNotificationsCircle color={"#431407"}/>
-                        <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Notification</a>
+                        <a href="/Notification" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Notification</a>
                       </div>
                       
                       <div className="flex flex-r items-center justifiy-center">
