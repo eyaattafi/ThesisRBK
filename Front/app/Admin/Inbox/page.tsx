@@ -114,7 +114,7 @@ useEffect(()=>{
 
        <li className='ml-6 text-blue-900 font-bold'> <Link href={`/Admin/Inbox/${el.user.iduser}/${el.idinBox}`} > {el.user.userName} </Link> </li> 
        <li className='font-bold'>  <Link href={`/Admin/Inbox/${el.user.iduser}/${el.idinBox}`} >{dat}/{i}/{el.user.iduser} </Link></li>
-       <li className=''><Link href={`/Admin/Inbox/${el.user.iduser}/${el.idinBox}`} >{(el.inboxBody).substring(0,20)}...  </Link></li>
+       <li className=''><Link href={`/Admin/Inbox/${el.user.iduser}/${el.idinBox}`} >{(el.inboxBody).substring(0,20)||''}...  </Link></li>
        <li className='ml-24'> {el.inboxDate}</li> 
 
        </ul>
