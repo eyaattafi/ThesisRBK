@@ -1,9 +1,10 @@
 import Image from "next/image";
 import botPic from "../../public/botPic.png"
+import "./chat.css"
 
 export default function ChatHeader() {
   return (
-    <div className="flex items-center space-x-4 rounded-t-lg h-16 mx-8 my-4">
+    <div className="f">
       <div className="border-full">
         <Image src={botPic} alt="bot" width={40}></Image>
       </div>

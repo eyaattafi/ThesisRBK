@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import ChatFooter from "./chatfooter";
 import ChatHeader from "./chatheader";
 import ChatBody from "./chatbody";
+import "./chat.css"
+
 export type IMsg = {
     user: boolean;
     message: string;
@@ -47,7 +49,7 @@ export default function ChatWindow() {
     }, []);
 
     return (
-        <div className="flex bg-gray-100 dark:bg-neutral-800 flex-col h-full bg-white rounded-lg w-full max-w-4xl shadow-xl">
+        <div className="f1">
             <ChatHeader />
             <ChatBody scrollableRef={scrollableRef} chat={chat} />
             <ChatFooter setChat={setChat} socket={socket} />

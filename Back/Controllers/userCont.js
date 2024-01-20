@@ -52,15 +52,16 @@ async function getUserByEmail(req, res) {
 //**********************************  Get oneUser by id ************************//
 async function getOneUser(req, res) {
   try {
+    let oneUser = await User.findOne({ where: { iduser: req.params.iduser } });
 
-    let oneUser=await User.findOne({where:{iduser: req.params.iduser}})
-    res.json(oneUser)
-   
     if (!oneUser) {
       res.status(404).json({ message: 'User not found' });
       return;
     }
- 
+
+    // Send the successful response
+    res.json(oneUser);
+
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

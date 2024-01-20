@@ -1,6 +1,7 @@
 import { RefObject } from "react";
 import { IMsg } from "./page";
 // const userId = localStorage.getItem('userId');
+import "./chat.css"
 
 type IProps = {
     msg: IMsg,

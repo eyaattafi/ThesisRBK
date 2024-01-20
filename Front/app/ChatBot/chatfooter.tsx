@@ -2,6 +2,8 @@ import { Dispatch, SetStateAction, useRef } from "react";
 import { Socket } from "socket.io-client";
 import { IoMdSend } from "react-icons/io";
 import { IMsg } from "./page";
+import "./chat.css"
+
 
 type IProps = {
   socket: Socket;
