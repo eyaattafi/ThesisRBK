@@ -48,53 +48,45 @@ const Profile: NextPage<ProfileProps> = ({user}) => {
 
   const id = user?.iduser || 0;
 
-
   const handleInputChange = (e:any, setStateFunction:any) => {
     setStateFunction(e.target.value);
   }
-
-
-
-  const handleUpdateProfile = async () =>{
+  const handleUpdateProfile = async () => {
     const profileToUpdate = {
-      userName : `${firstName} + ${lastName}` ,
-      email : userEmail ,
-      password : userPassword ,
-      confirmPass : userConfirmPass ,
-      city : city ,
-      state : state ,
-      contactNumber : contactNumber ,
-      adress : adress 
-    }
-     
+      userName: `${firstName} ${lastName}`,
+      email: userEmail,
+      password: userPassword,
+      confirmPass: userConfirmPass,
+      city: city,
+      state: state,
+      contactNumber: contactNumber,
+      address: adress
+    };
+  
     try {
-      const update = await axios.put(`htpp://localhost:3000/api/updateuser/${id}` , profileToUpdate)
-      console.log("Profile updated successfully", update.data);
-      alert ("Updated succeffuly")
-      console.log("Profile updated successfully", update.data);
+      const update = await axios.put(`http://localhost:3000/api/updateUser/${id}`, profileToUpdate);
+      console.log("Profile updated ", update.data);
+      alert("Updated successfully");
     } catch (error) {
-      alert("Failed to update")
-      
+      alert("Failed to update");
     }
+  };
     
-    
-    
-    
-    
-  //   const update = async (iduser : Number) => {
-  //     try {
-  //       if( userPassword === userConfirmPass)
-  //   {    await axios.put(`http://localhost:3000/api/upateUser/${iduser}`, profileToUpdate )
-  //   console.log("heyyyy")
-  //   alert("your update is successfully")
-  //   }
-  //   } catch (error) {
-  //       alert("check passworrd")
-  //     }
-  //   }
-    
+    // const update = async () => {
+    //   try {
+    //     if( userPassword === userConfirmPass)
+    // {    await axios.put(`http://localhost:3000/api/upateUser/${id}`, profileToUpdate )
+    // console.log("heyyyy")
+    // alert("your update is successfully")
+    // }
+    // } catch (error) {
+    //     alert("check passworrd")
+    //   }
+    // }
   // }
-  }
+
+
+  
   return (
     <div className="profile-wrapper">
       <div className="profile-content">
@@ -199,6 +191,7 @@ const Profile: NextPage<ProfileProps> = ({user}) => {
       </div>
       <Modal
         open={open}
+
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
@@ -219,7 +212,7 @@ const Profile: NextPage<ProfileProps> = ({user}) => {
                   name="input"
                   className="input"
                   
-                  onChange={(e:any) => handleInputChange(e,setUserName)}
+                  onChange={(e:any) => handleInputChange(e,setFirstName)}
                 />
               </div>
               <div className="coolinput">
@@ -231,7 +224,7 @@ const Profile: NextPage<ProfileProps> = ({user}) => {
                   placeholder="Write here..."
                   name="input"
                   className="input"
-                  onChange={(e:any) => handleInputChange(e,setUserName)}
+                  onChange={(e:any) => handleInputChange(e,setLastName)}
                 />
               </div>
             </div>
@@ -340,6 +333,6 @@ const Profile: NextPage<ProfileProps> = ({user}) => {
       </Modal>
     </div>
   );
-            }
+} 
 
-export default Profile;
+export default Profile ;

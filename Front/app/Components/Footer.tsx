@@ -14,7 +14,7 @@ export default function Footer(){
                      <div className='p-4 justify-center items-center '>
                         <Link href="/GeneralConditions" className='text-white mr-9' > General Conditions</Link>
                     <Link href="/Confidentiality" className='text-white mr-9' > Confidentiality </Link>
-                    <Link href=''><FacebookIcon className='bg-white mr-9 rounded'  /></Link>
+                    <Link href='https://www.facebook.com/profile.php?id=61555934421991'><FacebookIcon className='bg-white mr-9 rounded'  /></Link>
                     <Link href=''><InstagramIcon  className='bg-white mr-9 rounded'/></Link>
                     </div></div>
                 </div>
