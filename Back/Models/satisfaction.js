@@ -10,7 +10,7 @@ const Satisfaction = sequilize.define('satisfaction',{
   },
   satisfactionDegree:{
     type:DataTypes.ENUM,
-    values:['Very satisfied','Satisfied','disatified']
+    values:['Very satisfied','Satisfied','dissatified']
   },
   userIduser: {
     type: DataTypes.INTEGER,

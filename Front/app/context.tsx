@@ -35,6 +35,7 @@ interface DataContextValue {
     satisfactions:Satisfactions[];
     setSatisfactions:React.Dispatch<React.SetStateAction<Satisfactions[]>>;
     setOne:(id: number) => void
+    loggedUser:Users[]  
   }
   interface DataProviderProps {
     children: ReactNode;  
@@ -53,15 +54,29 @@ const [categories,setCategories]=useState<Categories[]>([])
 const [users,setUsers]=useState<Users[]>([])
 const [notifications,setNotifications]=useState<Notifications[]>([])
 const [satisfactions,setSatisfactions]=useState<Satisfactions[]>([])
+const [loggedUser,setLogged]=useState<Users[]>([])
+
+const userId = localStorage.getItem('userId');
+
   useEffect(()=>{
+
+    axios.get('http://localhost:3000/api/getcategorie/feature').then((res)=>setCategories(res.data))
+    .catch((err)=>console.log(err))
+
+    axios.get('http://localhost:3000/api/getAllReservations').then((res)=>setReservations(res.data))
+    .catch((err)=>console.log(err))
+
     axios.get('http://localhost:3000/api/getAllOffers').then((res)=>setOffers(res.data))
     .catch((err)=>console.log(err))
-  },[])
-  console.log('fff',allOffers)
+    axios.get(`http://localhost:3000/api/oneUser/${userId&&userId}`).then((res)=>setLogged(res.data)).catch((err)=>console.log(err)
+    )
+    axios.get(`http://localhost:3000/api/getreviews/${oneHouse.idoffer}`).then((res)=>setReviews(res.data)).catch((err)=>console.log(err))
+    },[oneHouse])
     const setOne=(id:number)=>{
       axios.get(`http://localhost:3000/api/getAllOffer/${id}`).then((res)=>setOneHouse(res.data)).catch((err)=>console.log(err)
       )
     }
+    
     const value: DataContextValue = {
         allOffers,
         setOffers,
@@ -83,7 +98,8 @@ const [satisfactions,setSatisfactions]=useState<Satisfactions[]>([])
         setNotifications,
         satisfactions,
         setSatisfactions,
-        setOne
+        setOne,
+        loggedUser
       };
 
 
@@ -94,6 +110,11 @@ const [satisfactions,setSatisfactions]=useState<Satisfactions[]>([])
       );
 }
 export { DataProvider, DataContext };
+
+
+
+
+
 
 
 

@@ -1,4 +1,4 @@
-export interface categories{
+export default interface categories{
 
     idcategorie:number,
     categorieName:string,

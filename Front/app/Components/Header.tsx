@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import logo from '../../public/logo.png'
+import Link from 'next/link';
 
 export default function Header(){
 
@@ -9,7 +10,8 @@ export default function Header(){
         <div>
             <header className="bg-orange-950  p-3">
                 <div className="container mx-auto">
-                <Image src={logo} alt='logo' width={175} />
+             <Link href='/'>
+             <Image src={logo} alt='logo' width={175} /></Link>   
                 </div>
             </header>
         </div> 

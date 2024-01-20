@@ -1,4 +1,4 @@
-export interface admin{
+export default interface admin{
 
     idadmin:number,
     adminName:string,

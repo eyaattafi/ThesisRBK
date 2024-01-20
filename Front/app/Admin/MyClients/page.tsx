@@ -2,7 +2,7 @@
 import React, { useState,useEffect } from 'react'
 import ConfirmBlock from './ConfirmBlock';
 import axios from 'axios';
-
+import Link from 'next/link'
 
 interface User {
     iduser: number,
@@ -81,7 +81,7 @@ const handleConfirm = () => {
         <p className="mt-8 border rounded p-2 pl-6 w-full justify-center shadow-lg "><span className='font-bold'>Email:</span> {el.userEmail}</p>
         <p className="mt-4 border rounded p-2 pl-6 w-full justify-center shadow-lg "><span className='font-bold'>Phone Number:</span> +216 55247751</p>
         <div className='mt-6 ml-12 mb-6 '>
-        <button className=' mr-5 bg-white shadow-lg px-4 py-2 rounded hover:bg-green-500'> Contact</button>
+        <button className=' mr-5 bg-white shadow-lg px-4 py-2 rounded hover:bg-green-500' ><Link href={`/Admin/MyClients/ContactUser/${el.iduser}/${el.userEmail}`}>Notification</Link> </button>
         <button className='bg-white shadow-lg px-4 py-2 rounded hover:bg-red-500' onClick={()=>{setShow(!show); setId(el.iduser)}}> Block </button>
         <div> {show && <ConfirmBlock  onConfirm={handleConfirm} onCancel={handleCancel}/>}</div>
       </div></div>
