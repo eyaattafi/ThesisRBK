@@ -58,11 +58,11 @@ useEffect (()=>{notify()},[])
 useEffect(()=>{
   const timer = setTimeout(() => {
     setShowWelcome(false);
-  }, 60000);
+  }, 5000);
 return () => clearTimeout(timer);},[showWelcome])
 
 
-useEffect (()=>{   const timer = setTimeout(() => { setShowNotAut(false)}, 60000)
+useEffect (()=>{   const timer = setTimeout(() => { setShowNotAut(false)}, 5000)
 return () => clearTimeout(timer);},[showNotAut])
 
 let welcome = null;
