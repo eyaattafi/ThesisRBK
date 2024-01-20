@@ -9,6 +9,9 @@ import { FaChartLine } from "react-icons/fa";
 import { GiConfirmed } from "react-icons/gi";
 import { MdOutlineMoodBad } from "react-icons/md";
 import { IoSettingsOutline } from "react-icons/io5";
+import {Tooltip} from "@nextui-org/react";
+
+
 export default function AdminLayout({
     children, 
   }: {
@@ -17,18 +20,19 @@ export default function AdminLayout({
     return (
       <section>
  <nav className="flex flex-r gap-12 bg-slate-100">
-        <div className='bg-gray-50 shadow-xl rounded w-36 h-full bg-transparent '>
+        <div className='bg-gray-50 shadow-xl rounded w-36 h-full bg-transparent pt-6 '>
 
-        <ul className=' bg-gray-100 shadow-2xl p-4  w-28'>
+        <ul className=' p-10 h-[1300px] w-28'>
       
-        <Link href='/Admin/Inbox' ><MdOutlineForwardToInbox size={50} className='text-orange-950 mt-3 ml-4 cursor-pointer transition-all hover:border rounded hover:transform hover:scale-150  hover:text-orange-800 '/> </Link>
-        <Link href='/Admin/SalesHistorical' ><IoMdTime size={50} className='text-orange-950  mt-16 ml-4 cursor-pointer transition-all hover:border rounded hover:transform hover:scale-150  hover:text-orange-800' /></Link> 
-        <Link href='/Admin/Clients' ><IoPeopleOutline size={50} className='text-orange-950  mt-16 ml-4  cursor-pointer transition-all hover:border rounded hover:transform hover:scale-150  hover:text-orange-800'/></Link> 
-        <Link href='/Admin/Renters' > < MdOutlineHomeWork size={50} className='text-orange-950  mt-16 ml-4 cursor-pointer transition-all hover:border rounded hover:transform hover:scale-150  hover:text-orange-800'/></Link> 
-        <Link href='/Admin' > <FaChartLine size={50} className='text-orange-950  mt-16 ml-4 cursor-pointer transition-all hover:border rounded hover:transform hover:scale-150  hover:text-orange-800'/></Link> 
-        <Link href='/Admin/ConfirmRents' > < GiConfirmed size={50} className='text-orange-950  mt-16 ml-4 cursor-pointer transition-all hover:border rounded hover:transform hover:scale-150  hover:text-orange-800' /></Link> 
-        <Link href='/Admin/Claims' ><MdOutlineMoodBad size={50} className='text-orange-950  mt-16 ml-4 cursor-pointer transition-all hover:border rounded hover:transform hover:scale-150  hover:text-orange-800'  /></Link> 
-        <Link href='/Admin/Settings' >< IoSettingsOutline size={50} className='text-orange-950  mt-16 ml-4 cursor-pointer transition-all hover:border rounded hover:transform hover:scale-150  hover:text-orange-800' /></Link>
+         <Link href='/Admin/Inbox' > <Tooltip content="Inbox"><MdOutlineForwardToInbox size={50} className='text-orange-950 mt-3 ml-4 cursor-pointer transition-all hover:border rounded hover:transform hover:scale-150  hover:text-orange-800 '/></Tooltip> </Link>
+        <Link href='/Admin/SalesHistorical' ><Tooltip content="Sales Historical"><IoMdTime size={50} className='text-orange-950  mt-20 ml-4 cursor-pointer transition-all hover:border rounded hover:transform hover:scale-150  hover:text-orange-800' /></Tooltip></Link> 
+        <Link href='/Admin/MyClients' ><Tooltip content="My Clients"><IoPeopleOutline size={50} className='text-orange-950  mt-20 ml-4  cursor-pointer transition-all hover:border rounded hover:transform hover:scale-150  hover:text-orange-800'/></Tooltip></Link> 
+        <Link href='/Admin/MyRents' > <Tooltip content="My Rents">< MdOutlineHomeWork size={50} className='text-orange-950  mt-20 ml-4 cursor-pointer transition-all hover:border rounded hover:transform hover:scale-150  hover:text-orange-800'/></Tooltip></Link> 
+        <Link href='/Admin' > <Tooltip content='Dashboard'><FaChartLine size={50} className='text-orange-950  mt-20 ml-4 cursor-pointer transition-all hover:border rounded hover:transform hover:scale-150  hover:text-orange-800'/></Tooltip></Link> 
+        <Link href='/Admin/ConfirmedRents' ><Tooltip content='Confirmed Rents'>< GiConfirmed size={50} className='text-orange-950  mt-20 ml-4 cursor-pointer transition-all hover:border rounded hover:transform hover:scale-150  hover:text-orange-800' /></Tooltip></Link> 
+        <Link href='/Admin/Claims' ><Tooltip content="Claims"><MdOutlineMoodBad size={50} className='text-orange-950  mt-20 ml-4 cursor-pointer transition-all hover:border rounded hover:transform hover:scale-150  hover:text-orange-800'  /></Tooltip></Link> 
+        <Link href='/Admin/Settings' >< IoSettingsOutline size={50} className='text-orange-950  mt-20 ml-4 cursor-pointer transition-all hover:border rounded hover:transform hover:scale-150  hover:text-orange-800' /></Link>
+      
         </ul>  
    
     </div>

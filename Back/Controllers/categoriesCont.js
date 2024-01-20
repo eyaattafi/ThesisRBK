@@ -10,6 +10,8 @@ try{
     res.status(500).json({error:error.message})
 }
 }
+
+
 async function createCategorie(req, res) {
     try {
       const newWish= await Categories.create(req.body);

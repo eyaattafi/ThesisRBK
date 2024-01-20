@@ -1,4 +1,16 @@
 const Reservation = require('../Models/reservations.js');
+const Offer = require('../Models/offer.js')
+const User = require('../Models/user.js')
+
+async function getAllReservations(req, res) {
+  try {
+    const reservations = await Reservation.findAll();
+    res.status(200).json(reservations)
+
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
 
 
 // Get All reservations //
@@ -12,13 +24,28 @@ async function getReservations(req, res) {
     }
   }
 
+//Get All Confirmed Reservations //
+async function getConfirmedReservations (req, res) {
+  try {
+   
+    const confirmedRes= await Reservation.findAll({
+     include:[{ model:User},{model:Offer}], where: {  reservationStatus:"confirmed"} });
+
+    res.json(confirmedRes)
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+}
+
+
+
 // Get all reservations by category // 
 
-async function getReserByCat (req, res) {
+async function getReserByuserId (req, res) {
   try {
    
     const reservation= await Reservation.findAll({
-       where: { reservationStatus:"Confirmed", categorie_idcategorie: req.params.categorie_idcategorie} });
+       where: { userIduser:req.params.userid} });
 
     res.json(reservation)
   } catch (error) {
@@ -72,7 +99,9 @@ async function getReserByCat (req, res) {
     createReservation,
     updateReservation,
     deleteReservation,
-    getReserByCat
+    getAllReservations,
+    getReserByuserId,
+    getConfirmedReservations
   };
 
 

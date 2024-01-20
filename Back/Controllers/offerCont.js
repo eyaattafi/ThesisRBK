@@ -1,9 +1,18 @@
 const Offer=require('../Models/offer.js')
 
-
+//Get All offers //
 async function getOffers(req, res) {
     try {
       const offers = await Offer.findAll();
+      res.status(200).json(offers)
+
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  }
+  async function getOffersbyUser(req, res) {
+    try {
+      const offers = await Offer.findAll({where:{userIduser:req.params.iduser}});
       res.status(200).json(offers)
 
     } catch (error) {
@@ -51,6 +60,7 @@ async function getOffers(req, res) {
     }
   }
   module.exports = {
+    getOffersbyUser,
     getOffers,
     getOneOffer,
     createOffer,

@@ -1,10 +1,11 @@
 const Admin = require('../Models/admin.js');
 const jwt =require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 
 
-const generateToken = (iduser, userName) => {
-  const expiresIn = 60 * 60 * 48; // 2 days token
-  return jwt.sign({ iduser,userName }, 'secretKey', { expiresIn: expiresIn });
+const generateToken = (idadmin, adminName) => {
+  const expiresIn = 60 * 60 * 2; // 2 hours token
+  return jwt.sign({ idadmin,adminName }, 'secretKey', { expiresIn: expiresIn });
 };
 
 
@@ -38,11 +39,20 @@ async function getOneAdmin(req, res) {
 
 //****************************** * Create new Admin **********************//
 async function createAdmin(req, res) {
+  const {adminName, adminEmail, adminPassword  } = req.body;
   try {
-    const newAdmin = await Admin.create(req.body);
-    const token = generateToken(newAdmin.idadmin,newAdmin.AdminName);
-    newAdmin.dataValues.token=token
-    res.status(201).send(newAdmin);
+ 
+    const hashedPassword = await bcrypt.hash(adminPassword, 10);
+  
+    const newAdmin = {
+      adminName,
+      adminEmail,
+      adminPassword: hashedPassword}
+
+    const adm = await Admin.create(newAdmin);
+    const token = generateToken(adm.idadmin,adm.AdminName);
+    adm.dataValues.token=token
+    res.status(201).send(adm);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -88,5 +98,5 @@ module.exports = {
   getOneAdmin,
   createAdmin,
   updateAdmin,
-  deleteAdmin,
+  deleteAdmin
 };

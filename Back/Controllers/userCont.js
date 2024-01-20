@@ -19,11 +19,24 @@ async function getAllUsers(req, res) {
   }
 }
 
-//**********************************  Get oneUser by id ************************//
-async function getOneUser(req, res) {
+
+// Get all users non blocked // 
+async function getUsersNonBlock(req, res) {
   try {
 
-    let oneUser=await User.findOne({where:{iduser: req.params.iduser}})
+    const allUs = await User.findAll({where:{userBlocked: false}});
+    res.json(allUs);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
+
+
+//*******************************Get user By email ********************************/
+async function getUserByEmail(req, res) {
+  try {
+
+    let oneUser=await User.findOne({where:{userEmail: req.params.userEmail}})
     res.json(oneUser)
    
     if (!oneUser) {
@@ -35,6 +48,25 @@ async function getOneUser(req, res) {
     res.status(500).json({ error: error.message });
   }
 }
+
+//**********************************  Get oneUser by id ************************//
+async function getOneUser(req, res) {
+  try {
+    let oneUser = await User.findOne({ where: { iduser: req.params.iduser } });
+
+    if (!oneUser) {
+      res.status(404).json({ message: 'User not found' });
+      return;
+    }
+
+    // Send the successful response
+    res.json(oneUser);
+
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
+
 
 //****************************** * Create new user **********************//
 async function createUser(req, res) {
@@ -89,4 +121,6 @@ module.exports = {
   createUser,
   updateUser,
   deleteUser,
+  getUsersNonBlock,
+  getUserByEmail
 };
