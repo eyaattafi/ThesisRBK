@@ -78,7 +78,7 @@ export default function Home() {
     return(
       <div className="w-[250px] h-[350px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700" key={i}>
                            
-                  {/* <Slide>         
+                  <Slide>         
                       {el.offerImages.map((slideImage, index)=> (
                           <Link href="/details">
                           <img className="rounded  w-full h-[200px]" src={slideImage}/>
@@ -86,7 +86,7 @@ export default function Home() {
                           </Link>
                       ))} 
                   </Slide>
-               */}
+              
               <div className="p-2">
 
                       <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white overflow-hidden">{el.offerTitle}</h5>
