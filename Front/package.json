@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.15.4",
@@ -24,6 +25,7 @@
     "link": "^2.1.0",
     "modal": "^1.2.0",
     "next": "14.0.4",
+    "next-auth": "^4.24.5",
     "react": "^18",
     "react-chartjs-2": "^5.2.0",
     "react-date-range": "^2.0.0-alpha.4",
