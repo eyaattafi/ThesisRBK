@@ -7,20 +7,30 @@ import { ToastContainer, toast } from 'react-toastify';
 import '../SignIn/SignIn.css'
 import 'react-toastify/dist/ReactToastify.css';
 import { Slide, Zoom, Flip, Bounce } from 'react-toastify';
-
+import Welcome from './Welcome'
+import NotAuth from "./NotAuth";
 
 export default function LogAdmin() {
   
   const { push } = useRouter();
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const [showWelcome, setShowWelcome] = useState<boolean>(false);
+  const [showNotAut, setShowNotAut] = useState<boolean>(false);
+
+  
+  // warning staff only //
   const notify = () => {
     toast.warning("WARNING! RentaVilla's Staff Only !", {
     position: "top-center", theme: "colored"
   })};
 
+  //Handle Showing the Popup of welcome //
+  const showPopupHandler = () => setShowWelcome(true)
+    //Handle Showing the Popup of Not Autorized Admin only//
+  const showNotAutHandler = () => setShowNotAut(true)
 
-
+  //Handle submit of the admin //
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 if((!email) || (!password)) {
@@ -30,9 +40,11 @@ if((!email) || (!password)) {
     try {
       const logadmin  = await axios.post("http://localhost:3000/api/logAdmin", { adminEmail: email, adminPassword: password });
 
-      if(logadmin.data.idadmin) {push("/Admin")}
+      if(logadmin.data.idadmin) {
+        showPopupHandler()
+        push("/Admin")}
 else{
-  alert("Please check your entred details")
+  showNotAutHandler()
   push("/LogAdmin")}
     } catch (e) {      
       const error = e as AxiosError;  
@@ -40,8 +52,27 @@ else{
       alert(error.message);
     }
   };
-useEffect(()=>{notify()},[])
 
+useEffect (()=>{notify()},[])
+
+useEffect(()=>{
+  const timer = setTimeout(() => {
+    setShowWelcome(false);
+  }, 60000);
+return () => clearTimeout(timer);},[showWelcome])
+
+
+useEffect (()=>{   const timer = setTimeout(() => { setShowNotAut(false)}, 60000)
+return () => clearTimeout(timer);},[showNotAut])
+
+let welcome = null;
+let notAut = null;
+if(showWelcome) {
+  welcome = <Welcome/>;
+ }
+ if(showNotAut){
+  notAut = <NotAuth/>
+ }
   return (
       <div className="grid grid-cols-2 ml-24">
         <img className=' mt-32 shadow-lg rounded ml-10 mb-24' src="https://i.pinimg.com/originals/24/e8/f0/24e8f08ba83e34213572acbdb1061bf0.jpg"/>
@@ -74,6 +105,10 @@ useEffect(()=>{notify()},[])
 
         <ToastContainer  transition={Zoom}  autoClose={8000}/>
       </div>
+      <>
+       {welcome}
+       {notAut}
+      </>
       </div>
             </div>
       );
