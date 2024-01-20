@@ -12,19 +12,19 @@ const Inbox = sequelize.define('inbox', {
       autoIncrement: true,
       primaryKey: true,
     },
-    inboxObject: {
+    inBoxObject: {
         type: DataTypes.STRING(45),
         allowNull: false,
       },
-    inboxBody: {
+    inBoxBody: {
         type: DataTypes.STRING(255),
         allowNull: false,
       },
-    inboxDate: {
+    inBoxDate: {
       type: DataTypes.DATE,
       allowNull: true,
     },
-    inboxStatus: {
+    inBoxStatus: {
         type : DataTypes.STRING(45),
         allowNull : true,
     },

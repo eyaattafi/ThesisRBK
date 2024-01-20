@@ -15,7 +15,7 @@ export default function SignIn() {
   const [password, setPassword] = useState<string>('');
   const [error, setError] = useState<string>('');
 
-
+console.log("iduser", userId)
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -41,6 +41,7 @@ else{
   const getUserIdFromLocalStorage = () => {
     const storedUserId = localStorage.getItem('userId');
     if (storedUserId) {
+      
       setUserId(storedUserId);
     }
   };
@@ -68,7 +69,7 @@ else{
         onChange={(e) => setPassword(e.target.value)}
       />
        
-        <button className="divS33 w-full" onClick={()=>getUserIdFromLocalStorage}>
+        <button className="divS33 w-full" onClick={()=>getUserIdFromLocalStorage()}>
           Log In
         </button>
       <div>
