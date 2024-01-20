@@ -67,6 +67,7 @@ async function getOneUser(req, res) {
   }
 }
 
+
 //****************************** * Create new user **********************//
 async function createUser(req, res) {
   try {
