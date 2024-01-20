@@ -3,9 +3,9 @@ import React, { useEffect, useState } from "react";
 import style from"./chat.module.css"
 import axios from "axios";
 interface IMsgDataTypes {
-  roomId:  number;
-  company_idcompany:  number;
-  client_id:  number;
+  idchat:  number;
+  admin_idadmin:  number;
+  id_user:  number;
   content: String;
 }
 interface userDataTypes {
@@ -13,7 +13,7 @@ interface userDataTypes {
   image_user:string;
 }
 
-const ChatPage = ({ socket, userId, roomId,companyId }: any) => {
+const ChatPage = ({ socket,iduser,idchat,admin_idadmin }: any) => {
   console.log(socket);
   
   const [currentMsg, setCurrentMsg] = useState("");
@@ -23,9 +23,8 @@ const ChatPage = ({ socket, userId, roomId,companyId }: any) => {
     e.preventDefault();
     if (currentMsg !== "") {
       const msgData: IMsgDataTypes = {
-        roomId,
-        company_idcompany:companyId,
-        client_id: userId,
+        admin_idadmin:admin_idadmin,
+        iduser: iduser,
         content: currentMsg,
       };
       await socket.emit("send_msg", msgData);
@@ -42,38 +41,38 @@ const ChatPage = ({ socket, userId, roomId,companyId }: any) => {
 console.log(chat);
 
 useEffect(() => {
-  axios.get(`http://localhost:3000/api/users/${userId}`)
+  axios.get(`http://localhost:3000/api/users/${iduser}`)
     .then(e=>{
        setUser(e.data)
     }).catch(error=>console.error(error))
-  },[userId])
+  },[iduser])
 
   return (
     <div className={style.chat_div}>
       <div className={style.chat_border}>
         <div style={{ marginBottom: "1rem" }}>
-          <p>
+          <p className="name">
             Name: <b>{user.fullName}</b>
           </p>
         </div>
         <div>
-          {chat.map(({ roomId, client_id, content  }, key) => (
+          {chat.map(({ idchat, iduser, content  }, key) => (
             <div
               key={key}
               className={
-                client_id == userId
+                iduser == iduser
                   ? style.chatProfileRight
                   : style.chatProfileLeft
               }
             >
               <span
                 className={style.chatProfileSpan}
-                style={{ textAlign: client_id == userId ? "right" : "left" }}
+                style={{ textAlign: iduser == iduser ? "right" : "left" }}
               >
                 {/* {<img src={user.image_user} alt="" />} */}
-                {client_id}
+                {iduser}
               </span>
-              <h3 style={{ textAlign: client_id == userId ? "right" : "left" }}>
+              <h3 style={{ textAlign: iduser == iduser ? "right" : "left" }}>
                 {content}
               </h3>
             </div>

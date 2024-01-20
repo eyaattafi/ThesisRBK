@@ -22,14 +22,15 @@ const Chat = sequelize.define('chat', {
   indexes: [
     {
       name: 'fk_chat_user_idx',
-      fields: ['client_id'],
+      fields: ['user_iduser'],
     },
     {
-      name: 'fk_chat_admin_idx',
+      name: 'fk_chat_admin1_idx',
       fields: ['admin_idadmin'],
     },
   ],
 });
+
 
 Chat.belongsTo(user, {
   foreignKey: 'user_isuser',

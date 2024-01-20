@@ -2,9 +2,9 @@
 import { io } from "socket.io-client";
 import { useEffect, useState } from "react";
 import ChatPage from "../chatClient/page";
-import styles from"./chat.module.css"
+import './chat.css'
 import axios from "axios";
-// import { error } from "console";
+
 export default function Home({user,company}:any) {
   
   useEffect(() => {
@@ -16,14 +16,14 @@ export default function Home({user,company}:any) {
 
     
 
-  const idcompany=localStorage.getItem(("idcompany"))
+  const idadmin=localStorage.getItem(("idadmin"))
   const id=localStorage.getItem("id")
   const [showChat, setShowChat] = useState(false);
   const [chat, setChat] = useState([]);
   const [userId, setUserId] = useState(id || user);
   const [showSpinner, setShowSpinner] = useState(false);
-  const [roomId, setRoomId] = useState(0);
-  const [companyId,setCompanyId]=useState(idcompany || company )
+  const [idchat, setIdchat] = useState(0);
+  const [adminId,setAdminId]=useState(idadmin  )
   var socket: any;
   socket = io("http://localhost:7000");
 console.log(socket,"socket");
@@ -31,9 +31,9 @@ console.log(socket,"socket");
 
 
   const handleJoin = () => {
-    if(!idcompany){setRoomId(chat.length+1)}
-    // else{setRoomId(idRoom)}
-      socket.emit("join_room", roomId);
+    if(!idadmin){setIdchat(chat.length+1)}
+ 
+      socket.emit("join_chat", idchat);
       setShowSpinner(true);
 
       setTimeout(() => {
@@ -48,33 +48,20 @@ console.log(socket,"socket");
            
 
       <div
-        className={styles.main_div}
+        className="main_div"
         style={{ display: showChat ? "none" : "" }}
       >
-        {/* <input
-          className={styles.main_input}
-          type="text"
-          placeholder="Username"
-          onChange={(e) => setUserId(e.target.value)}
-          disabled={showSpinner}
-        />
-        <input
-          className={styles.main_input}
-          type="text"
-          placeholder="room id"
-          onChange={(e) => setroomId(e.target.value)}
-          disabled={showSpinner}
-        /> */}
-        <button className={styles.main_button} onClick={() => handleJoin()}>
+       
+        <button className="main_button" onClick={() => handleJoin()}>
           {!showSpinner ? (
-            "How can I help you"
+            "How you can send us a message"
           ) : (
-            <div className={styles.loading_spinner}></div>
+            <div className="loading_spinner"></div>
           )}
         </button>
       </div>
       <div style={{ display: !showChat ? "none" : "" }}>
-        <ChatPage socket={socket} roomId={roomId} userId={userId}  companyId={companyId}/>
+        <ChatPage socket={socket} idchat={idchat} iduser={userId}  adminId={adminId}/>
       </div>
     </div>
   );
