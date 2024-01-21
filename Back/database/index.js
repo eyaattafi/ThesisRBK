@@ -6,6 +6,7 @@ const { Sequelize } = require('sequelize');
   "root",
   "root",
 
+
   {
     host: "localhost",
     dialect: "mysql",
