@@ -101,31 +101,6 @@ const Admin = () => {
   };
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   return (
     <div>
     <div className='flex flex-r gap-8 ml-11'>
