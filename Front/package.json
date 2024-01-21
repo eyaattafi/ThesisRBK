@@ -1,19 +1,20 @@
 {
-
-  "name": "chatbot-host",
-
+  "name": "ecom",
   "version": "1.0.0",
-
-  "private": true,
-
+  "description": "A Minimum Viable Product",
+  "main": "index.js",
   "scripts": {
-
+    "start": "concurrently \"npm run server-main\" \"npm run server-chat\"",
+    "server-main": "nodemon index.js",
+    "server-chat": "nodemon indexChat.js"
+  },
+  "name": "chatbot-host",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
     "dev": "next dev",
-
     "build": "next build",
-
     "start": "next start",
-
     "lint": "next lint"
 
   },

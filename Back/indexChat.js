@@ -2,7 +2,6 @@ const http = require("http");
 const { Server } = require("socket.io");
 const cors = require("cors");
 
-// Assuming you've imported the Sequelize Chat model correctly
 const Chat = require("./Models/chat"); 
 
 const httpServer = http.createServer();
@@ -28,14 +27,12 @@ io.on("connection", (socket) => {
     console.log(data, "DATA");
 
     try {
-      // Store the chat message in the database using Sequelize
       const newChatMessage = await Chat.create({
         content: data.content,
         user_iduser: data.user_iduser,
         admin_idadmin: data.admin_idadmin,
       });
 
-      // Emit the newly stored message to the room
       socket.to(data.idchat).emit("receive_msg", newChatMessage);
     } catch (error) {
       console.error("Error occurred while saving chat message:", error);
