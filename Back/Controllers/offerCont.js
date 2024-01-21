@@ -19,6 +19,17 @@ async function getOffers(req, res) {
       res.status(500).json({ error: error.message });
     }
   }
+
+  async function getOffersbyRegion(req, res) {
+    try {
+      const offers = await Offer.findAll({where:{idCategory:req.params.region}});
+      res.status(200).json(offers)
+
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  }
+
   async function getOneOffer(req, res) {
     try {
       const offer = await Offer.findOne({where:{idoffer:req.params.offerid}});
@@ -65,5 +76,6 @@ async function getOffers(req, res) {
     getOneOffer,
     createOffer,
     updateOffer,
-    deleteOffer
+    deleteOffer,
+    getOffersbyRegion
   };
