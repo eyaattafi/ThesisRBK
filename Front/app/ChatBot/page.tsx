@@ -5,7 +5,7 @@ import ChatPage from "../chatClient/page";
 import './chat.css'
 import axios from "axios";
 
-export default function Home({user,company}:any) {
+export default function Home({user,admin}:any) {
   
   useEffect(() => {
     axios.get(`http://localhost:3000/api/allChat`)
@@ -20,40 +20,33 @@ export default function Home({user,company}:any) {
   const id=localStorage.getItem("id")
   const [showChat, setShowChat] = useState(false);
   const [chat, setChat] = useState([]);
-  const [userId, setUserId] = useState(id || user);
-  const [showSpinner, setShowSpinner] = useState(false);
+  const [iduser, setIduser] = useState(id || user);
+  const [show, setShow] = useState(false);
   const [idchat, setIdchat] = useState(0);
   const [adminId,setAdminId]=useState(idadmin  )
   var socket: any;
   socket = io("http://localhost:7000");
-console.log(socket,"socket");
-
-
+  console.log(socket,"sockeeeeeet");
 
   const handleJoin = () => {
     if(!idadmin){setIdchat(chat.length+1)}
  
       socket.emit("join_chat", idchat);
-      setShowSpinner(true);
+      setShow(true);
 
       setTimeout(() => {
         setShowChat(true);
-        setShowSpinner(false);
+        setShow(false);
       }, 2000);
-   
   };
 
   return (
     <div>
-           
-
       <div
         className="main_div"
-        style={{ display: showChat ? "none" : "" }}
-      >
-       
+        style={{ display: showChat ? "none" : "" }} >
         <button className="main_button" onClick={() => handleJoin()}>
-          {!showSpinner ? (
+          {!show ? (
             "How you can send us a message"
           ) : (
             <div className="loading_spinner"></div>
@@ -61,7 +54,7 @@ console.log(socket,"socket");
         </button>
       </div>
       <div style={{ display: !showChat ? "none" : "" }}>
-        <ChatPage socket={socket} idchat={idchat} iduser={userId}  adminId={adminId}/>
+        <ChatPage socket={socket} idchat={idchat} iduser={iduser}  admin={adminId}/>
       </div>
     </div>
   );
