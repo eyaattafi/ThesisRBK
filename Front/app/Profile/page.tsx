@@ -1,9 +1,13 @@
 "use client";
-import * as React from "react";
+
+import  React from "react";
+import {useState} from "react" ;
+import axios from "axios"
 import "./Profile.css";
 import Link from "next/link";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
+import { NextPage } from 'next';
 // import Payment from "../payment/page";
 
 const style = {
@@ -11,7 +15,7 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  height: 650,
+  height: 716,
   width: 500,
   bgcolor: "background.paper",
   boxShadow: 24,
@@ -19,12 +23,70 @@ const style = {
   p: 4,
   borderRadius: "0.50rem",
 };
+interface ProfileProps {
+  user: {
+    iduser: number;
+  } | null;
+}
 
-const Profile = () => {
+const Profile: NextPage<ProfileProps> = ({user}) => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const [userName,setUserName]=useState<String>("")
+  const [firstName,setFirstName]=useState<String>("")
+  const [lastName,setLastName]=useState<String>("")
+  const [userEmail,setUserEmail]=useState<String>("")
+  const [userPassword,setUserPassword]=useState<String>("")
+  const [userConfirmPass,setUserConfirmPass]=useState<String>("")
+  const [image,setImage]=useState<String>("")
+  const [adress,setAdress]=useState<String>("")
+  const [contactNumber,setContactNumber]=useState<Number>(0)
+  const [city,setCity]=useState<String>("")
+  const [state,setState]=useState<String>("")
+
+  const id = user?.iduser || 0;
+
+  const handleInputChange = (e:any, setStateFunction:any) => {
+    setStateFunction(e.target.value);
+  }
+  const handleUpdateProfile = async () => {
+    const profileToUpdate = {
+      userName: `${firstName} ${lastName}`,
+      email: userEmail,
+      password: userPassword,
+      confirmPass: userConfirmPass,
+      city: city,
+      state: state,
+      contactNumber: contactNumber,
+      address: adress
+    };
+  
+    try {
+      const update = await axios.put(`http://localhost:3000/api/updateUser/${id}`, profileToUpdate);
+      console.log("Profile updated ", update.data);
+      alert("Updated successfully");
+    } catch (error) {
+      alert("Failed to update");
+    }
+  };
+    
+    // const update = async () => {
+    //   try {
+    //     if( userPassword === userConfirmPass)
+    // {    await axios.put(`http://localhost:3000/api/upateUser/${id}`, profileToUpdate )
+    // console.log("heyyyy")
+    // alert("your update is successfully")
+    // }
+    // } catch (error) {
+    //     alert("check passworrd")
+    //   }
+    // }
+  // }
+
+
+  
   return (
     <div className="profile-wrapper">
       <div className="profile-content">
@@ -32,7 +94,7 @@ const Profile = () => {
           <h2>Account</h2>
           <p>
             Hammami Mohamed Amine, hammamimin@gmail.com.
-            <Link href="/">Go To Profile</Link>
+            <Link href="/">Go To HomePage</Link>
           </p>
         </div>
         <div className="profile-container">
@@ -129,6 +191,7 @@ const Profile = () => {
       </div>
       <Modal
         open={open}
+
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
@@ -148,6 +211,8 @@ const Profile = () => {
                   placeholder="Write here..."
                   name="input"
                   className="input"
+                  
+                  onChange={(e:any) => handleInputChange(e,setFirstName)}
                 />
               </div>
               <div className="coolinput">
@@ -159,6 +224,7 @@ const Profile = () => {
                   placeholder="Write here..."
                   name="input"
                   className="input"
+                  onChange={(e:any) => handleInputChange(e,setLastName)}
                 />
               </div>
             </div>
@@ -171,6 +237,7 @@ const Profile = () => {
                 placeholder="Write here..."
                 name="input"
                 className="input"
+                onChange={(e:any) => handleInputChange(e,setUserEmail)}
               />
             </div>
             <div className="coolinput">
@@ -182,6 +249,7 @@ const Profile = () => {
                 placeholder="Write here..."
                 name="input"
                 className="input"
+                onChange={(e:any) => handleInputChange(e,setAdress)}
               />
             </div>
             <div className="coolinput">
@@ -193,6 +261,7 @@ const Profile = () => {
                 placeholder="Write here..."
                 name="input"
                 className="input"
+                onChange={(e:any) => handleInputChange(e,setContactNumber)}
               />
             </div>
             <div className="double-input">
@@ -205,6 +274,7 @@ const Profile = () => {
                   placeholder="Write here..."
                   name="input"
                   className="input"
+                  onChange={(e:any) => handleInputChange(e,setCity)}
                 />
               </div>
               <div className="coolinput">
@@ -216,6 +286,7 @@ const Profile = () => {
                   placeholder="Write here..."
                   name="input"
                   className="input"
+                  onChange={(e:any) => handleInputChange(e,setState)}
                 />
               </div>
             </div>
@@ -228,17 +299,40 @@ const Profile = () => {
                 placeholder="Write here..."
                 name="input"
                 className="input"
+                onChange={(e:any) => handleInputChange(e,setUserPassword)}
+              />
+            </div>
+            <div className="coolinput">
+              <label htmlFor="input" className="text">
+               Confirm Password :
+              </label>
+              <input
+                type="text"
+                placeholder="Write here..."
+                name="input"
+                className="input"
+                onChange={(e:any) => handleInputChange(e,setUserPassword)}
               />
             </div>
             <div className="action-btns">
-              <button>Cancel</button>
-              <button>Save</button>
+              <button type="reset"
+              onClick={()=>{
+                  setUserName("") ;
+                  setUserEmail("");
+                  setUserPassword("");
+                  setAdress('');
+                  setCity("");
+                  setState("");
+                  setContactNumber(0);
+              }}>Cancel</button>
+              
+              <button type="submit"onClick={handleUpdateProfile}>Save</button>
             </div>
           </div>
         </Box>
       </Modal>
     </div>
   );
-};
+} 
 
-export default Profile;
+export default Profile ;
