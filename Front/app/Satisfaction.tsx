@@ -12,11 +12,10 @@ const Satisfaction = () => {
   
 
     // Show the survey //
-    setInterval(fetchSurvey, 10000);
+    setInterval(fetchSurvey, 100000);
     function fetchSurvey() {
-      if(Number(storedUserId)!==2){
        setShow(true)
-      }
+    
     }
 
     const answer = {

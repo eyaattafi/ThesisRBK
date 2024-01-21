@@ -19,7 +19,9 @@
   },
 
   "dependencies": {
+
     "@chakra-ui/react": "^2.8.2",
+
     "@emotion/react": "^11.11.3",
 
     "@emotion/styled": "^11.11.0",
@@ -29,6 +31,8 @@
     "@mui/icons-material": "^5.15.4",
 
     "@mui/material": "^5.15.5",
+
+    "@mui/x-data-grid": "^6.19.1",
 
     "@nextui-org/react": "^2.2.9",
 
@@ -53,7 +57,9 @@
     "modal": "^1.2.0",
 
     "next": "14.0.4",
+
     "next-auth": "^4.24.5",
+
     "react": "^18",
 
     "react-apexcharts": "^1.4.1",
