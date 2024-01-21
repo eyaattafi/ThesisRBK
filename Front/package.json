@@ -1,16 +1,11 @@
 {
-  "name": "ecom",
-  "version": "1.0.0",
-  "description": "A Minimum Viable Product",
-  "main": "index.js",
-  "scripts": {
-    "start": "concurrently \"npm run server-main\" \"npm run server-chat\"",
-    "server-main": "nodemon index.js",
-    "server-chat": "nodemon indexChat.js"
-  },
+
   "name": "chatbot-host",
+
   "version": "1.0.0",
+
   "private": true,
+
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -20,7 +15,7 @@
   },
 
   "dependencies": {
-    "@chakra-ui/react": "^2.8.2",
+
     "@emotion/react": "^11.11.3",
 
     "@emotion/styled": "^11.11.0",
@@ -50,7 +45,7 @@
     "modal": "^1.2.0",
 
     "next": "14.0.4",
-    "next-auth": "^4.24.5",
+
     "react": "^18",
 
     "react-chartjs-2": "^5.2.0",

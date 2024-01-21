@@ -30,14 +30,10 @@ export default function Home({user,admin}:any) {
 
   const handleJoin = () => {
     if(!idadmin){setIdchat(chat.length+1)}
- 
-      socket.emit("join_chat", idchat);
+      socket.emit("chat", idchat);
       setShow(true);
-
-      setTimeout(() => {
-        setShowChat(true);
-        setShow(false);
-      }, 2000);
+      setShowChat(true);
+      
   };
 
   return (
@@ -45,11 +41,11 @@ export default function Home({user,admin}:any) {
       <div
         className="main_div"
         style={{ display: showChat ? "none" : "" }} >
-        <button className="main_button" onClick={() => handleJoin()}>
+        <button className="button" onClick={() => handleJoin()}>
           {!show ? (
             "How you can send us a message"
           ) : (
-            <div className="loading_spinner"></div>
+            <div className="loading"></div>
           )}
         </button>
       </div>

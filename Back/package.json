@@ -4,8 +4,10 @@
     "description": "A Minimum Viable Product",
     "main": "index.js",
     "scripts": {
-        "server-dev": "nodemon index.js"
-    },
+        "start": "concurrently \"npm run server-main\" \"npm run server-chat\"",
+        "server-main": "nodemon index.js",
+        "server-chat": "nodemon indexChat.js"
+      },
     "author": "You!",
     "license": "ISC",
     "dependencies": {
