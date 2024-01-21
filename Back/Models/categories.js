@@ -26,4 +26,5 @@ const Categories=sequelize.define('categorie',{
 },{
     tableName:'categorie'
 })
+
 module.exports= Categories
