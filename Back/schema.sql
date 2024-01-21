@@ -1,4 +1,3 @@
--- MySQL Workbench Forward Engineering
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
@@ -45,36 +44,13 @@ CREATE TABLE IF NOT EXISTS `thesisrbk`.`user` (
   `userLatitude` VARCHAR(45) NULL DEFAULT NULL,
   `userLongitude` VARCHAR(45) NULL DEFAULT NULL,
   `userConfirmPass` VARCHAR(255) NULL DEFAULT NULL,
+  `adress` VARCHAR(45) NULL DEFAULT NULL,
+  `city` VARCHAR(45) NULL DEFAULT NULL,
+  `state` VARCHAR(45) NULL DEFAULT NULL,
+  `contactNumber` INT NULL DEFAULT NULL,
   PRIMARY KEY (`iduser`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 2
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
-
-
--- -----------------------------------------------------
--- Table `thesisrbk`.`offer`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `thesisrbk`.`offer` (
-  `idoffer` INT NOT NULL AUTO_INCREMENT,
-  `offerTitle` LONGTEXT NULL DEFAULT NULL,
-  `offerDescription` LONGTEXT NULL DEFAULT NULL,
-  `offerImages` JSON NULL DEFAULT NULL,
-  `offerPrice` INT NULL DEFAULT NULL,
-  `offerType` VARCHAR(45) NULL DEFAULT NULL,
-  `offerStatus` TINYINT NULL DEFAULT NULL,
-  `qrCode` LONGTEXT NULL DEFAULT NULL,
-  `renterOrNot` TINYINT NULL DEFAULT NULL,
-  `latitude` VARCHAR(45) NULL DEFAULT NULL,
-  `longitude` VARCHAR(45) NULL DEFAULT NULL,
-  `userIduser` INT NOT NULL,
-  PRIMARY KEY (`idoffer`),
-  INDEX `fk_offer_user1_idx` (`userIduser` ASC) VISIBLE,
-  CONSTRAINT `fk_offer_user1`
-    FOREIGN KEY (`userIduser`)
-    REFERENCES `thesisrbk`.`user` (`iduser`))
-ENGINE = InnoDB
-AUTO_INCREMENT = 3
+AUTO_INCREMENT = 13
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -88,18 +64,12 @@ CREATE TABLE IF NOT EXISTS `thesisrbk`.`bid` (
   `BIDstartDate` DATE NULL DEFAULT NULL,
   `BIDendDate` DATE NULL DEFAULT NULL,
   `userIduser` INT NOT NULL,
-  `offerIdoffer` INT NOT NULL,
   PRIMARY KEY (`idBID`),
-  INDEX `fk_BID_user1_idx` (`userIduser` ASC) VISIBLE,
-  INDEX `fk_bid_offer1_idx` (`offerIdoffer` ASC) VISIBLE,
-  CONSTRAINT `fk_bid_offer1`
-    FOREIGN KEY (`offerIdoffer`)
-    REFERENCES `thesisrbk`.`offer` (`idoffer`),
+  INDEX `fk_BID_user1_idx` (`user_iduser` ASC) VISIBLE,
   CONSTRAINT `fk_BID_user1`
-    FOREIGN KEY (`userIduser`)
+    FOREIGN KEY (`user_iduser`)
     REFERENCES `thesisrbk`.`user` (`iduser`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -115,7 +85,28 @@ CREATE TABLE IF NOT EXISTS `thesisrbk`.`categorie` (
   `categorieType` VARCHAR(45) NULL DEFAULT NULL,
   PRIMARY KEY (`idcategorie`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 5
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `thesisrbk`.`chat`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `thesisrbk`.`chat` (
+  `idchat` INT NOT NULL,
+  `user_iduser` INT NOT NULL,
+  `admin_idadmin` INT NOT NULL,
+  `content` VARCHAR(255) NULL DEFAULT NULL,
+  PRIMARY KEY (`idchat`),
+  INDEX `fk_chat_user_idx` (`user_iduser` ASC) VISIBLE,
+  INDEX `fk_chat_admin1_idx` (`admin_idadmin` ASC) VISIBLE,
+  CONSTRAINT `fk_chat_admin1`
+    FOREIGN KEY (`admin_idadmin`)
+    REFERENCES `thesisrbk`.`admin` (`idadmin`),
+  CONSTRAINT `fk_chat_user`
+    FOREIGN KEY (`user_iduser`)
+    REFERENCES `thesisrbk`.`user` (`iduser`))
+ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -129,8 +120,8 @@ CREATE TABLE IF NOT EXISTS `thesisrbk`.`inbox` (
   `inBoxBody` VARCHAR(255) NULL DEFAULT NULL,
   `inBoxDate` DATE NULL DEFAULT NULL,
   `inBoxStatus` VARCHAR(45) NULL DEFAULT NULL,
-  `adminIdadmin` INT NOT NULL,
-  `userIduser` INT NOT NULL,
+  `admin_idadmin` INT NOT NULL,
+  `user_iduser` INT NOT NULL,
   PRIMARY KEY (`idinBox`),
   INDEX `fk_inBox_admin_idx` (`admin_idadmin` ASC) VISIBLE,
   INDEX `fk_inBox_user1_idx` (`user_iduser` ASC) VISIBLE,
@@ -153,14 +144,44 @@ CREATE TABLE IF NOT EXISTS `thesisrbk`.`notification` (
   `notificationBody` VARCHAR(255) NULL DEFAULT NULL,
   `notificationDate` DATE NULL DEFAULT NULL,
   `notificationSeen` TINYINT NULL DEFAULT NULL,
-  `userIduser` INT NOT NULL,
+  `user_iduser` INT NOT NULL,
   PRIMARY KEY (`idnotification`),
-  INDEX `fk_notification_user1_idx` (`userIduser` ASC) VISIBLE,
+  INDEX `fk_notification_user1_idx` (`user_iduser` ASC) VISIBLE,
   CONSTRAINT `fk_notification_user1`
+    FOREIGN KEY (`user_iduser`)
+    REFERENCES `thesisrbk`.`user` (`iduser`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `thesisrbk`.`offer`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `thesisrbk`.`offer` (
+  `idoffer` INT NOT NULL AUTO_INCREMENT,
+  `offerTitle` LONGTEXT NULL DEFAULT NULL,
+  `offerDescription` LONGTEXT NULL DEFAULT NULL,
+  `offerImages` JSON NULL DEFAULT NULL,
+  `offerPrice` INT NULL DEFAULT NULL,
+  `offerType` VARCHAR(45) NULL DEFAULT NULL,
+  `offerStatus` TINYINT NULL DEFAULT NULL,
+  `qrCode` LONGTEXT NULL DEFAULT NULL,
+  `renterOrNot` TINYINT NULL DEFAULT NULL,
+  `latitude` VARCHAR(45) NULL DEFAULT NULL,
+  `longitude` VARCHAR(45) NULL DEFAULT NULL,
+  `userIduser` INT NOT NULL,
+  `categorieIdcategorie` INT NOT NULL,
+  PRIMARY KEY (`idoffer`),
+  INDEX `fk_offer_user1_idx` (`userIduser` ASC) VISIBLE,
+  INDEX `fk_offer_categorie1_idx` (`categorieIdcategorie` ASC) VISIBLE,
+  CONSTRAINT `fk_offer_categorie1`
+    FOREIGN KEY (`categorieIdcategorie`)
+    REFERENCES `thesisrbk`.`categorie` (`idcategorie`),
+  CONSTRAINT `fk_offer_user1`
     FOREIGN KEY (`userIduser`)
     REFERENCES `thesisrbk`.`user` (`iduser`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -173,19 +194,18 @@ CREATE TABLE IF NOT EXISTS `thesisrbk`.`reservation` (
   `reservationStatus` VARCHAR(45) NULL DEFAULT NULL,
   `reservationStartDate` DATE NULL DEFAULT NULL,
   `reservationEndDate` DATE NULL DEFAULT NULL,
-  `offerIdoffer` INT NOT NULL,
-  `userIduser` INT NOT NULL,
+  `offer_idoffer` INT NOT NULL,
+  `user_iduser` INT NOT NULL,
   PRIMARY KEY (`idreservation`),
-  INDEX `fk_reservation_offer1_idx` (`offerIdoffer` ASC) VISIBLE,
-  INDEX `fk_reservation_user1_idx` (`userIduser` ASC) VISIBLE,
+  INDEX `fk_reservation_offer1_idx` (`offer_idoffer` ASC) VISIBLE,
+  INDEX `fk_reservation_user1_idx` (`user_iduser` ASC) VISIBLE,
   CONSTRAINT `fk_reservation_offer1`
-    FOREIGN KEY (`offerIdoffer`)
+    FOREIGN KEY (`offer_idoffer`)
     REFERENCES `thesisrbk`.`offer` (`idoffer`),
   CONSTRAINT `fk_reservation_user1`
-    FOREIGN KEY (`userIduser`)
+    FOREIGN KEY (`user_iduser`)
     REFERENCES `thesisrbk`.`user` (`iduser`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -196,19 +216,18 @@ COLLATE = utf8mb4_0900_ai_ci;
 CREATE TABLE IF NOT EXISTS `thesisrbk`.`reviews` (
   `idreviews` INT NOT NULL AUTO_INCREMENT,
   `reviewsBody` VARCHAR(255) NULL DEFAULT NULL,
-  `offerIdoffer` INT NOT NULL,
-  `userIduser` INT NOT NULL,
+  `offer_idoffer` INT NOT NULL,
+  `user_iduser` INT NOT NULL,
   PRIMARY KEY (`idreviews`),
-  INDEX `fk_reviews_offer1_idx` (`offerIdoffer` ASC) VISIBLE,
-  INDEX `fk_reviews_user1_idx` (`userIduser` ASC) VISIBLE,
+  INDEX `fk_reviews_offer1_idx` (`offer_idoffer` ASC) VISIBLE,
+  INDEX `fk_reviews_user1_idx` (`user_iduser` ASC) VISIBLE,
   CONSTRAINT `fk_reviews_offer1`
-    FOREIGN KEY (`offerIdoffer`)
+    FOREIGN KEY (`offer_idoffer`)
     REFERENCES `thesisrbk`.`offer` (`idoffer`),
   CONSTRAINT `fk_reviews_user1`
-    FOREIGN KEY (`userIduser`)
+    FOREIGN KEY (`user_iduser`)
     REFERENCES `thesisrbk`.`user` (`iduser`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -219,13 +238,14 @@ COLLATE = utf8mb4_0900_ai_ci;
 CREATE TABLE IF NOT EXISTS `thesisrbk`.`satisfaction` (
   `idsatisfaction` INT NOT NULL AUTO_INCREMENT,
   `satisfactionDegree` VARCHAR(45) NULL DEFAULT NULL,
-  `user_iduser` INT NOT NULL,
+  `userIduser` INT NOT NULL,
   PRIMARY KEY (`idsatisfaction`),
-  INDEX `fk_satisfaction_user1_idx` (`user_iduser` ASC) VISIBLE,
+  INDEX `fk_satisfaction_user1_idx` (`userIduser` ASC) VISIBLE,
   CONSTRAINT `fk_satisfaction_user1`
-    FOREIGN KEY (`user_iduser`)
+    FOREIGN KEY (`userIduser`)
     REFERENCES `thesisrbk`.`user` (`iduser`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -235,8 +255,8 @@ COLLATE = utf8mb4_0900_ai_ci;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `thesisrbk`.`wishlist` (
   `idwishlist` INT NOT NULL AUTO_INCREMENT,
-  `userIduser` INT NOT NULL,
-  `offerIdoffer` INT NOT NULL,
+  `user_iduser` INT NOT NULL,
+  `offer_idoffer` INT NOT NULL,
   PRIMARY KEY (`idwishlist`),
   INDEX `fk_wishlist_user1_idx` (`user_iduser` ASC) VISIBLE,
   INDEX `fk_wishlist_offer1_idx` (`offer_idoffer` ASC) VISIBLE,
@@ -246,30 +266,6 @@ CREATE TABLE IF NOT EXISTS `thesisrbk`.`wishlist` (
   CONSTRAINT `fk_wishlist_user1`
     FOREIGN KEY (`user_iduser`)
     REFERENCES `thesisrbk`.`user` (`iduser`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
-
-
--- -----------------------------------------------------
--- Table `thesisrbk`.`offer_has_categorie`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `thesisrbk`.`offer_has_categorie` (
-  `offer_idoffer` INT NOT NULL,
-  `categorie_idcategorie` INT NOT NULL,
-  PRIMARY KEY (`offer_idoffer`, `categorie_idcategorie`),
-  INDEX `fk_offer_has_categorie_categorie1_idx` (`categorie_idcategorie` ASC) VISIBLE,
-  INDEX `fk_offer_has_categorie_offer1_idx` (`offer_idoffer` ASC) VISIBLE,
-  CONSTRAINT `fk_offer_has_categorie_offer1`
-    FOREIGN KEY (`offer_idoffer`)
-    REFERENCES `thesisrbk`.`offer` (`idoffer`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_offer_has_categorie_categorie1`
-    FOREIGN KEY (`categorie_idcategorie`)
-    REFERENCES `thesisrbk`.`categorie` (`idcategorie`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;

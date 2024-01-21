@@ -62,7 +62,7 @@ useEffect(()=>{
 return () => clearTimeout(timer);},[showWelcome])
 
 
-useEffect (()=>{   const timer = setTimeout(() => { setShowNotAut(false)}, 3000)
+useEffect (()=>{   const timer = setTimeout(() => { setShowNotAut(false)}, 5000)
 return () => clearTimeout(timer);},[showNotAut])
 
 let welcome = null;
