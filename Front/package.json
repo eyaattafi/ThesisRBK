@@ -1,25 +1,28 @@
 {
-
-  "name": "chatbot-host",
-
+  "name": "ThesisRBK",
   "version": "1.0.0",
-
-  "private": true,
-
+  "description": "A Minimum Viable Product",
+  "main": "index.js",
   "scripts": {
-
+    "start": "concurrently \"npm run server-main\" \"npm run server-chat\"",
+    "server-main": "nodemon index.js",
+    "server-chat": "nodemon indexChat.js"
+  },
+  "name": "chatbot-host",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
     "dev": "next dev",
-
     "build": "next build",
-
     "start": "next start",
-
     "lint": "next lint"
 
   },
 
   "dependencies": {
+
     "@chakra-ui/react": "^2.8.2",
+
     "@emotion/react": "^11.11.3",
 
     "@emotion/styled": "^11.11.0",
@@ -29,6 +32,8 @@
     "@mui/icons-material": "^5.15.4",
 
     "@mui/material": "^5.15.5",
+
+    "@mui/x-data-grid": "^6.19.1",
 
     "@nextui-org/react": "^2.2.9",
 
@@ -53,7 +58,9 @@
     "modal": "^1.2.0",
 
     "next": "14.0.4",
+
     "next-auth": "^4.24.5",
+
     "react": "^18",
 
     "react-apexcharts": "^1.4.1",
