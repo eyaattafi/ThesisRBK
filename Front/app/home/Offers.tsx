@@ -34,7 +34,7 @@ export function Offers(){
              <div className="p-2">
 
                      <h5 className="mb-1 text-2xl font-bold tracking-tight dark:text-white overflow-hidden">{el.offerTitle}</h5>
-                     <p className="mb-1 font-normal text-slate-100 dark:text-gray-400 overflow-hidden">{el.offerDescription} </p>
+                     <p className="mb-1 font-normal text-black dark:text-gray-400 overflow-hidden">{el.offerDescription} </p>
              </div>
          </div>
        )
@@ -77,7 +77,7 @@ export function Offers(){
           setShowMore(!showMore)
         }}>
           <button className="bg-transparent hover:bg-orange-950 text-orange-950 font-semibold hover:text-white py-2 px-4 border border-orange-950 hover:border-transparent rounded">
-            Button
+            More Offers
           </button>
         </div>
 

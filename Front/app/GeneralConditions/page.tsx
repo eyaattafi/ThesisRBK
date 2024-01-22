@@ -39,7 +39,7 @@ We maintain other terms and policies that supplement these Terms like our Privac
 
 If you Host, you are responsible for understanding and complying with all laws, rules, regulations and contracts with third parties that apply to your Host Services.
         </p></div>
-        <button className="bg-orange-950 hover:bg-cyan-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ml-[700px] mb-20 bottom-0 h-10"><Link href='/'>Go Back</Link></button>
+        <button className="bg-orange-950 hover:bg-cyan-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ml-[700px] mb-20 bottom-0 h-10"><Link href='/home'>Go Back</Link></button>
     </div>)
     
 }

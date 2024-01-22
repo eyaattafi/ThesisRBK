@@ -5,8 +5,13 @@ import { FaSwimmingPool, FaWifi } from "react-icons/fa";
 import { TbAirConditioning } from "react-icons/tb";
 import { PiTelevisionFill } from "react-icons/pi";
 import { IoMdArrowDropright } from "react-icons/io";
+import { GiRose } from "react-icons/gi";
 import axios from "axios";
 import { Slide } from "react-slideshow-image";
+import { RiSchoolFill } from "react-icons/ri";
+import { MdLiving } from "react-icons/md";
+import { FaSearchLocation } from "react-icons/fa";
+import { AiOutlineSafety } from "react-icons/ai";
 import Link from "next/link";
 
 
@@ -19,15 +24,16 @@ export default  function Features(){
 
   console.log(data)
     
-  const feature=[<FaSwimmingPool size={25} />,<TbAirConditioning size={25} />,<PiTelevisionFill size={25}/>,<FaWifi size={25}/>]
+  const feature=[<FaSwimmingPool size={25} />,<TbAirConditioning size={25} />,<PiTelevisionFill size={25}/>,<FaWifi size={25}/>,<GiRose size={25}/>, <RiSchoolFill size={25}/>, <MdLiving size={25}/>,<AiOutlineSafety size={25}/>]
   const context=useContext(DataContext)
 
     return (
         <div className="bg-gray-200 flex flex-col m-10">
                     
              <h1 className=" text-3xl font-bold mt-3 ml-3">Our Features</h1>
-             <p className=" mt-3 ml-3">Lorem Pellentesque in pharetra dui. Sed commodo nulla nec rhoncus elementum Sed commodo nulla nec rhoncus elementum.
-             Sed commodo nulla nec rhoncus elementum Sed commodo nulla nec rhoncus elementum Sed commodo nulla nec rhoncus elementum.</p>
+             <p className=" mt-3 ml-3">It doesn't matter if you have a great real estate property with you, it will all be considered useless if you don't have the ability to get a tenant for the place. At the end of the day, the goal of a real estate company or agent is to earn handsome profits. 
+
+When we talk about a property a tenant looks for a number of things such as the quality of the property, the surroundings, excellent schools in the locality, the location, the distance between office premises and the property, and henceforth. </p>
 
             <div className=" grid grid-cols-4 gap-7 p-12">
                   
