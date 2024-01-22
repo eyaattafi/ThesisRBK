@@ -1,6 +1,8 @@
 import React from "react"
 import PlaceIcon from '@mui/icons-material/Place';
 import './adress.css'
+import Satisfaction from "../Satisfaction";
+
 const AddRentSeller = () =>{
     return (
        
@@ -14,7 +16,7 @@ const AddRentSeller = () =>{
         <div className="q2"> <PlaceIcon/> 
         <input placeholder="Type your adress"></input></div>
         <div className="button" ><button>Next</button></div>
-
+        <Satisfaction/>
         </div>
 
 

@@ -4,6 +4,7 @@ import axios from 'axios'
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { MdOutlineNotificationsActive } from "react-icons/md";
 import { TiDeleteOutline } from "react-icons/ti";
+import Satisfaction from './Satisfaction'
 
 interface Notif {
     idnotification : number,
@@ -72,6 +73,7 @@ const deleteNot = (idNot : number) => {
             ))}
            
            </div>
+           <Satisfaction/>
         </div>
     )
 }

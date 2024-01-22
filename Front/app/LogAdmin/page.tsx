@@ -39,7 +39,7 @@ if((!email) || (!password)) {
 
     try {
       const logadmin  = await axios.post("http://localhost:3000/api/logAdmin", { adminEmail: email, adminPassword: password });
-
+console.log("id",logadmin.data.idadmin)
       if(logadmin.data.idadmin) {
         showPopupHandler()
         push("/Admin")}
@@ -62,7 +62,7 @@ useEffect(()=>{
 return () => clearTimeout(timer);},[showWelcome])
 
 
-useEffect (()=>{   const timer = setTimeout(() => { setShowNotAut(false)}, 5000)
+useEffect (()=>{   const timer = setTimeout(() => { setShowNotAut(false)}, 3000)
 return () => clearTimeout(timer);},[showNotAut])
 
 let welcome = null;

@@ -54,12 +54,10 @@ const Offer = sequelize.define('offer', {
         type: DataTypes.INTEGER,
         allowNull: false,
     },
-    idCategory: {
+    idcategory: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-  }
-
-
+      allowNull: true,
+  },
   },{tableName:'offer'});
 
   
