@@ -20,10 +20,6 @@ const User = sequelize.define('user', {
       type: DataTypes.STRING(255),
       allowNull: true,
     },
-    userConfirmPass: {
-        type: DataTypes.STRING(255),
-        allowNull: true,
-      },
     userImage: {
         type : DataTypes.TEXT,
         allowNull : true,

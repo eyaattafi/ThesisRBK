@@ -8,6 +8,7 @@
         "server-main": "nodemon index.js",
         "server-chat": "nodemon indexChat.js"
     },
+    
     "author": "You!",
     "license": "ISC",
     "dependencies": {
