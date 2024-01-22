@@ -9,6 +9,8 @@ import { useState } from "react";
 import { AiFillBell } from "react-icons/ai";
 import { red } from "@mui/material/colors";
 import { IoMdNotificationsOutline } from "react-icons/io";
+import { PiUserSwitchFill } from "react-icons/pi";
+import Link from "next/link";
 
 
 
@@ -36,23 +38,38 @@ export default function DropDown(){
                     <div className="py-1 ml-5">
 
                       <div className="flex flex-r items-center justifiy-center ">
-                        <FaUserTie color={"#431407"}/>
-                        <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</a>
+                          <FaUserTie color={"#431407"}/>
+                          <Link href="Profile">
+                          <b className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</b>
+                          </Link>
                       </div>
 
+                      <div className="flex flex-r items-center justifiy-center ">
+                          <PiUserSwitchFill color={"#431407"}/>
+                          <Link href="/host">
+                          <b className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Host-Mode</b>
+                          </Link>
+                      </div>
+                      
                       <div className="flex flex-r items-center justifiy-center">
-                        <MdEmail color={"#431407"}/>
-                        <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Message</a>
+                          <MdEmail color={"#431407"}/>
+                          <Link href="#">
+                          <b className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Message</b>
+                          </Link>
                       </div>
 
                       <div className="flex flex-r items-center justifiy-center">
                         <IoNotificationsCircle color={"#431407"}/>
-                        <a href="/Notification" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Notification</a>
+                        <Link href="/Notification">
+                        <b className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Notification</b>
+                        </Link>
                       </div>
                       
                       <div className="flex flex-r items-center justifiy-center">
-                        <IoLogOut color={"#431407"}/>
-                        <a href="/Logout" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">LogOut</a>
+                          <IoLogOut color={"#431407"}/>
+                          <Link href="/Logout">
+                          <b className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">LogOut</b>
+                          </Link>
                       </div>
 
                     </div>
