@@ -58,7 +58,7 @@ export default function AuthenticatedHome(){
     
    const handleSearch=()=>{
     axios.get('http://localhost:3000/api/categoryByName/'+input).then((res)=>{
-      //console.log(res.data)
+       console.log(res.data)
       axios.get('http://localhost:3000/api/getAllByRegion/'+res.data.idcategorie).then(res=>setOffer(res.data))
     .catch(err=>err)
     }

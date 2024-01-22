@@ -1,9 +1,11 @@
+
 "use client"
 import React, { useState,useContext } from 'react';
 import { FaRegHeart } from 'react-icons/fa';
 import { AiTwotoneAppstore, AiOutlineClose } from 'react-icons/ai';
 import ImgDisplay from './imgDisplay'; // Make sure to provide the correct path to your ImgDisplay component
 import { DataContext } from '../context'
+
 
 const TitleNImg = () => {
 
