@@ -1,6 +1,12 @@
 'use client'
 import React,{ useEffect, useState} from 'react';
 import axios from 'axios'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Slide, Zoom, Flip, Bounce } from 'react-toastify';
+
+
+
 
 interface Notification {
   notificationBody : string ,
@@ -24,6 +30,22 @@ const CreateNotification = () => {
  const [user, setUser]=useState<User>({})
  const [userId,setUserId]=useState<number>(0)
  const [allUsersId,setAllUsersId] = useState<number[]>([])
+ const successNot = () => {
+  toast.success('🦄 Your Notification is sent successfully ! ', {
+    position: "top-center",
+    autoClose: 3000,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "colored",
+    transition: Bounce,
+    });
+
+ }
+ 
+  
 
   const newNot : Notification = {
     notificationBody : notifBody ,
@@ -38,7 +60,7 @@ console.log("AllUsers",allUsersId);
 // Send notification for oneUser Request // 
 const addNotification  =  (notif : Notification) => {
  axios.post('http://localhost:3000/api/addNotification',newNot)
- .then(()=>{alert("The Notification is send")})
+ .then(()=>{successNot()})
  .catch((err)=>{console.log(err)})
 }
 
@@ -49,7 +71,7 @@ let mypromises = allUsersId.map((element,i)=>(axios.post('http://localhost:3000/
 .then(()=>{console.log("done")})
 .catch((err)=>{console.log(err)})))
 
-Promise.all(mypromises).then(()=>{alert("sent to all the users")})
+Promise.all(mypromises).then(()=>{successNot()})
 .catch((err)=>{console.log(err)})
 }
 // Get One user by email //
@@ -89,6 +111,7 @@ const handleSend = () => {
 
   return (
     <div> 
+        <ToastContainer  transition={Zoom}  autoClose={8000}/>
     <div className='mt-6 mb-6 font-bold text-xl'> Send Notification </div>
  <div className='rounded-xl w-[1000px] h-[500px] mt-14 mb-14 ml-32 pl-14 pt-20 bg-slate-300'> 
 

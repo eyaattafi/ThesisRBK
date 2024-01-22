@@ -21,7 +21,21 @@ async function createCategorie(req, res) {
       res.status(400).json({ error: error.message });
     }
   }
+
+  async function getCategoryByName(req, res) {
+    try {
+      const newWish= await Categories.findOne({where:{categorieName:req.params.name}});
+      res.status(201).json(newWish);
+
+    } catch (error) {
+      res.status(400).json({ error: error.message });
+    }
+  }
+
+
+
 module.exports = {
    getAllCategories,
-   createCategorie
+   createCategorie,
+   getCategoryByName
   };

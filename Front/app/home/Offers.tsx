@@ -22,14 +22,14 @@ export function Offers(){
          <div className="w-[300px] h-[400px] bg-white border border-gray-200
           rounded-lg shadow dark:bg-gray-800 dark:border-gray-700" key={i}>
            
-                 {/* <Slide  key={i}>         
+                 <Slide  key={i}>         
                      {el.offerImages.map((slideImage, index)=> (
-                         <Link href="/details" key={i}>
-                         <img className="rounded  w-full h-[200px]" src={slideImage} />
+                         <Link href="/details" key={i} >
+                         <img className="rounded  w-full h-[200px]" src={slideImage} onClick={()=>context.setOne(el.idoffer)}/>
                          <p>{``}</p>
                          </Link>
                      ))} 
-                 </Slide> */}
+                 </Slide>
              
              <div className="p-2">
 

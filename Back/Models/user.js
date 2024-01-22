@@ -20,10 +20,6 @@ const User = sequelize.define('user', {
       type: DataTypes.STRING(255),
       allowNull: true,
     },
-    userConfirmPass: {
-        type: DataTypes.STRING(255),
-        allowNull: true,
-      },
     userImage: {
         type : DataTypes.TEXT,
         allowNull : true,
@@ -39,6 +35,26 @@ const User = sequelize.define('user', {
     userLongitude : {
         type : DataTypes.STRING(45),
         allowNull : true,
+    },
+    adress: {
+      type :DataTypes.STRING(45),
+      allowNull: true
+
+    },
+    city: {
+      type :DataTypes.STRING(45),
+      allowNull: true
+
+    },
+    state: {
+      type :DataTypes.STRING(45),
+      allowNull: true
+
+    },
+    contactNumber: {
+      type :DataTypes.NUMBER(8),
+      allowNull: true
+
     }
   
   },{tableName:'user'});

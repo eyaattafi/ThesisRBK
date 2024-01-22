@@ -4,7 +4,11 @@ const { Sequelize } = require('sequelize');
 
   "thesisrbk",
   "root",
-  "rivenlol00",
+  "farahkh",
+
+
+
+
 
   {
     host: "localhost",

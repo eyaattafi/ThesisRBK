@@ -17,6 +17,7 @@ const notificationRoute=require('./Routes/notificationRoute.js')
 const reviewRoute=require('./Routes/reviewRoute.js')
 const adminRoute = require('./Routes/adminRoute.js')
 const inboxRoute = require('./Routes/inboxRoute.js')
+const featureRoute = require('./Routes/FeaturesRoute.js')
 
 const loginRoute = require('./Routes/loginRoute.js')
 const signUpRoute = require('./Routes/signupRoute.js')
@@ -44,7 +45,9 @@ app.use('/api',inboxRoute)
 app.use('/api',loginRoute)
 app.use('/api',signUpRoute)
 app.use('/api',offerhascatRoute)
+
 app.use('/api',logAdminRouter)
+app.use('/api',featureRoute)
 
 
 app.listen(PORT, () => {
