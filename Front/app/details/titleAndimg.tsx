@@ -6,6 +6,7 @@ import { AiTwotoneAppstore, AiOutlineClose } from 'react-icons/ai';
 import ImgDisplay from './imgDisplay'; // Make sure to provide the correct path to your ImgDisplay component
 import { DataContext } from '../context'
 
+
 const TitleNImg = () => {
 
   const [showImagesModal, setShowImagesModal] = useState(false);

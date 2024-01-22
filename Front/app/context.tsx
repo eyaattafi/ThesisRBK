@@ -72,6 +72,7 @@ const userId = localStorage.getItem('userId');
     )
     axios.get(`http://localhost:3000/api/getreviews/${oneHouse.idoffer }`).then((res)=>setReviews(res.data)).catch((err)=>console.log(err))
     },[oneHouse])
+    
     const setOne=(id:number)=>{
       axios.get(`http://localhost:3000/api/getAllOffer/${id}`).then((res)=>setOneHouse(res.data)).catch((err)=>console.log(err)
       )

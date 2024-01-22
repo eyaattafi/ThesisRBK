@@ -5,7 +5,7 @@ import { DataContext } from '../context'
 
 function YourOffers() {
   const  context = useContext(DataContext);
-   
+   console.log("first",context?.loggedUser.iduser)
   return (
     <div>
         <h1 className='text-3xl font-bold ml-[50px]'>Your offers</h1>

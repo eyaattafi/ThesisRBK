@@ -5,7 +5,7 @@ import axios from "axios";
 interface IMsgDataTypes {
   idchat:  number;
   admin_idadmin:  number;
-  client_id:  number;
+  user_iduser:  number;
   content: String;
 }
 interface userDataTypes {
@@ -13,26 +13,23 @@ interface userDataTypes {
   user_image:string;
 }
 
-const ChatPage = ({ socket, userId, idchat,idadmin }: any) => {
+const ChatPage = ({ socket, iduser, idchat,admin }: any) => {
   console.log(socket);
   
   const [currentMsg, setCurrentMsg] = useState("");
   const [chat, setChat] = useState<IMsgDataTypes[]>([]);
-  const [user,setUser]=useState<userDataTypes[]>([]);
+//   const [user,setUser]=useState<userDataTypes[]>([]);
   const sendData = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (currentMsg !== "") {
       const msgData: IMsgDataTypes = {
-        idchat,
-        admin_idadmin:idadmin,
-        client_id: userId,
-        content: currentMsg,
+         idchat:idchat, admin_idadmin:admin , user_iduser: iduser , content: currentMsg,
       };
       await socket.emit("send_msg", msgData);
       setCurrentMsg("");
     }
   };
-
+console.log("eyaaaaaaaaaaaa",idchat)
 
   useEffect(() => {
     socket.on("receive_msg", (data: IMsgDataTypes) => {
@@ -41,12 +38,6 @@ const ChatPage = ({ socket, userId, idchat,idadmin }: any) => {
   }, [socket]);
 console.log(chat);
 
-useEffect(() => {
-  axios.get(`http://localhost:3000/api/allUsers/${userId}`)
-    .then(e=>{
-       setUser(e.data)
-    }).catch(error=>console.error(error))
-  },[userId])
 
   return (
     <div className={style.chat_div}>
@@ -57,23 +48,23 @@ useEffect(() => {
           </p>
         </div>
         <div>
-          {chat.map(({ idchat, client_id, content  }, key) => (
+          {chat.map(({ idchat, user_iduser, content }, key) => (
             <div
               key={key}
               className={
-                client_id == userId
+                user_iduser == iduser
                   ? style.chatProfileRight
                   : style.chatProfileLeft
               }
             >
               <span
                 className={style.chatProfileSpan}
-                style={{ textAlign: client_id == userId ? "right" : "left" }}
+                style={{ textAlign: user_iduser == iduser ? "right" : "left" }}
               >
                 {/* {<img src={user.image_user} alt="" />} */}
-                {client_id}
+                {user_iduser}
               </span>
-              <h3 style={{ textAlign: client_id == userId ? "right" : "left" }}>
+              <h3 style={{ textAlign: user_iduser == iduser ? "right" : "left" }}>
                 {content}
               </h3>
             </div>
