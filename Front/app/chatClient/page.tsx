@@ -18,15 +18,12 @@ const ChatPage = ({ socket, iduser, idchat,admin }: any) => {
   
   const [currentMsg, setCurrentMsg] = useState("");
   const [chat, setChat] = useState<IMsgDataTypes[]>([]);
-  const [user,setUser]=useState<userDataTypes[]>([]);
+//   const [user,setUser]=useState<userDataTypes[]>([]);
   const sendData = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (currentMsg !== "") {
       const msgData: IMsgDataTypes = {
-        idchat:idchat,
-        admin_idadmin:admin,
-        user_iduser: iduser,
-        content: currentMsg,
+         idchat:idchat, admin_idadmin:admin , user_iduser: iduser , content: currentMsg,
       };
       await socket.emit("send_msg", msgData);
       setCurrentMsg("");
@@ -41,12 +38,6 @@ console.log("eyaaaaaaaaaaaa",idchat)
   }, [socket]);
 console.log(chat);
 
-// useEffect(() => {
-//   axios.get(`http://localhost:3000/api/allUsers/${iduser}`)
-//     .then(e=>{
-//        setUser(e.data)
-//     }).catch(error=>console.error(error))
-//   },[userId])
 
   return (
     <div className={style.chat_div}>

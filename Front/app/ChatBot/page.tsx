@@ -1,6 +1,6 @@
 "use client";
 import { io } from "socket.io-client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ChatPage from "../chatClient/page";
 import './chat.css'
 import axios from "axios";
@@ -17,7 +17,7 @@ export default function Home() {
   socket = io("http://localhost:7000");
   console.log(socket,"sockeeeeeet");
 
-  const handleJoin = () => {
+  const handle = () => {
       socket.emit("chat", idchat);
       setShow(true);
       setShowChat(true);
@@ -32,7 +32,7 @@ console.log("heyyyyyy ",idchat)
               <input
           className="main_input"
           type="text"
-          placeholder="Username"
+          placeholder="UserName"
           onChange={(e:any) => setIduser(e.target.value)}
           disabled={show}
         />
@@ -43,7 +43,7 @@ console.log("heyyyyyy ",idchat)
           onChange={(e:any) => setIdchat(e.target.value)}
           disabled={show}
         />
-        <button className="button" onClick={() => handleJoin()}>
+        <button className="button" onClick={() => handle()}>
           {!show ? (
             "How you can send us a message"
           ) : (

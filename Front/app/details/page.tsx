@@ -18,7 +18,7 @@ const page = () => {
        <div className="mt-[30px] ml-[60px]"><RelatedOffers/></div>
        <div className="mt-[30px] ml-[135px]"><PlaceFeatures/></div>
        <div className="mt-[30px] ml-[135px]"><OfferReviews/></div>
-       <div className="mt-[30px] ml-[135px]"><OfferMap/></div>
+       <div className="mt-[30px] ml-[135px] mb-8"><OfferMap/></div>
     </div>
      );
 }

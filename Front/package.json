@@ -12,9 +12,14 @@
   "dependencies": {
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
+
+    "@material-tailwind/react": "^2.1.8",
     "@mui/icons-material": "^5.15.4",
     "@mui/material": "^5.15.5",
     "@nextui-org/react": "^2.2.9",
+
+    "apexcharts": "^3.45.1",
+
     "axios": "^1.6.5",
     "bootstrap": "^5.3.2",
     "chart": "^0.1.2",
@@ -22,12 +27,26 @@
     "date-fns": "^3.2.0",
     "framer-motion": "^10.18.0",
     "js": "^0.1.0",
+
+    "leaflet": "^1.9.4",
+    "leaflet-control-geocoder": "^2.4.0",
+    "leaflet-routing-machine": "^3.2.12",
+
     "link": "^2.1.0",
     "modal": "^1.2.0",
     "next": "14.0.4",
+
+    "react": "^18.2.0",
+
+    "next-auth": "^4.24.5",
     "react": "^18",
+
+
+    "react-apexcharts": "^1.4.1",
+
     "react-chartjs-2": "^5.2.0",
     "react-date-range": "^2.0.0-alpha.4",
+    "react-leaflet": "^4.2.1",
     "react-dom": "^18",
     "react-icons": "^4.12.0",
     "react-paginate": "^8.2.0",
@@ -35,6 +54,8 @@
     "react-toastify": "^10.0.3"
   },
   "devDependencies": {
+    "@types/leaflet": "^1.9.8",
+
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-date-range": "^1.4.9",

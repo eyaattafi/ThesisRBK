@@ -24,8 +24,8 @@ export function Offers(){
            
                  <Slide  key={i}>         
                      {el.offerImages.map((slideImage, index)=> (
-                         <Link href="/details" key={i}>
-                         <img className="rounded  w-full h-[200px]" src={slideImage} />
+                         <Link href="/details" key={i} >
+                         <img className="rounded  w-full h-[200px]" src={slideImage} onClick={()=>context.setOne(el.idoffer)}/>
                          <p>{``}</p>
                          </Link>
                      ))} 
