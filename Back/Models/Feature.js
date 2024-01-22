@@ -5,7 +5,7 @@ const Offer = require('./offer.js');
 
 
 const Feature = sequelize.define('feature', {
-    idcategorie: {
+  categorieIdcategorie: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true,
