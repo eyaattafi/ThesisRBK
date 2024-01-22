@@ -21,10 +21,11 @@
     height: 3rem;
     width: 12rem;
     padding: -18px;
-    background-color: rgb(106, 73, 73);
-    text-decoration-color: antiquewhite;
-
+    background-color: rgb(146, 141, 141);
+    border-radius: 10px;
+    margin-left: 100px;
   }
+  
   .chatProfileRight {
     display: flex;
     align-items: center;

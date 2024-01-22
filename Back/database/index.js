@@ -4,11 +4,8 @@ const { Sequelize } = require('sequelize');
 
   "thesisrbk",
   "root",
+
   "root",
-
-
-
-
 
   {
     host: "localhost",
