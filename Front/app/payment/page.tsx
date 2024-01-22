@@ -1,5 +1,5 @@
 import { FaRegCreditCard } from "react-icons/fa";
-
+import Satisfaction from "../Satisfaction";
 export default function Payment(){
 
     return (
@@ -87,7 +87,7 @@ export default function Payment(){
                 <button className="block w-full max-w-xs mx-auto bg-orange-950 hover:bg-orange-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold"><i className="mdi mdi-lock-outline mr-1"></i> PAY NOW</button>
             </div>
         </div>
-    
+    <Satisfaction/>
     </div>
     )
 }

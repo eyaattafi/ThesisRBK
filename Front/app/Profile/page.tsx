@@ -8,6 +8,7 @@ import Link from "next/link";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { NextPage } from 'next';
+import Satisfaction from "../Satisfaction";
 // import Payment from "../payment/page";
 
 const style = {
@@ -92,10 +93,7 @@ const Profile: NextPage<ProfileProps> = ({user}) => {
       <div className="profile-content">
         <div className="profile-header">
           <h2>Account</h2>
-          <p>
-            Hammami Mohamed Amine, hammamimin@gmail.com.
-            <Link href="/">Go To HomePage</Link>
-          </p>
+
         </div>
         <div className="profile-container">
           <div className="card" onClick={handleOpen}>
@@ -135,13 +133,13 @@ const Profile: NextPage<ProfileProps> = ({user}) => {
                 />
               </svg>
             </div>
-            <div className="desc" >
+            <Link href="/payment" > <div className="desc" >
              
-              <p ><Link href="/payment" >Payment & Payouts</Link></p>
+              <p >Payment & Payouts</p>
               <p>
               Review paiment , payouts ,coupons and git cards.
               </p>
-            </div>
+            </div></Link>
           </div>
           <div className="card">
             <div className="icon">
@@ -158,12 +156,12 @@ const Profile: NextPage<ProfileProps> = ({user}) => {
                 />
               </svg>
             </div>
-            <div className="desc">
-              <p><Link href="Privacy">Privacy & Sharing</Link></p>
+            <Link href="Privacy">  <div className="desc">
+              <p>Privacy & Sharing</p>
               <p>
               Manage your personal data , connected , services and data sharing setting .
               </p>
-            </div>
+            </div></Link>
           </div>
           <div className="card">
             <div className="icon">
@@ -180,12 +178,12 @@ const Profile: NextPage<ProfileProps> = ({user}) => {
                 />
               </svg>
             </div>
-            <div className="desc">
-              <p><Link href="/Notification">Notifications</Link></p>
+            <Link href="/Notification">  <div className="desc">
+              <p>Notifications</p>
               <p>
               Choose notifications and preferences , and how you want to be contacted 
               </p>
-            </div>
+            </div></Link>
           </div>
         </div>
       </div>
@@ -316,14 +314,7 @@ const Profile: NextPage<ProfileProps> = ({user}) => {
             </div>
             <div className="action-btns">
               <button type="reset"
-              onClick={()=>{
-                  setUserName("") ;
-                  setUserEmail("");
-                  setUserPassword("");
-                  setAdress('');
-                  setCity("");
-                  setState("");
-                  setContactNumber(0);
+              onClick={()=>{handleClose()
               }}>Cancel</button>
               
               <button type="submit"onClick={handleUpdateProfile}>Save</button>
@@ -331,6 +322,8 @@ const Profile: NextPage<ProfileProps> = ({user}) => {
           </div>
         </Box>
       </Modal>
+      <Satisfaction/>
+
     </div>
   );
 } 

@@ -1,22 +1,20 @@
-'use client';
 import React from 'react'
-import { useRouter } from "next/navigation";
 
 const Welcome = () => {
-    const { push } = useRouter();
   return (
     <div>
-
+          <div>
       
-      <div className="fixed top-0 left-0 right-0 bottom-0 text-center flex flex-r items-center justify-center bg-transparent rounded shadow-2xl">
-       <div className="bg-white p-11 h-auto w-auto border-4 border-orange-950  rounded shadow-md">
-       <img className="w-96 h-auto justify-center" src="https://gifdb.com/images/high/swirling-welcome-back-2g3wyipihivjpll2.gif"/>  
-      
+      <div className="fixed top-0 left-0 right-0 bottom-0 text-center flex flex-r items-center justify-center bg-transparent rounded-2xl shadow-2xl">
+       <div className="bg-white h-[400px] w-[500px] rounded-full shadow-2xl  items-center ">
+       <img className=" w-[300px] h-[300px] ml-28 " src="https://theme.zdassets.com/theme_assets/9990532/3cf1347ac49cea6425300775d5e6fc8e7874b959.png"/>  
+         <p className=" text-xl text-black  font-bold mb-10 mt-2 p-3" >WELCOME BACK ADMIN !</p>
 
-        
+  
         
       </div>
     </div>
+      </div>
     </div>
   )
 }
