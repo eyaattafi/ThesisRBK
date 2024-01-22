@@ -10,7 +10,7 @@ interface WeofferhelpProps {}
 const Weofferhelp: React.FC<WeofferhelpProps> = () => {
   const [isHelpModalOpen, setHelpModalOpen] = useState(false);
   const [isContactSupportOpen, setContactSupportOpen] = useState(false);
-  const [selectedObject, setSelectedObject] = useState('complaint');
+  const [selectedObject, setSelectedObject] = useState('Claims');
   const [messageBody, setMessageBody] = useState('');
   const userId = localStorage.getItem('userId');
   const openHelpModal = () => {
@@ -45,7 +45,7 @@ const Weofferhelp: React.FC<WeofferhelpProps> = () => {
       inBoxBody:messageBody,
       inBoxDate: fixedDate,
       inBoxStatus:"not seen",
-      adminIdadmin:1,
+      adminIdadmin:2,
       userIduser:userId
     }).then((res)=>console.log(res)).catch((err)=>console.log(err))
     console.log('Selected Object:', selectedObject);

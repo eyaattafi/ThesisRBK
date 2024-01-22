@@ -1,4 +1,5 @@
 export default interface offer{
+    idoffer : number,
     offerTitle:string,
     offerImages:string[],
     offerPrice:number,
@@ -9,6 +10,5 @@ export default interface offer{
     latitude:string,
     longitude:string,
     userIduser:number,
-    idoffer:number,
     offerDescription:string
 }

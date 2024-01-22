@@ -10,7 +10,7 @@ export default function Header(){
         <div>
             <header className="bg-orange-950  p-3">
                 <div className="container mx-auto">
-             <Link href='/'>
+             <Link href='/home'>
              <Image src={logo} alt='logo' width={175} /></Link>   
                 </div>
             </header>

@@ -101,8 +101,8 @@ console.log("userm", userm);
        <div className='mt-6 mb-6 font-bold text-xl'> Message Content </div>
     <div className='rounded ml-16 w-[1150px] h-[800px] mt-14'> 
    <div className='rounded shadow-lg w-[1150px] h-16 pt-6 pl-6  bg-slate-100 mb-2'> <div className='flex flex-r gap-3'><h1 className='ml-4 font-bold'>From : </h1> {userm.userEmail} </div></div>
-      <div className='rounded shadow-lg w-[1150px] h-16 pt-6 pl-6 bg-slate-100'><div className='flex flex-r gap-3'><h1 className='ml-4 font-bold'>Object : </h1>{oneInbox.inboxObject} </div></div>
-      <div className='rounded shadow-lg w-[1150px] h-[200px] pt-6 pl-9 bg-slate-100 mt-2'> <div className='flex flex-r gap-3'> <h1 className='font-bold'>Message : </h1> {oneInbox.inboxBody} </div></div>
+      <div className='rounded shadow-lg w-[1150px] h-16 pt-6 pl-6 bg-slate-100'><div className='flex flex-r gap-3'><h1 className='ml-4 font-bold'>Object : </h1>{oneInbox.inBoxObject} </div></div>
+      <div className='rounded shadow-lg w-[1150px] h-[200px] pt-6 pl-9 bg-slate-100 mt-2'> <div className='flex flex-r gap-3'> <h1 className='font-bold'>Message : </h1> {oneInbox.inBoxBody} </div></div>
       <button className="bg-orange-950 text-white px-4 py-2 rounded hover:bg-red-500 mt-12 mb-12 ml-[550px]" onClick={()=>{setShow(!show)}}> ANSWER   </button>
       {show && <div>
         <div className='mt-6 mb-4 font-bold '>Write the Message : </div>
