@@ -17,11 +17,6 @@ const generateToken = (idadmin) => {
            else {
             const verifPassWord=result.dataValues.adminPassword
             const passwordMatch = await bcrypt.compare(adminPassword,verifPassWord)
-console.log("verifPassWord",verifPassWord)
-console.log("adminpass",adminPassword)
-console.log("result",result)
-console.log("passmatch", passwordMatch)
-
 
             if(passwordMatch){
                const token=generateToken(result.dataValues.idadmin, result.dataValues.adminEmail)  

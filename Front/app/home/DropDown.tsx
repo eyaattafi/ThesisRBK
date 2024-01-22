@@ -52,7 +52,7 @@ export default function DropDown(){
                       
                       <div className="flex flex-r items-center justifiy-center">
                         <IoLogOut color={"#431407"}/>
-                        <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">LogOut</a>
+                        <a href="/Logout" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">LogOut</a>
                       </div>
 
                     </div>
