@@ -1,12 +1,14 @@
 import React from "react"
 import Box from "@mui/material/Box";
-
 import Modal from "@mui/material/Modal";
+import Link from "next/link"
 
  const Supprimer = () =>{
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+
+    
     const style = {
         position: "absolute",
         top: "50%",
@@ -22,8 +24,13 @@ import Modal from "@mui/material/Modal";
       };
 
     return (
-        <div>
-        
+   <div onClick={handleOpen}>
+     {/* <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      > */}
             <Box sx={style}>
             <div className="p9" >L'engagement de la communauté</div>
             <div className="p10">RentaVilla est une communauté où quiconque peut trouver sa place</div>
@@ -34,7 +41,7 @@ import Modal from "@mui/material/Modal";
             <button className="b1">Accepter et continuer</button>
             <button className="b2" >Supprimer</button>
             </Box>
-            
+            {/* </Modal> */}
         </div>
     )
  }

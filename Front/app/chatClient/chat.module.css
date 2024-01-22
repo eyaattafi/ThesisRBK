@@ -21,9 +21,10 @@
     height: 3rem;
     width: 12rem;
     padding: -18px;
-    background-color: rgb(146, 141, 141);
+    background-color: rgb(50, 24, 24);
     border-radius: 10px;
     margin-left: 100px;
+    color: antiquewhite;
   }
   
   .chatProfileRight {
@@ -50,6 +51,7 @@
     align-items: center;
     color: rgb(216, 201, 201);
   }
+  
   .name{
     margin-right: 50px;
     margin-top: 50px;

@@ -52,9 +52,7 @@ console.log(chat);
             <div
               key={key}
               className={
-                user_iduser == iduser
-                  ? style.chatProfileRight
-                  : style.chatProfileLeft
+                user_iduser == iduser ? style.chatProfileRight : style.chatProfileLeft
               }
             >
               <span
