@@ -14,7 +14,7 @@ import { IoMdNotificationsOutline } from "react-icons/io";
 
 export default function DropDown(){
     const [openDrop,setOpenDrop]=useState(false)
-    const [notification,setNotification]=useState(false)
+    const [notification,setNotification]=useState(true)
     return (
     
         <div className="relative flex  text-left  ml-500 ">
@@ -32,7 +32,7 @@ export default function DropDown(){
                                       <FiAlignJustify color="white" size={30}/>
                                       </div>
                                       
-                {openDrop===true && <div className="absolute right-0 w-30 mt-2 origin-top-right bg-white border border-gray-300 divide-y divide-gray-100 rounded-md shadow-lg">
+                {openDrop===true && <div className="absolute right-0 w-30 mt-20 origin-top-right bg-white border border-gray-300 divide-y divide-gray-100 rounded-md shadow-lg">
                     <div className="py-1 ml-5">
 
                       <div className="flex flex-r items-center justifiy-center ">
