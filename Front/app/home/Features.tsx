@@ -1,14 +1,21 @@
 "use client"
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { DataContext } from "../context";
 import { FaSwimmingPool, FaWifi } from "react-icons/fa";
 import { TbAirConditioning } from "react-icons/tb";
 import { PiTelevisionFill } from "react-icons/pi";
 import { IoMdArrowDropright } from "react-icons/io";
+import axios from "axios";
 
 
 export default  function Features(){
+  const [data,setData]=useState([])
+  const handleClick=(id:number)=>{
+    axios.get('http://localhost:3000/api/getByFeature/'+id)
+    .then((res)=>setData(res.data)).catch(err=>err)
+  }
 
+  console.log(data)
     
   const feature=[<FaSwimmingPool size={25} />,<TbAirConditioning size={25} />,<PiTelevisionFill size={25}/>,<FaWifi size={25}/>]
   const context=useContext(DataContext)
@@ -25,8 +32,8 @@ export default  function Features(){
 
                   {context?.categories.map((el,i)=>{
                     return (
-                      <div className=" bg-white shadow-md p-4 rounded-md " key={i}>              
-                          <div className="flex flex-center justify-center items-center gap-2">
+                      <div className=" bg-white shadow-md p-4 rounded-md " key={i} >              
+                          <div className="flex flex-center justify-center items-center gap-2" onClick={()=>handleClick(el.idcategorie)}>
                           {feature[i]}
                           <h1>{el.categorieName}</h1>
                           <IoMdArrowDropright size={25}/>

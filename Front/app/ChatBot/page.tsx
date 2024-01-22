@@ -1,55 +1,53 @@
 "use client";
 import { io } from "socket.io-client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ChatPage from "../chatClient/page";
 import './chat.css'
 import axios from "axios";
 
-export default function Home({user,admin}:any) {
+export default function Home() {
   
-  useEffect(() => {
-    axios.get(`http://localhost:3000/api/allChat`)
-      .then(e=>{
-         setChat(e.data)
-      }).catch(error=>console.error(error))
-    },[])
 
-    
-
-  const idadmin=localStorage.getItem(("idadmin"))
-  const id=localStorage.getItem("id")
   const [showChat, setShowChat] = useState(false);
-  const [chat, setChat] = useState([]);
-  const [iduser, setIduser] = useState(id || user);
+  const [iduser, setIduser] = useState(0);
   const [show, setShow] = useState(false);
   const [idchat, setIdchat] = useState(0);
-  const [adminId,setAdminId]=useState(idadmin  )
+  const [adminId,setAdminId]=useState(1)
   var socket: any;
   socket = io("http://localhost:7000");
   console.log(socket,"sockeeeeeet");
 
-  const handleJoin = () => {
-    if(!idadmin){setIdchat(chat.length+1)}
- 
-      socket.emit("join_chat", idchat);
+  const handle = () => {
+      socket.emit("chat", idchat);
       setShow(true);
-
-      setTimeout(() => {
-        setShowChat(true);
-        setShow(false);
-      }, 2000);
+      setShowChat(true);
+      
   };
-
+console.log("heyyyyyy ",idchat)
   return (
     <div>
       <div
         className="main_div"
         style={{ display: showChat ? "none" : "" }} >
-        <button className="main_button" onClick={() => handleJoin()}>
+              <input
+          className="main_input"
+          type="text"
+          placeholder="UserName"
+          onChange={(e:any) => setIduser(e.target.value)}
+          disabled={show}
+        />
+        <input
+          className="main_input"
+          type="text"
+          placeholder=" id chat "
+          onChange={(e:any) => setIdchat(e.target.value)}
+          disabled={show}
+        />
+        <button className="button" onClick={() => handle()}>
           {!show ? (
             "How you can send us a message"
           ) : (
-            <div className="loading_spinner"></div>
+            <div className="loading"></div>
           )}
         </button>
       </div>
@@ -59,3 +57,29 @@ export default function Home({user,admin}:any) {
     </div>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

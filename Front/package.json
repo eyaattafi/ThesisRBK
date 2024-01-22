@@ -1,115 +1,70 @@
 {
-  "name": "ecom",
-  "version": "1.0.0",
-  "description": "A Minimum Viable Product",
-  "main": "index.js",
-  "scripts": {
-    "start": "concurrently \"npm run server-main\" \"npm run server-chat\"",
-    "server-main": "nodemon index.js",
-    "server-chat": "nodemon indexChat.js"
-  },
-  "name": "chatbot-host",
-  "version": "1.0.0",
+  
+  "name": "nextjs-rentavilla",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
-
   },
-
   "dependencies": {
-    "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.11.3",
-
     "@emotion/styled": "^11.11.0",
 
     "@material-tailwind/react": "^2.1.8",
-
     "@mui/icons-material": "^5.15.4",
-
     "@mui/material": "^5.15.5",
-
     "@nextui-org/react": "^2.2.9",
 
     "apexcharts": "^3.45.1",
 
     "axios": "^1.6.5",
-
     "bootstrap": "^5.3.2",
-
     "chart": "^0.1.2",
-
     "chart.js": "^4.4.1",
-
     "date-fns": "^3.2.0",
-
     "framer-motion": "^10.18.0",
-
     "js": "^0.1.0",
 
+    "leaflet": "^1.9.4",
+    "leaflet-control-geocoder": "^2.4.0",
+    "leaflet-routing-machine": "^3.2.12",
+
     "link": "^2.1.0",
-
     "modal": "^1.2.0",
-
     "next": "14.0.4",
+
+    "react": "^18.2.0",
+
     "next-auth": "^4.24.5",
     "react": "^18",
+
 
     "react-apexcharts": "^1.4.1",
 
     "react-chartjs-2": "^5.2.0",
-
     "react-date-range": "^2.0.0-alpha.4",
-
+    "react-leaflet": "^4.2.1",
     "react-dom": "^18",
-
     "react-icons": "^4.12.0",
-
     "react-paginate": "^8.2.0",
-
     "react-slideshow-image": "^4.3.0",
-
-    "react-toastify": "^10.0.3",
-
-    "socket.io-client": "^4.7.4"
-
+    "react-toastify": "^10.0.3"
   },
-
   "devDependencies": {
+    "@types/leaflet": "^1.9.8",
 
     "@types/node": "^20",
-
     "@types/react": "^18",
-
     "@types/react-date-range": "^1.4.9",
-
     "@types/react-dom": "^18",
-
     "autoprefixer": "^10.0.1",
-
     "eslint": "^8",
-
     "eslint-config-next": "14.0.4",
-
     "postcss": "^8",
-
     "tailwindcss": "^3.3.0",
-
     "typescript": "^5"
-
-  },
-
-  "description": "This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).",
-
-  "main": "next.config.js",
-
-  "keywords": [],
-
-  "author": "",
-
-  "license": "ISC"
-
+  }
 }
-

@@ -3,7 +3,6 @@ const { Server } = require("socket.io");
 const cors = require("cors");
 
 const Chat = require("./Models/chat"); 
-
 const httpServer = http.createServer();
 
 const io = new Server(httpServer, {
