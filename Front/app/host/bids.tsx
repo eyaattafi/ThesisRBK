@@ -94,6 +94,12 @@ function Bids() {
     setSelectedBid(null);
   };
 
+  const getHighest = () => {
+    const sorted = bids.sort((a, b) => b.BIDprice - a.BIDprice);
+    const highest = sorted[0]?.BIDprice;
+    return highest;
+  };
+
   return (
     <div>
       <h2 className="flex justify-center text-2xl font-bold mb-4 border bg-white shadow mt-[30px] w-[1020px] ml-[30px]">
@@ -166,7 +172,7 @@ function Bids() {
             <hr className="mt-[20px] w-full border-t border-gray-300 my-4" />
             <div className="flex justify-between px-8">
               <h1>Highest</h1>
-              <span>700$</span>
+              <span>{getHighest()}$</span>
             </div>
           </div>
         </div>
