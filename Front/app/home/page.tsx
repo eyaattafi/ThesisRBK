@@ -14,7 +14,9 @@ import Features from "./Features";
 import Info from "./Info";
 import QuestionRes from "../Components/QuestionRes";
 import Link from "next/link"
-import { Slide } from "react-slideshow-image"
+import { Slide } from "react-slideshow-image";
+import Satisfaction from "../Satisfaction";
+
 
 
 
@@ -59,7 +61,7 @@ export default function AuthenticatedHome(){
       
         <div>
           
-
+          <Satisfaction/>
                 <DropDown/>  
 
                 <div className="container1">

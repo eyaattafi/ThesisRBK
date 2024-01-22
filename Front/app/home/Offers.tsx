@@ -19,22 +19,21 @@ export function Offers(){
      {context?.allOffers.slice(0,8).map((el,i)=>{
 
        return(
-         <div className="w-[300px] h-[400px] bg-white border border-gray-200
-          rounded-lg shadow dark:bg-gray-800 dark:border-gray-700" key={i}>
+         <div className="w-[300px] h-[400px]
+          rounded-lg shadow bg-gray-800 border-gray-700" key={i}>
            
-                 <Slide  key={i}>         
-                     {el.offerImages.map((slideImage, index)=> (
-                         <Link href="/details" key={i}>
-                         <img className="rounded  w-full h-[200px]" src={slideImage} />
-                         <p>{``}</p>
-                         </Link>
-                     ))} 
-                 </Slide>
+           <Slide>         
+                      {el.offerImages.map((slideImage, index:number)=> (
+                          <Link href="/details">
+                          <img onClick={()=>context.setOne(el.idoffer)} className="rounded-t-lg w-full h-[200px]" src={slideImage}/>
+                          </Link>
+                      ))} 
+                  </Slide>
              
-             <div className="p-2">
+             <div className="p-2 text-white">
 
-                     <h5 className="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white overflow-hidden">{el.offerTitle}</h5>
-                     <p className="mb-1 font-normal text-gray-700 dark:text-gray-400 overflow-hidden">{el.offerDescription} </p>
+                     <h5 className="mb-1 text-2xl font-bold tracking-tight dark:text-white overflow-hidden">{el.offerTitle}</h5>
+                     <p className="mb-1 font-normal text-slate-100 dark:text-gray-400 overflow-hidden">{el.offerDescription} </p>
              </div>
          </div>
        )

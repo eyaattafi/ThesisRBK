@@ -8,6 +8,7 @@ import Link from "next/link";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { NextPage } from 'next';
+import Satisfaction from "../Satisfaction";
 // import Payment from "../payment/page";
 
 const style = {
@@ -331,6 +332,7 @@ const Profile: NextPage<ProfileProps> = ({user}) => {
           </div>
         </Box>
       </Modal>
+      <Satisfaction/>
     </div>
   );
 } 

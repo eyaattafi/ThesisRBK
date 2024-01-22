@@ -122,7 +122,7 @@ useEffect(() => {
 <div className='w-72 h-32 rounded-xl bg-amber-400 mt-10 p-3 pt-6 text-white ml-5'><span className='font-bold text-xl pl-3'>15 </span> Confirmed Rents Until Now<BsBuildings className=' ml-24' size={50} /> </div>
     </div>
 {/** Confirmation list */}
-<div className='mt-16 mb-16 ml-10'>
+{/* <div className='mt-16 mb-16 ml-10'>
   <h1 className='text-2xl font-bold pt-3 mt-10 mb-10'>HOSTS CONFIRMATION </h1>
 
 <div  style={{ height: 400, width: '100%' }}>
@@ -140,9 +140,7 @@ useEffect(() => {
        
       />
     </div>
-</div>
-
-
+</div> */}
 {/*CHARTS Parts*/}
     <div className='bg-transparent w-[1200px] h-[600px] mt-10  ml-12 '>
       <h1 className='text-2xl font-bold pt-3 mt-10'> CLICK TO SEE CHARTS </h1>
