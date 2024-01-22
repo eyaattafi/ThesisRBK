@@ -22,9 +22,10 @@ export default function AdminLayout({
  <nav className="flex flex-r gap-12 bg-slate-100">
         <div className='bg-gray-50 shadow-xl rounded w-36 h-full bg-transparent pt-6 '>
 
-        <ul className=' p-10 h-[1300px] w-28'>
+        <ul className=' p-10 h-[1300px] w-28' style={{zIndex:1}}>
       
-         <Link href='/Admin/Inbox' > <Tooltip content="Inbox"><MdOutlineForwardToInbox size={50} className='text-orange-950 mt-3 ml-4 cursor-pointer transition-all hover:border rounded hover:transform hover:scale-150  hover:text-orange-800 '/></Tooltip> </Link>
+         <Link href='/Admin/Inbox' > 
+         <Tooltip content="Inbox"><MdOutlineForwardToInbox size={50} className='text-orange-950 mt-3 ml-4 cursor-pointer transition-all hover:border rounded hover:transform hover:scale-150  hover:text-orange-800 '/></Tooltip> </Link>
         <Link href='/Admin/SalesHistorical' ><Tooltip content="Sales Historical"><IoMdTime size={50} className='text-orange-950  mt-20 ml-4 cursor-pointer transition-all hover:border rounded hover:transform hover:scale-150  hover:text-orange-800' /></Tooltip></Link> 
         <Link href='/Admin/MyClients' ><Tooltip content="My Clients"><IoPeopleOutline size={50} className='text-orange-950  mt-20 ml-4  cursor-pointer transition-all hover:border rounded hover:transform hover:scale-150  hover:text-orange-800'/></Tooltip></Link> 
         <Link href='/Admin/MyRents' > <Tooltip content="My Rents">< MdOutlineHomeWork size={50} className='text-orange-950  mt-20 ml-4 cursor-pointer transition-all hover:border rounded hover:transform hover:scale-150  hover:text-orange-800'/></Tooltip></Link> 

@@ -3,6 +3,7 @@ const sequelize=require('../database/index.js')
 
 const User = require('./user.js');
 
+
 const Offer = sequelize.define('offer', {
     idoffer: {
       type: DataTypes.INTEGER,
@@ -52,8 +53,14 @@ const Offer = sequelize.define('offer', {
     userIduser: {
         type: DataTypes.INTEGER,
         allowNull: false,
-    }
+    },
+    idcategory: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+  },
   },{tableName:'offer'});
+
+  
   
    
   Offer.belongsTo(User);
