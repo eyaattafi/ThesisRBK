@@ -76,16 +76,16 @@ export default function Home() {
     
    {context?.allOffers.slice(0,4).map((el,i)=>{
     return(
-      <div className="w-[250px] h-[350px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700" key={i}>
+      <div className="w-[250px] h-[350px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 overflow-hidden" key={i}>
                            
-                  {/* <Slide>         
+                  <Slide>         
                       {el.offerImages.map((slideImage, index)=> (
                           <Link href="/details">
                           <img className="rounded  w-full h-[200px]" src={slideImage}/>
                           <p>{``}</p>
                           </Link>
                       ))} 
-                  </Slide> */}
+                  </Slide>
               
               <div className="p-2">
 
