@@ -7,12 +7,12 @@ import axios from "axios";
 
 export default function Home() {
   
-
   const [showChat, setShowChat] = useState(false);
   const [iduser, setIduser] = useState(0);
   const [show, setShow] = useState(false);
   const [idchat, setIdchat] = useState(0);
   const [adminId,setAdminId]=useState(1)
+  
   var socket: any;
   socket = io("http://localhost:7000");
   console.log(socket,"sockeeeeeet");
@@ -35,7 +35,7 @@ console.log("heyyyyyy ",idchat)
           placeholder="UserName"
           onChange={(e:any) => setIduser(e.target.value)}
           disabled={show}
-        />
+         />
         <input
           className="main_input"
           type="text"
@@ -45,7 +45,7 @@ console.log("heyyyyyy ",idchat)
         />
         <button className="button" onClick={() => handle()}>
           {!show ? (
-            "How you can send us a message"
+            " This is how  you can send us a message "
           ) : (
             <div className="loading"></div>
           )}

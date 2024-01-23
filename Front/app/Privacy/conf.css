@@ -149,10 +149,11 @@
     position: static;
     width: 35rem;
   }
-  select{
-    width: 100px;
+  select {
+    width: 547px;
     margin-right: 100px;
-  }
+    height: 79px;
+}
 
 
   .coolinput1 {
@@ -272,14 +273,14 @@
         margin-top: 67px;
     }
     .b1{
-        margin-left: 200px;
+        margin-left: 170px;
         background-color: brown;
         margin-top: 100px;
         width: 206px;
         height: 65px;
     }
     .b2{
-        margin-left: 200px;
+        margin-left: 170px;
         background-color: brown;
         margin-top: 100px;
         width: 206px;
