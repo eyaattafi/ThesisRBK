@@ -55,7 +55,7 @@ Customer support information including the information you choose to include in 
 Some features of the Services may require you to directly provide us with certain information about yourself. You may elect not to provide this information, but doing so may prevent you from using or accessing these features.
 </p>
 </div>
-<button className="bg-orange-950 hover:bg-cyan-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ml-[700px] mb-20 bottom-0 h-10"><Link href='/home'>Go Back</Link></button>
+<button className="bg-orange-950 hover:bg-cyan-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ml-[700px] mb-20 bottom-0 h-10"><Link href='/'>Go Back</Link></button>
 
     </div>)
     

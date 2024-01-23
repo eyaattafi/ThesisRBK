@@ -23,6 +23,22 @@ CREATE SCHEMA IF NOT EXISTS `thesisrbk` DEFAULT CHARACTER SET utf8mb4 COLLATE ut
 USE `mydb` ;
 
 -- -----------------------------------------------------
+-- Table `thesisrbk`.`categorie`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `thesisrbk`.`categorie` (
+  `idcategorie` INT NOT NULL AUTO_INCREMENT,
+  `categorieName` VARCHAR(45) NULL DEFAULT NULL,
+  `categorieImage` LONGTEXT NULL DEFAULT NULL,
+  `categorieDescription` LONGTEXT NULL DEFAULT NULL,
+  `categorieType` VARCHAR(45) NULL DEFAULT NULL,
+  PRIMARY KEY (`idcategorie`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 33
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
 -- Table `thesisrbk`.`user`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `thesisrbk`.`user` (
@@ -41,51 +57,10 @@ CREATE TABLE IF NOT EXISTS `thesisrbk`.`user` (
   `contactNumber` INT NULL DEFAULT NULL,
   PRIMARY KEY (`iduser`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 34
+AUTO_INCREMENT = 36
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
-
--- -----------------------------------------------------
--- Table `thesisrbk`.`admin`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `thesisrbk`.`admin` (
-  `idadmin` INT NOT NULL AUTO_INCREMENT,
-  `adminName` VARCHAR(45) NULL DEFAULT NULL,
-  `adminEmail` VARCHAR(45) NULL DEFAULT NULL,
-  `adminPassword` LONGTEXT NULL DEFAULT NULL,
-  `adminImage` LONGTEXT NULL DEFAULT NULL,
-  PRIMARY KEY (`idadmin`))
-ENGINE = InnoDB
-AUTO_INCREMENT = 4
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
-
-
--- -----------------------------------------------------
--- Table `mydb`.`chat`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`chat` (
-  `idchat` INT NOT NULL AUTO_INCREMENT,
-  `content` VARCHAR(45) NULL,
-  `userIduser` INT NOT NULL,
-  `adminIdadmin` INT NOT NULL,
-  PRIMARY KEY (`idchat`),
-  INDEX `fk_chat_user_idx` (`userIduser` ASC) VISIBLE,
-  INDEX `fk_chat_admin1_idx` (`adminIdadmin` ASC) VISIBLE,
-  CONSTRAINT `fk_chat_user`
-    FOREIGN KEY (`userIduser`)
-    REFERENCES `thesisrbk`.`user` (`iduser`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_chat_admin1`
-    FOREIGN KEY (`adminIdadmin`)
-    REFERENCES `thesisrbk`.`admin` (`idadmin`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-USE `thesisrbk` ;
 
 -- -----------------------------------------------------
 -- Table `thesisrbk`.`offer`
@@ -103,6 +78,7 @@ CREATE TABLE IF NOT EXISTS `thesisrbk`.`offer` (
   `latitude` VARCHAR(45) NULL DEFAULT NULL,
   `longitude` VARCHAR(45) NULL DEFAULT NULL,
   `userIduser` INT NOT NULL,
+  `idcategory` INT NULL DEFAULT NULL,
   PRIMARY KEY (`idoffer`),
   INDEX `fk_offer_user1_idx` (`userIduser` ASC) VISIBLE,
   CONSTRAINT `fk_offer_user1`
@@ -110,6 +86,46 @@ CREATE TABLE IF NOT EXISTS `thesisrbk`.`offer` (
     REFERENCES `thesisrbk`.`user` (`iduser`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 32
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `thesisrbk`.`feature`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `thesisrbk`.`feature` (
+  `idfeature` INT NOT NULL AUTO_INCREMENT,
+  `categorieIdcategorie` INT NOT NULL,
+  `offerIdoffer` INT NOT NULL,
+  PRIMARY KEY (`idfeature`),
+  INDEX `fk_feature_categorie_idx` (`categorieIdcategorie` ASC) VISIBLE,
+  INDEX `fk_feature_offer1_idx` (`offerIdoffer` ASC) VISIBLE,
+  CONSTRAINT `fk_feature_categorie`
+    FOREIGN KEY (`categorieIdcategorie`)
+    REFERENCES `thesisrbk`.`categorie` (`idcategorie`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_feature_offer1`
+    FOREIGN KEY (`offerIdoffer`)
+    REFERENCES `thesisrbk`.`offer` (`idoffer`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+USE `thesisrbk` ;
+
+-- -----------------------------------------------------
+-- Table `thesisrbk`.`admin`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `thesisrbk`.`admin` (
+  `idadmin` INT NOT NULL AUTO_INCREMENT,
+  `adminName` VARCHAR(45) NULL DEFAULT NULL,
+  `adminEmail` VARCHAR(45) NULL DEFAULT NULL,
+  `adminPassword` LONGTEXT NULL DEFAULT NULL,
+  `adminImage` LONGTEXT NULL DEFAULT NULL,
+  PRIMARY KEY (`idadmin`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 4
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -134,23 +150,20 @@ CREATE TABLE IF NOT EXISTS `thesisrbk`.`bid` (
     FOREIGN KEY (`userIduser`)
     REFERENCES `thesisrbk`.`user` (`iduser`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 3
+AUTO_INCREMENT = 13
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `thesisrbk`.`categorie`
+-- Table `thesisrbk`.`chat`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `thesisrbk`.`categorie` (
-  `idcategorie` INT NOT NULL AUTO_INCREMENT,
-  `categorieName` VARCHAR(45) NULL DEFAULT NULL,
-  `categorieImage` LONGTEXT NULL DEFAULT NULL,
-  `categorieDescription` LONGTEXT NULL DEFAULT NULL,
-  `categorieType` VARCHAR(45) NULL DEFAULT NULL,
-  PRIMARY KEY (`idcategorie`))
+CREATE TABLE IF NOT EXISTS `thesisrbk`.`chat` (
+  `idchat` INT NULL DEFAULT NULL,
+  `content` VARCHAR(45) NULL DEFAULT NULL,
+  `userIduser` INT NULL DEFAULT NULL,
+  `adminIdadmin` INT NULL DEFAULT NULL)
 ENGINE = InnoDB
-AUTO_INCREMENT = 24
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -176,7 +189,7 @@ CREATE TABLE IF NOT EXISTS `thesisrbk`.`inbox` (
     FOREIGN KEY (`userIduser`)
     REFERENCES `thesisrbk`.`user` (`iduser`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 31
+AUTO_INCREMENT = 37
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -196,7 +209,7 @@ CREATE TABLE IF NOT EXISTS `thesisrbk`.`notification` (
     FOREIGN KEY (`userIduser`)
     REFERENCES `thesisrbk`.`user` (`iduser`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 100
+AUTO_INCREMENT = 135
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -241,7 +254,7 @@ CREATE TABLE IF NOT EXISTS `thesisrbk`.`reservation` (
     FOREIGN KEY (`userIduser`)
     REFERENCES `thesisrbk`.`user` (`iduser`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 17
+AUTO_INCREMENT = 25
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -264,7 +277,7 @@ CREATE TABLE IF NOT EXISTS `thesisrbk`.`reviews` (
     FOREIGN KEY (`userIduser`)
     REFERENCES `thesisrbk`.`user` (`iduser`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 3
+AUTO_INCREMENT = 9
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -312,6 +325,7 @@ COLLATE = utf8mb4_0900_ai_ci;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
 
 /*Inbox queries */
 INSERT INTO `Inbox` (`inboxObject`,`inboxBody`, `inboxStatus` ,`adminIdadmin`,`userIduser`,`inboxDate`) VALUES ('Request' ,'Hello how can i join you by phone please....','Reciever',2,9,'2024-01-17');

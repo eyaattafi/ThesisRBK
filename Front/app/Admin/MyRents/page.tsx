@@ -48,11 +48,11 @@ useEffect(()=>{
 
     <div className=" grid grid-cols-4 gap-7 p-12">
          {offers.map((element,i)=>(
-   <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">                            
+   <div className="w-[300px] h-[400px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700" key={i}>                            
    <Slide>         
-       {offers.map((el, i)=> (
+       {element.offerImages.map((el, i)=> (
            <Link href="/details">
-           <img className="rounded" src={`${element.offerImages}`}/>
+           <img className="rounded  w-full h-[200px]" src={`${el}`}/>
            </Link>
        ))} 
    </Slide>

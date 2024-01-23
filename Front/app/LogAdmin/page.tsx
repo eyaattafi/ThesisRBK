@@ -41,7 +41,7 @@ if((!email) || (!password)) {
       const logadmin  = await axios.post("http://localhost:3000/api/logAdmin", { adminEmail: email, adminPassword: password });
 console.log("id",logadmin.data.idadmin)
       if(logadmin.data.idadmin) {
-        showPopupHandler()
+
         push("/Admin")}
 else{
   showNotAutHandler()
@@ -55,21 +55,19 @@ else{
 
 useEffect (()=>{notify()},[])
 
-useEffect(()=>{
-  const timer = setTimeout(() => {
-    setShowWelcome(false);
-  }, 5000);
-return () => clearTimeout(timer);},[showWelcome])
+// useEffect(()=>{
+//   const timer = setTimeout(() => {
+//     setShowWelcome(false);
+//   }, 3000);
+// return () => clearTimeout(timer);},[showWelcome])
 
 
-useEffect (()=>{   const timer = setTimeout(() => { setShowNotAut(false)}, 3000)
+useEffect (()=>{   const timer = setTimeout(() => { setShowNotAut(false)}, 5000)
 return () => clearTimeout(timer);},[showNotAut])
 
 let welcome = null;
 let notAut = null;
-if(showWelcome) {
-  welcome = <Welcome/>;
- }
+
  if(showNotAut){
   notAut = <NotAuth/>
  }
