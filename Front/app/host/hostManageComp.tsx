@@ -1,12 +1,13 @@
 "use client"
-import React,{useState} from "react";
+import React,{useState,useContext} from "react";
 import Link from "next/link"
 import NewBooking from "./newBooking";
 import CurrentStays from "./currentStays";
 import NextArriving from "./nextArriving";
 import Bids from "./bids";
-
+import { DataContext } from "../context";
 const HostManage = () => {
+    const  context = useContext(DataContext);
     const [ view,setView]=useState<string>('newbooking')
     const [clicked,setclicked]=useState([true,false,false,false])
     const renderComp=()=>{
@@ -23,7 +24,7 @@ const HostManage = () => {
     return ( 
     <div className="w-[1100px]">
         <div className="flex flex-row justify-between items-center">
-            <h1 className="text-4xl font-bold">welcome user!</h1> <Link className="flex justify-center items-center w-[120px] h-[30px] bg-slate-800 text-white rounded" href='' >add a home</Link> 
+            <h1 className="text-4xl font-bold">welcome {context?.loggedUser.userName}!</h1> <Link className="flex justify-center items-center w-[120px] h-[30px] bg-slate-800 text-white rounded" href='' >add a home</Link> 
         </div>
         <div className="flex flex-col mt-[50px]">
             <h1 className="text-xl">Your reservations</h1>
@@ -39,4 +40,4 @@ const HostManage = () => {
      );
 }
  
-export default HostManage;
+export default HostManage; 

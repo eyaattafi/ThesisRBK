@@ -71,6 +71,7 @@ const userId = localStorage.getItem('userId');
     axios.get(`http://localhost:3000/api/oneUser/${userId&&userId}`).then((res)=>setLogged(res.data)).catch((err)=>console.log(err)
     )
     axios.get(`http://localhost:3000/api/getreviews/${oneHouse.idoffer}`).then((res)=>setReviews(res.data)).catch((err)=>console.log(err))
+    
     },[oneHouse])
     
     const setOne=(id:number)=>{

@@ -1,9 +1,9 @@
 const Wishlist= require('../Models/wishlist.js');
-
+const offer=require('../Models/offer.js')
 
   async function getWishes(req, res) {
     try {
-      const Wish = await Wishlist.findAll({ where: { userIduser: req.params.user_iduser } });
+      const Wish = await Wishlist.findAll({include:[{ model:offer}], where: { userIduser: req.params.user_iduser } });
       res.status(200).json(Wish)
 
     } catch (error) {
