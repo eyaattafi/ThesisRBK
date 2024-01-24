@@ -5,32 +5,43 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    box-shadow: 10px 4px 6px rgba(10, 10, 10, 0.1); 
     gap: 1rem;
   }
+
   .main_input {
-    height: 2rem;
-    width: 15rem;
-    padding: 5px;
-  }
-  .main_button {
-  
+    height: 3rem;
+    margin-top: 20px;
+    width: 18rem;
+    border-radius: 10px;
+    background-color: rgb(60, 37, 37);
+    color: aliceblue;
+    box-shadow: 2px 2px 4px rgba(157, 44, 44, 0.1);
+}
+
+
+.button {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 6rem;
     width: 41rem;
     padding: -18px;
-    background-color: rgb(106, 73, 73);
+    background-color: rgb(50, 24, 24);
     text-decoration-color: antiquewhite;
     border-radius: 10px;
+    box-shadow: 10px 4px 6px rgba(157, 44, 44, 0.1); 
+
+    color: antiquewhite;
   }
  
 
   .chat_chat_border___G6fC {
     border: 7px solid #6a3434;
+    border-radius: 10px;
     padding: 115px;
     padding-right: 188px;
     border-radius: 40px;
-    box-shadow: 0 4px 6px rgba(10, 10, 10, 0.1); /* Add your desired box shadow */
+    box-shadow: 0 4px 6px rgba(10, 10, 10, 0.1); 
 }
 

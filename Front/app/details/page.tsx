@@ -6,6 +6,7 @@ import PlaceFeatures from "./placeFeatures";
 import RelatedOffers from "./relatedOffers";
 import ReservationCard from "./reservationCard";
 import TitleNimg from "./titleAndimg";
+import Satisfaction from './Satisfaction'
 
 const page = () => {
     return ( 
@@ -18,7 +19,8 @@ const page = () => {
        <div className="mt-[30px] ml-[60px]"><RelatedOffers/></div>
        <div className="mt-[30px] ml-[135px]"><PlaceFeatures/></div>
        <div className="mt-[30px] ml-[135px]"><OfferReviews/></div>
-       <div className="mt-[30px] ml-[135px] mb-8"><OfferMap/></div>
+       <div className="mt-[30px] ml-[135px]"><OfferMap/></div>
+       <Satisfaction/>
     </div>
      );
 }

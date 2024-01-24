@@ -111,7 +111,7 @@ useEffect(()=>{
 
        <li className='ml-6 text-blue-900 font-bold' > <Link href={`/Admin/Claims/${el.user.iduser}/${el.idinBox}`} >{el.user.userName} </Link> </li> 
        <li className='font-bold'>  <Link href={`/Admin/Claims/${el.user.iduser}/${el.idinBox}`} >{dat}/{i}/{el.user.iduser} </Link></li>
-       <li className=''><Link href={`/Admin/Claims/${el.user.iduser}/${el.idinBox}`} >{(el.inboxBody).substring(0,25)}...  </Link></li>
+       <li className=''><Link href={`/Admin/Claims/${el.user.iduser}/${el.idinBox}`} >{(el.inBoxBody).substring(0,25)}...  </Link></li>
        <li className='ml-44'>date {el.inboxDate}</li> 
 
        </ul>
