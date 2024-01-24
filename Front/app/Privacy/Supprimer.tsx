@@ -44,6 +44,8 @@ import Link from "next/link"
             {/* </Modal> */}
         </div>
     )
+
+    
  }
 
  export default Supprimer ;
