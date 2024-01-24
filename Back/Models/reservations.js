@@ -21,6 +21,15 @@ const Reservation=sequelize.define('reservation',{
         type:DataTypes.DATE,
         allowNull:true,
     },
+    reservationSoon:{
+        type:DataTypes.DATE,
+        allowNull:true,
+    },
+    warning : {
+        type: DataTypes.STRING(45),
+        allowNull: true,
+    }
+    ,
     userIduser:{
         type:DataTypes.INTEGER,
         allowNull:true,
