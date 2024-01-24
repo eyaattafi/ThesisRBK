@@ -2,7 +2,8 @@
 import { FaMapLocation } from "react-icons/fa6";
 import { SlCalender } from "react-icons/sl";
 import { DateRange } from 'react-date-range';
-import { useContext, useEffect, useState} from 'react'
+import { useContext, useEffect, useState} from 'react';
+
 import 'react-date-range/dist/styles.css'; 
 import 'react-date-range/dist/theme/default.css'; 
 import {format} from "date-fns"
@@ -38,11 +39,11 @@ export default function AuthenticatedHome(){
       }
     ]);
 
-    
     console.log(offer)
     const inputStart=format(date[0].startDate,'yyyy-MM-dd' )
     const inputEnd=format(date[0].endDate,'yyyy-MM-dd' )
-    
+
+
     const ElReservation=context?.reservations.filter((el,i)=>{
       return (el.reservationStatus==="confirmed") &&
       (el.reservationEndDate.toString()>=inputStart && (el.reservationEndDate.toString()<=inputEnd))
@@ -74,7 +75,11 @@ export default function AuthenticatedHome(){
         <div>
           
           <Satisfaction/>
-                <DropDown/>  
+
+          <DropDown/> 
+
+          
+              
 
                 <div className="container1">
                       <div className="headerSearch">
