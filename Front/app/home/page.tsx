@@ -18,6 +18,7 @@ import { Slide } from "react-slideshow-image";
 import Satisfaction from "../Satisfaction";
 import axios from "axios";
 
+
 export default function AuthenticatedHome(){
 
   const [openDate,setOpenDate]=useState(false)
@@ -71,7 +72,7 @@ export default function AuthenticatedHome(){
     return (
       
         <div>
-          
+       
           <Satisfaction/>
                 <DropDown/> 
 
