@@ -7,7 +7,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import '../SignIn/SignIn.css'
 import 'react-toastify/dist/ReactToastify.css';
 import { Slide, Zoom, Flip, Bounce } from 'react-toastify';
-import Welcome from './Welcome'
 import NotAuth from "./NotAuth";
 
 export default function LogAdmin() {
@@ -55,11 +54,6 @@ else{
 
 useEffect (()=>{notify()},[])
 
-// useEffect(()=>{
-//   const timer = setTimeout(() => {
-//     setShowWelcome(false);
-//   }, 3000);
-// return () => clearTimeout(timer);},[showWelcome])
 
 
 useEffect (()=>{   const timer = setTimeout(() => { setShowNotAut(false)}, 5000)

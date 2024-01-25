@@ -5,6 +5,7 @@ import { IoIosNotificationsOutline } from "react-icons/io";
 import { MdOutlineNotificationsActive } from "react-icons/md";
 import { TiDeleteOutline } from "react-icons/ti";
 import Satisfaction from './Satisfaction'
+import DropDown from "./DropDown";
 
 interface Notif {
     idnotification : number,
@@ -63,6 +64,7 @@ const deleteNot = (idNot : number) => {
 
     return(
     <div>
+      <DropDown/>
          <h1 className="font-bold text-2xl mb-2 mt-12 ml-80"> Your Notifications </h1>
         <div className="w-[1000px] h-auto bg-slate-100 rounded shadow-lg ml-80 mt-10 mb-20">
             {notif.map((el,i)=>(<div className="flex flex-r mb-5 ml-12">
