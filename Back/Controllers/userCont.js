@@ -19,8 +19,18 @@ async function getAllUsers(req, res) {
   }
 }
 
+// ********************Get all users blocked********************** // 
+async function getUsersBlocked(req, res) {
+  try {
 
-// Get all users non blocked // 
+    const allUs = await User.findAll({where:{userBlocked: true}});
+    res.json(allUs);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
+
+// ********************Get all users non blocked********************** // 
 async function getUsersNonBlock(req, res) {
   try {
 
@@ -122,5 +132,6 @@ module.exports = {
   updateUser,
   deleteUser,
   getUsersNonBlock,
-  getUserByEmail
+  getUserByEmail,
+  getUsersBlocked
 };

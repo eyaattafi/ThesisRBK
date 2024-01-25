@@ -9,6 +9,10 @@ userRouter.get('/allUsers', userCont.getAllUsers);
 // Get Non blocked users // 
 userRouter.get('/nonblocked',userCont.getUsersNonBlock);
 
+
+// Get Non blocked users // 
+userRouter.get('/blocked',userCont.getUsersBlocked);
+
 // GET oneUser by id
 userRouter.get('/oneUser/:iduser', userCont.getOneUser);
 

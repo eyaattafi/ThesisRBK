@@ -3,7 +3,6 @@ import { FaMapLocation } from "react-icons/fa6";
 import { SlCalender } from "react-icons/sl";
 import { DateRange } from 'react-date-range';
 import { useContext, useEffect, useState} from 'react';
-
 import 'react-date-range/dist/styles.css'; 
 import 'react-date-range/dist/theme/default.css'; 
 import {format} from "date-fns"
@@ -19,14 +18,12 @@ import { Slide } from "react-slideshow-image";
 import Satisfaction from "../Satisfaction";
 import axios from "axios";
 
-
-
-
 export default function AuthenticatedHome(){
 
   const [openDate,setOpenDate]=useState(false)
   const [showMore,setShowMore]=useState(false)
   const [input,setInput]=useState('')
+
   const context=useContext(DataContext)
   const ElID:number[]=[]
   const [showFiltred,setShowFiltred]=useState(false)
@@ -38,6 +35,7 @@ export default function AuthenticatedHome(){
         key: 'selection'
       }
     ]);
+
 
     console.log(offer)
     const inputStart=format(date[0].startDate,'yyyy-MM-dd' )
@@ -75,8 +73,7 @@ export default function AuthenticatedHome(){
         <div>
           
           <Satisfaction/>
-
-          <DropDown/> 
+                <DropDown/> 
 
           
               
