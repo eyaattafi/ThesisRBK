@@ -5,10 +5,12 @@ import HostManage from "./hostManageComp";
 import Weofferhelp from "./weofferhelp";
 import YourOffers from "./yourOffers";
 import Satisfaction from './Satisfaction'
+import DropDown from "../Notification/DropDown";
 
 const page = () => {
     return ( 
         <div>
+             <DropDown/>
     <div className="mt-[30px] ml-[190px]">
         <HostManage/>
     </div>

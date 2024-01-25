@@ -11,7 +11,7 @@ interface Reservation {
   idreservation : number,
     reservationStatus: string,
     reservationStartDate: any,
-    reservationEndDate: any,
+    reservationEndDate: Date,
     userIduser: number,
     offerIdoffer: number,
     warning : string,
@@ -39,25 +39,42 @@ interface user {
 
 const ConfirmedRents = () => {
 const [confirmed,setConfirmed] =useState<Reservation[]>([])
+const [refresh,setRefresh] = useState<boolean>(false)
 const  currentDate : any= format(new Date(),'yyyy-MM-dd')
 
+console.log("confirmed",confirmed)
 
+
+const turnDateFormat=(current : Date)=>{
+  return( ` ${current.getFullYear()}-${current.getMonth() + '1'}-${current.getDate()}`)
+}
+
+
+
+const verifyWarning = (array:Reservation[]) => {
+  if(array){
+  let arr = array.slice()
+ let result = arr.filter((el,i)=>{return el.warning !=="closed"})
+  setConfirmed(result)
+}
+}
+// Get All Confirmed Rents // 
     const fetchConfirmed = async () => {
         try {
           const response = await fetch("http://localhost:3000/api/getConfirmedReservations");
           const conf = await response.json();
           setConfirmed(conf)
+          verifyWarning(conf)
         } catch (error) {
           console.error(error);
         }
     }
 
+useEffect(()=>{ 
+  fetchConfirmed()
 
-
-useEffect(()=>{
-    fetchConfirmed()
 },[])
-
+const current = turnDateFormat(new Date())
   return (
     <>
 <div className=" grid grid-cols-4 gap-7 p-12">
@@ -77,7 +94,7 @@ useEffect(()=>{
       <div className='w-full rounded-md shadow-sm mt-3 pl-1 '><span className='font-bold'> Contact: </span>{el.user.userEmail}</div>
       <div className='w-full rounded-md shadow-sm mt-3 pl-1'><span className='font-bold'>Price : </span> {el.offer.offerPrice}</div>
       <div className='w-full rounded-md shadow-sm mt-3 pl-1'><span className='font-bold'>Period:</span> {el.reservationStartDate}<span className='font-bold'> to </span>  {el.reservationEndDate}</div>
-      <div className='w-full rounded-md shadow-sm mt-3 pl-1'>{el.warning === 'closed' ?<h1>End of Renting Period</h1> : <h1></h1>} </div>
+      <div className='w-full rounded-md shadow-sm mt-3 pl-1'>{current == new Date(el.reservationEndDate)?<h1>Still Three days before closure</h1> : <h1></h1>} </div>
     </div></div>))}
 
       </div>
