@@ -29,7 +29,7 @@ const userInfo=(idoffer:number)=>{
 console.log(userData)
     return ( 
       <div>
-        <h2 className="flex justify-center text-2xl font-bold mb-4 border bg-white shadow mt-[30px] w-[1020px] ml-[30px]">Current Stays</h2>
+        <h2 className="flex justify-center text-2xl font-bold mb-4 border bg-white shadow mt-[30px] w-[1030px] ml-[35px]">Current Stays</h2>
         <div className="max-w-screen-lg mx-auto mt-4 flex">
         {/* Houses List Section */}
         <div className=" w-1/2 pr-4 border rounded-l-lg p-2 bg-white">

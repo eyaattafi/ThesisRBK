@@ -102,8 +102,8 @@ function Bids() {
 
   return (
     <div>
-      <h2 className="flex justify-center text-2xl font-bold mb-4 border bg-white shadow mt-[30px] w-[1020px] ml-[30px]">
-        Current Stays
+      <h2 className="flex justify-center text-2xl font-bold mb-4 border bg-white shadow mt-[30px] w-[1030px] ml-[35px]">
+      Bids
       </h2>
 
       <div className="max-w-screen-lg mx-auto mt-4 flex">

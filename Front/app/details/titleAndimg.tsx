@@ -5,11 +5,13 @@ import { FaRegHeart } from 'react-icons/fa';
 import { AiTwotoneAppstore, AiOutlineClose } from 'react-icons/ai';
 import ImgDisplay from './imgDisplay'; // Make sure to provide the correct path to your ImgDisplay component
 import { DataContext } from '../context'
+import axios from 'axios';
 
 
 const TitleNImg = () => {
 
   const [showImagesModal, setShowImagesModal] = useState(false);
+  const [saved,setSaved]=useState<Boolean>(false)
   const  context = useContext(DataContext);
 
   const handleShowImages = () => {
@@ -19,6 +21,10 @@ const TitleNImg = () => {
   const handleCloseImages = () => {
     setShowImagesModal(false);
   };
+  const handleSave=()=>{
+    axios.post('http://localhost:3000/api/addwish',{userIduser:context?.loggedUser.iduser,
+  offerIdoffer:context?.oneHouse.idoffer}).then((res)=>setSaved(!saved)).catch((err)=>err)
+  }
 
   return (
     <div className="container mx-auto p-8">
@@ -27,8 +33,8 @@ const TitleNImg = () => {
         <h1 className="text-4xl font-bold mb-2">{context&&context.oneHouse.offerTitle}</h1>
         <div className="flex justify-between">
           <p className="text-gray-500">Location: City, Country</p>
-          <div className="flex flex-row items-center mr-[50px] gap-2 hover:cursor-pointer">
-            <FaRegHeart />
+          <div className="flex flex-row items-center mr-[50px] gap-2 hover:cursor-pointer" onClick={handleSave}>
+            <FaRegHeart style={{ color: saved ? 'red' : 'black' }} />
             <span>save </span>
           </div>
         </div>
