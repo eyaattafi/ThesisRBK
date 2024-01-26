@@ -12,10 +12,10 @@ const AddRentSeller = () =>{
     return (
         <div className="all">
         <div className="q">What type accommodation will be available to guestes ?</div>
-        <div className="home"> An entire home <div className="iconHome"> </div> <HomeIcon/> </div>
+        <div className="home"> Entire home <div className="iconHome"> </div> <HomeIcon/> </div>
         <div className="bed">One Bedroom <div className="iconHome"></div> <BedroomChildIcon/> </div>
-        <div className="room">A Shared room  <div className="iconHome"> </div> <BedIcon/></div>
-        <div className="button"><button><Link href="/AdressSeller"></Link>Next</button></div>
+        <div className="room">Shared room  <div className="iconHome"> </div> <BedIcon/></div>
+        <div className="button"><button><Link href="/Seller/AdressSeller">Next</Link></button></div>
 </div>
 
 

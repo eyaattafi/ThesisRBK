@@ -1,6 +1,5 @@
 import React from "react"
 import Box from "@mui/material/Box";
-import Modal from "@mui/material/Modal";
 const InfoPers = () =>{
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
@@ -21,12 +20,7 @@ const InfoPers = () =>{
       };
     return (
         <div onClick={handleOpen}>
-     <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
+  
            <Box sx={style}>
            <div className="p8"> Demandez à recevoir vos données personnelles</div>
            <div className="p9">Avant de vous fournir une copie de vos données, nous avons besoin que vous répondiez à quelques questions.</div>
@@ -37,7 +31,7 @@ const InfoPers = () =>{
               </label>
               <input
                 type="text"
-                placeholder="Write here..."
+                placeholder=" Write here..."
                 name="input"
                 className="input"
               />
@@ -50,7 +44,7 @@ const InfoPers = () =>{
                 
                 <input
                   type="text"
-                  placeholder="Write here..."
+                  placeholder=" Write here..."
                   name="input"
                   className="input"
                 />
@@ -66,19 +60,15 @@ const InfoPers = () =>{
                         <option value="Je veux ouvrir u ticket auprés de l'assistance">Je veux ouvrir u ticket auprés de l'assistance</option>
                         <option value="Je veux déplacer mes données vers un autre service">Je veux déplacer mes données vers un autre service</option>
                         <option value="Je prévois de supprimer ou désactiver mon compte prochainement">Je prévois de supprimer ou désactiver mon compte prochainement </option>
-
                     </select>
                 </div>
-               
-                <div className="action-btns">
-       
+            <div className="action-btns">
               <button>Demander mes données</button>
             </div>
             </div>
            </Box>
-           </Modal>
-           </div>
-    
+         
+</div>    
     )
 }
 

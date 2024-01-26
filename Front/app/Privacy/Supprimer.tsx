@@ -39,7 +39,7 @@ import Link from "next/link"
               quelle que soit sa couleur de peau, sa religion, sa nationalité ou origine, son handicap, son sexe, son identité de genre,
               son orientation sexuelle ou son âge.</div>
             <button className="b1">Accepter et continuer</button>
-            <button className="b2" >Supprimer</button>
+            <button className="b2" ><Link href="/confirmSupp"> Supprimer </Link> </button>
             </Box>
             {/* </Modal> */}
         </div>

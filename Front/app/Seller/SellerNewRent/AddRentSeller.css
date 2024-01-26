@@ -38,42 +38,54 @@
 
 .home {
     font-size: x-large;
-    padding: 40px; 
+    padding: 17px; 
+    padding-left: 432px;
+    padding-right: 300;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content:flex-end;
+     align-items:flex-start;
     margin-right: 900px;
-    margin-left: 650px;
+    margin-left: 500px;
     margin-top: -50px;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1); 
-    border-radius: 47px; 
-    background-color: #fff; 
+    border-radius: 15px; 
+    background-color: #270e0e; 
+    text-align: center;
+    color: beige;
   }
   .bed {
     font-size: x-large;
-    padding: 40px; 
+    padding: 17px; 
+    padding-left: 432px;
+    padding-right: 300;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content:flex-end;
+    align-items:flex-start;
     margin-right: 900px;
-    margin-left: 650px;
+    margin-left: 500px;
     margin-top: 24px;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1); 
-    border-radius: 47px; 
-    background-color: #fff; 
+    border-radius: 15px; 
+    background-color: #270e0e; 
+    text-align: center;
+    color: beige;
   }
   .room {
     font-size: x-large;
-    padding: 40px; 
+    padding: 17px; 
+    padding-left: 432px;
+    padding-right: 300;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content:flex-end;
+    align-items:flex-start;
     margin-right: 900px;
-    margin-left: 650px;
+    margin-left: 505px;
     margin-top: 24px;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1); 
-    border-radius: 47px; 
-    background-color: #fff; 
+    border-radius: 15px; 
+    background-color: #270e0e; 
+    text-align: center;
+    color: beige;
   }
   
   .iconHome{
@@ -81,16 +93,17 @@
     margin-right: 120px;
   }
   .button {
-    background-color: brown;
+    background-color: #411414;
     border: none;
     color: white;
-    padding: 15px 32px;
+    padding: 14px 42px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 20px;
     border-radius: 10px;
-    margin-right: 500px; 
-    margin-top: 30px;
-    margin-left: 1100px;
+    margin-right: 500px;
+    margin-top: 80px;
+    margin-left: 955px;
+    margin-bottom:140px;
 }

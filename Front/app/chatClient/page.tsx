@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import style from"./chat.module.css"
 import axios from "axios";
+
 interface IMsgDataTypes {
   idchat:  number;
   admin_idadmin:  number;
@@ -25,6 +26,7 @@ const ChatPage = ({ socket, iduser, idchat,admin }: any) => {
       const msgData: IMsgDataTypes = {
          idchat:idchat, admin_idadmin:admin , user_iduser: iduser , content: currentMsg,
       };
+      
       await socket.emit("send_msg", msgData);
       setCurrentMsg("");
     }
