@@ -26,6 +26,7 @@ const ChatPage = ({ socket, iduser, idchat,admin }: any) => {
       const msgData: IMsgDataTypes = {
          idchat:idchat, admin_idadmin:admin , user_iduser: iduser , content: currentMsg,
       };
+      
       await socket.emit("send_msg", msgData);
       setCurrentMsg("");
     }
