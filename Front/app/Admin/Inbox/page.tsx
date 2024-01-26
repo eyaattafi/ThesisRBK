@@ -92,7 +92,7 @@ useEffect(()=>{
    
 
 
- <div className='shadow-2xl ml-16 w-[1150px] h-[600px]'>
+ <div className='shadow-2xl ml-16 w-[1150px] h-auto mb-10'>
 <div className='flex flex-r justify-start mt-20'>
   <button className='shadow-xl rounded w-12 h-12  bg-gray-200 justify-center hover:bg-gray-300 ml-1'><Link href="/Admin/CreateNotification" ><IoCreateOutline size={30} className=' ml-3 font-bold'/></Link></button>
     <button className='shadow-xl rounded w-12 h-12  bg-gray-200 justify-center hover:bg-gray-300 ml-1 ' onClick={() => {setShow(!show)}}><RiDeleteBin6Line size={30} className=' ml-3'/></button>
@@ -102,20 +102,20 @@ useEffect(()=>{
     <button className='shadow-xl rounded w-32 h-12 font-bold  bg-gray-200 justify-center hover:bg-gray-300 ml-1'><Link href="/Admin/Inbox/Sent"> Sent Messages </Link> </button>
 </div>
 <div> {show && <ConfirmDelete  onConfirm={handleConfirm} onCancel={handleCancel}/>}</div>
-    <div className='mt-12' >
+    <div className='mt-12 h-auto' >
 
   {messages.map((el,i)=>{
     return (
-      <div className='flex flex-r ml-10 mt-8'>
+      <div className='flex flex-r ml-10 mt-8 mb-10 '>
       
        <label><input type="checkbox" className='mr-6' onClick={()=>{setIdinbox(el.idinBox)}}/></label>
        <button onClick={()=>{setSh(!sh);setColor(el.idinBox)}}><IoIosStar  color={sh && color===el.idinBox?'red':'black'} size={25} className='mr-6'/> </button>
-       <ul className='columns-4'>
+       <ul className='columns-4 mb-4'>
 
        <li className='ml-6 text-blue-900 font-bold'> <Link href={`/Admin/Inbox/${el.user.iduser}/${el.idinBox}`} > {el.user.userName} </Link> </li> 
-       <li className='font-bold'>  <Link href={`/Admin/Inbox/${el.user.iduser}/${el.idinBox}`} >{dat}/{i}/{el.user.iduser} </Link></li>
-       <li className=''><Link href={`/Admin/Inbox/${el.user.iduser}/${el.idinBox}`} >{(el.inboxBody).substring(0,20)||''}...  </Link></li>
-       <li className='ml-24'> {el.inboxDate}</li> 
+       <li className='font-bold ml-6'>  <Link href={`/Admin/Inbox/${el.user.iduser}/${el.idinBox}`} >{dat}/{i}/{el.user.iduser} </Link></li>
+       <li className='ml-24'><Link href={`/Admin/Inbox/${el.user.iduser}/${el.idinBox}`} >{(el.inBoxBody).substring(0,10)||''}...  </Link></li>
+       <li className='ml-36'> {el.inBoxDate}</li> 
 
        </ul>
       </div>

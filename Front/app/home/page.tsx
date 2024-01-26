@@ -2,7 +2,8 @@
 import { FaMapLocation } from "react-icons/fa6";
 import { SlCalender } from "react-icons/sl";
 import { DateRange } from 'react-date-range';
-import { useContext, useEffect, useState} from 'react'
+import { useContext, useEffect, useState} from 'react';
+
 import 'react-date-range/dist/styles.css'; 
 import 'react-date-range/dist/theme/default.css'; 
 import {format} from "date-fns"
@@ -14,8 +15,10 @@ import Features from "./Features";
 import Info from "./Info";
 import QuestionRes from "../Components/QuestionRes";
 import Link from "next/link"
-import { Slide } from "react-slideshow-image"
+import { Slide } from "react-slideshow-image";
+import Satisfaction from "../Satisfaction";
 import axios from "axios";
+
 
 
 
@@ -36,11 +39,11 @@ export default function AuthenticatedHome(){
       }
     ]);
 
-    
     console.log(offer)
     const inputStart=format(date[0].startDate,'yyyy-MM-dd' )
     const inputEnd=format(date[0].endDate,'yyyy-MM-dd' )
-    
+
+
     const ElReservation=context?.reservations.filter((el,i)=>{
       return (el.reservationStatus==="confirmed") &&
       (el.reservationEndDate.toString()>=inputStart && (el.reservationEndDate.toString()<=inputEnd))
@@ -58,7 +61,7 @@ export default function AuthenticatedHome(){
     
    const handleSearch=()=>{
     axios.get('http://localhost:3000/api/categoryByName/'+input).then((res)=>{
-      //console.log(res.data)
+       console.log(res.data)
       axios.get('http://localhost:3000/api/getAllByRegion/'+res.data.idcategorie).then(res=>setOffer(res.data))
     .catch(err=>err)
     }
@@ -71,8 +74,12 @@ export default function AuthenticatedHome(){
       
         <div>
           
+          <Satisfaction/>
 
-                <DropDown/>  
+          <DropDown/> 
+
+          
+              
 
                 <div className="container1">
                       <div className="headerSearch">
@@ -206,7 +213,7 @@ export default function AuthenticatedHome(){
           setShowMore(!showMore)
         }}>
           <button className="bg-transparent hover:bg-orange-950 text-orange-950 font-semibold hover:text-white py-2 px-4 border border-orange-950 hover:border-transparent rounded">
-            Button
+            More Offers
           </button>
         </div>
 

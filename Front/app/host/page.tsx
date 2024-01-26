@@ -4,6 +4,7 @@ import Help from "./help";
 import HostManage from "./hostManageComp";
 import Weofferhelp from "./weofferhelp";
 import YourOffers from "./yourOffers";
+import Satisfaction from './Satisfaction'
 
 const page = () => {
     return ( 
@@ -15,6 +16,7 @@ const page = () => {
     <div className="mt-[70px] ml-[100px]"><AllRegions/></div>
     <div className="mt-[70px] ml-[10px]"><AllOffers/></div>
     <div className="mt-[70px] ml-[100px] mb-6"><Weofferhelp/></div>
+    <Satisfaction/>
     </div>
      );
 }

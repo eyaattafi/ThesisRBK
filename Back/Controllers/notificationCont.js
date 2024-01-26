@@ -25,6 +25,18 @@ async function getNotifications(req, res) {
     }
   }
 
+  // Get Notif unread By userId // 
+async function getUnreadNot(req, res) {
+  try {
+    const notifications = await Notification.findAll({ where: { userIduser: req.params.userid ,notificationSeen : false} });
+    res.status(200).json(notifications)
+
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
+
+
   // Add notification //
   async function createNotification(req, res) {
     try {
@@ -68,5 +80,6 @@ async function updateNotif(req, res) {
     createNotification,
     deleteNotification,
     getNotifs,
-    updateNotif
+    updateNotif,
+    getUnreadNot
   };

@@ -1,8 +1,8 @@
 {
   "name": "chatbot-host",
   "version": "1.0.0",
-  "description": "This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).",
-  "main": "next.config.js",
+  "description": "A Minimum Viable Product",
+  "main": "index.js",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -17,6 +17,7 @@
     "@material-tailwind/react": "^2.1.8",
     "@mui/icons-material": "^5.15.4",
     "@mui/material": "^5.15.5",
+    "@mui/x-data-grid": "^6.19.1",
     "@nextui-org/react": "^2.2.9",
     "apexcharts": "^3.45.1",
     "axios": "^1.6.5",

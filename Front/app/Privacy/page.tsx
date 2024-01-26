@@ -21,7 +21,7 @@ const Privacy = ()=>{
         <div className="all">
             <div className="compte"><Link href="Profile">Compte</Link>  </div>
                 <div className="confi">Confidentialité et partage </div>
-                <div className="donnee" onClick={()=>setOpen([true,false,false])}>Données</div>
+                <div className="donnee" onClick={()=>setOpen([true,false,false])} >Données</div>
                 <div className="parteges" onClick={()=>setOpen([false,true,false])}>Partages</div>
                 <div className="services" onClick={()=>setOpen([false,false,true])}>Services</div>
                 <div>{renderComp()}</div>

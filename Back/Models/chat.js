@@ -1,10 +1,15 @@
-const sequelize= require ('../database-sequalize/index');
+const sequelize= require ('../database/index');
 const {DataTypes } = require('sequelize');
 const user = require('./user'); 
 const admin = require('./admin'); 
 
 const Chat = sequelize.define('chat', {
-
+  idchat: {
+    type: DataTypes.INTEGER,
+   
+    autoIncrement: true,
+    primaryKey: true,
+  },
   content: {
     type: DataTypes.STRING(255),
     allowNull: true,
