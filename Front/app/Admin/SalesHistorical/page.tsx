@@ -75,7 +75,6 @@ const handleCancel = () => {
   }
 
   const handleConfirm = () => {
-    
     deleteRes(idRes)
      setShow(!show)
   }
@@ -89,9 +88,11 @@ useEffect(()=>{fetchHistory()},[refresh])
         <div> {show && <ConfirmDelete  onConfirm={handleConfirm} onCancel={handleCancel}/>}</div>
 
 {!show &&<div className=" grid grid-cols-4 gap-7 p-12 ">
+
         {hist.map((el,j)=>(
         
     <div key={j} className='w-[300px] h-auto bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700'>
+  <div className='bg-gray-400 w-full h-14 font-bold text-center text-xl pt-4'> ARCHIVE </div>
 <Slide>         
        {el.offer.offerImages.map((element, i)=> (
           
