@@ -8,7 +8,6 @@
         "server-main": "nodemon index.js",
         "server-chat": "nodemon indexChat.js"
     },
-    
     "author": "You!",
     "license": "ISC",
     "dependencies": {
@@ -16,6 +15,7 @@
         "chart.js": "^4.4.1",
         "concurrently": "^8.2.2",
         "cors": "^2.8.5",
+        "date-fns": "^3.3.1",
         "express": "^4.18.2",
         "jquery": "^3.1.1",
         "jsonwebtoken": "^9.0.2",
