@@ -5,6 +5,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
   }
   .chat_border {
     border: 1px solid rgb(44, 21, 21);
@@ -14,12 +15,14 @@
   .chat_chat_input__PAPpb {
     /* height: 14rem;
     width: 29rem; */
+
     padding: 40px;
     margin: 20px;
 }
   .chat_button {
     height: 3rem;
     width: 12rem;
+
     padding: -18px;
     background-color: rgb(50, 24, 24);
     border-radius: 10px;
@@ -32,12 +35,14 @@
     align-items: center;
     gap: 5px;
     flex-direction: row-reverse;
+
     margin-bottom: 5px;
   }
   .chatProfileLeft {
     display: flex;
     align-items: center;
     gap: 5px;
+
     margin-bottom: 5px;
   }
   .chatProfileSpan {
@@ -50,8 +55,9 @@
     justify-content: center;
     align-items: center;
     color: rgb(216, 201, 201);
+
   }
-  
+
   .name{
     margin-right: 50px;
     margin-top: 50px;

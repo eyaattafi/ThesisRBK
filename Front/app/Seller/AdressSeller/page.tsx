@@ -7,10 +7,6 @@ const AddRentSeller = () =>{
     return (
        
 <div>
-
-
-
-        
         <div className="q">Where is your accomondation located ?</div>
         <div className="q1">Your adress is only shared with guestes once they've booked </div>
         <div className="q2"> <PlaceIcon/> 

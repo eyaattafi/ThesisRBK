@@ -24,40 +24,43 @@ const style = {
   p: 4,
   borderRadius: "0.50rem",
 };
+
 interface ProfileProps {
   user: {
     iduser: number;
   } | null;
 }
 
+
 const Profile: NextPage<ProfileProps> = ({user}) => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const [userName,setUserName]=useState<String>("")
-  const [firstName,setFirstName]=useState<String>("")
-  const [lastName,setLastName]=useState<String>("")
-  const [userEmail,setUserEmail]=useState<String>("")
-  const [userPassword,setUserPassword]=useState<String>("")
-  const [userConfirmPass,setUserConfirmPass]=useState<String>("")
-  const [image,setImage]=useState<String>("")
-  const [adress,setAdress]=useState<String>("")
-  const [contactNumber,setContactNumber]=useState<Number>(0)
-  const [city,setCity]=useState<String>("")
-  const [state,setState]=useState<String>("")
+  const [userName,setUserName] = useState<String>("")
+  const [firstName,setFirstName] = useState<String>("")
+  const [lastName,setLastName] = useState<String>("")
+  const [userEmail,setUserEmail] = useState<String>("")
+  const [userPassword,setUserPassword] = useState<String>("")
+  const [userConfirmPass,setUserConfirmPass] = useState<String>("")
+  const [image,setImage] = useState<String>("")
+  const [adress,setAdress] = useState<String>("")
+  const [contactNumber,setContactNumber] = useState<Number>(0)
+  const [city,setCity] = useState<String>("")
+  const [state,setState] = useState<String>("")
 
   const id = user?.iduser || 0;
 
   const handleInputChange = (e:any, setStateFunction:any) => {
     setStateFunction(e.target.value);
   }
+
   const handleUpdateProfile = async () => {
     const profileToUpdate = {
       userName: `${firstName} ${lastName}`,
-      email: userEmail,
-      password: userPassword,
-      confirmPass: userConfirmPass,
+      usereEmail: userEmail,
+      userPassword: userPassword,
+      userConfirmPass: userConfirmPass,
       city: city,
       state: state,
       contactNumber: contactNumber,
@@ -70,30 +73,15 @@ const Profile: NextPage<ProfileProps> = ({user}) => {
       alert("Updated successfully");
     } catch (error) {
       alert("Failed to update");
-    }
+    } 
   };
-    
-    // const update = async () => {
-    //   try {
-    //     if( userPassword === userConfirmPass)
-    // {    await axios.put(`http://localhost:3000/api/upateUser/${id}`, profileToUpdate )
-    // console.log("heyyyy")
-    // alert("your update is successfully")
-    // }
-    // } catch (error) {
-    //     alert("check passworrd")
-    //   }
-    // }
-  // }
-
-
+  
   
   return (
     <div className="profile-wrapper">
       <div className="profile-content">
         <div className="profile-header">
-          <h2>Account</h2>
-
+          <h2> Profile </h2>
         </div>
         <div className="profile-container">
           <div className="card" onClick={handleOpen}>
