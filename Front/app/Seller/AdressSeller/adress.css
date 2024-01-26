@@ -36,7 +36,7 @@
   }
   
   .button {
-    background-color: brown;
+    background-color: #411414;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -48,5 +48,6 @@
     margin-right: 500px; 
     margin-top: 30px;
     margin-left: 1100px;
+    margin-bottom: 216px;
 }
  
